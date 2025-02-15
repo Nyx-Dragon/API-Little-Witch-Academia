@@ -1,0 +1,456 @@
+$(function(){
+	function resize(){
+		var windowHeight=$("body").height();
+		if(windowHeight<730){
+			$(".cs-menu").attr("class","ss-menu");
+			$(".op-menu").attr("class","os-menu");
+		}else{
+			$(".ss-menu").attr("class","cs-menu");
+			$(".os-menu").attr("class","op-menu");
+		}
+	}
+
+	setTimeout(function(){
+		$('#wp-open').prop('checked', true);
+	},1500);
+	if($("#site_list").length==0){
+		$("head title").before('<script type="application/ld+json" id="site_list" ></script>');
+		$("#site_list").load('block/json_ld.php');
+	}
+	if($(".site_back").length==0 && $(".css_lab").length==0 && $(".sample").length==0 && $(".smart_phone").length==0){
+		$('body').append('<div class="site_back"></div><input type="checkbox" id="back_off"><label for="back_off">back off</label>');
+		$(".site_back").load("site_back.html .site_back",function(){$(this).children(".site_back").unwrap();});
+	}
+
+	$(".menu").prepend('<input type="checkbox" name="wp-open" id="wp-open"/><label for="wp-open" class="wp-open"><em><span>web</span><span>studio</span></em><strong><span>White</span><span>Pallet</span></strong></label><input type="checkbox" name="op-open" id="op-open"/><label for="op-open" class="op-open">Option<span>オプション</span></label><input type="checkbox" name="cs-open" id="cs-open"/><label for="cs-open" class="cs-open">About<span>会社概要</span></label>').after('<svg xmlns="http://www.w3.org/2000/svg" version="1.1"><defs><filter id="shadowed-goo"><feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" /><feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" /><feGaussianBlur in="goo" stdDeviation="3" result="shadow" /><feColorMatrix in="shadow" mode="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 -0.2" result="shadow" /><feOffset in="shadow" dx="1" dy="1" result="shadow" /><feComposite in2="shadow" in="goo" result="goo" /><feComposite in2="goo" in="SourceGraphic" result="mix" /></filter><filter id="goo"><feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" /><feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" /><feComposite in2="goo" in="SourceGraphic" result="mix" /></filter></defs></svg>');
+	$("#home").prepend('<p class="wp-open"><em><span>web</span><span>studio</span></em><strong><span>White</span><span>Pallet</span></strong></p>');
+
+	$(document).on("change","#back_off",function(){
+		if($(this).prop('checked')) {
+			$(".site_back").fadeOut(function(){$(this).remove()});
+		}else {
+			$("body").append('<div class="site_back"></div>');
+			$(".site_back").load("site_back.html .site_back",function(){$(this).children(".site_back").unwrap();});
+		}
+	});
+
+	function c_pic(){
+		$("#course1 dt").prepend('<p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p>');
+		$("#course2 dt").prepend('<div class="woman"><div class="parasol"><p></p><p></p></div><div class="head"><div class="face"><p></p><p></p><p></p><p></p><p></p></div><div class="hair"><p></p><p></p><p></p><p></p></div></div><div class="arm_r"><p></p><p></p></div><div class="wa"><p></p><p></p><p></p><p></p></div><div class="wa2"><p></p><p></p><p></p><p></p><p></p><p></p></div><div class="arm_l"><p></p><p></p></div></div>');
+		$("#course3 dt").prepend('<div class="head"><div class="neck"></div><div class="ear"><p></p><p></p></div><div class="shape"><p></p></div><div class="eyebrow"><p></p><p></p><p></p><p></p></div><div class="eyes"><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p></div><div class="nose"><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p></div><div class="mouth"><p></p><p></p><p></p><p></p><p></p><p></p></div><div class="hair"><p></p></div><div class="hair1"><p></p><p></p><p></p><p></p><p></p></div></div>');
+	}
+	function check_herf(Href){
+			$(".menu input").prop('checked', false);
+			$(".menu label.wp-open").addClass("top").animate({"top":"50px"},500).attr({"for":""});
+			if(Href=="design.html"){
+				Title="デザイン ｜ webstudioWhitePallet";
+				$(".menu").addClass("pac");
+				$(".menu a").css("will-change",'left,top');
+				var CID="option";
+			}else if(Href=="system.html"){
+				Title="システム ｜ webstudioWhitePallet";
+				$(".menu").addClass("boxcxc");
+				var CID="option";
+			}else if(Href=="company.html" || Href=="disclaimer.html"){
+				$(".menu").addClass("none_filter");
+				$(".menu a,.cs-open,.op-open").addClass("roto");
+				if(Href=="company.html"){
+					Title="会社概要 ｜ webstudioWhitePallet";
+					$("body").addClass("about_back");
+				}else if(Href=="disclaimer.html"){
+					Title="免責事項 ｜ webstudioWhitePallet";
+					$("body").addClass("about_back2");
+				}
+				var CID="about";
+			}else if(Href=="works.html"){
+				Title="制作 ｜ webstudioWhitePallet";
+				$(".menu").addClass("ipc");
+				var CID="works";
+			}else if(Href=="course.html"){
+				Title="コース ｜ webstudioWhitePallet";
+				$(".menu").addClass("none_filter");
+				$(".menu a,.cs-open,.op-open").addClass("dore_out");
+				var CID="course";
+			}else if(Href=="contact.html"){
+				Title="お問い合わせ ｜ webstudioWhitePallet";
+				$(".menu").addClass("maiload");
+				var CID="contact_us";
+			}else if(Href=="flow.html"){
+				Title="フロー ｜ webstudioWhitePallet";
+				$(".menu").addClass("none_filter");
+				$(".menu a,.cs-open,.op-open").addClass("big_fade");
+				var CID="flow";
+			}
+			$("title").text(Title);
+			$(".menu").after('<div id="'+CID+'" class="content"></div>');
+			$("#"+CID).load(Href+" section",function(){
+				$("section,.text_box").scroll(function () {
+					if ($(this).scrollTop() > 100) {
+						$("#gotop").fadeIn();
+					} else {
+						$("#gotop").fadeOut();
+					}
+				});
+				c_pic();
+			});
+			setTimeout(function(){
+				$('.menu a,.cs-open,.op-open').fadeOut(1000);
+			},1200);
+	}
+
+	$(document).on("click",".menu a",function(){
+		var Href=$(this).attr("href");
+		var Text=$(this).html();
+		var Tclass=$(this).attr("class");
+		var Mclass=$(".menu").attr("class");
+		var Title="webstudioWhitePallet";
+		if(Mclass=="menu" && (Tclass=="wp-menu" || Tclass=="cs-menu" || Tclass=="ss-menu" || Tclass=="op-menu" || Tclass=="os-menu")){
+			check_herf(Href);
+			var $currentElm = $("section.active"),
+			targetPageUrl = Href,
+			state = {"targetPageUrl": targetPageUrl};
+
+			history.pushState(state, Title, targetPageUrl);
+		}
+		return false;
+	});
+
+	$(window).on('popstate', function(e) {
+		var state = e.originalEvent.state;
+		var targetPageUrl = state.targetPageUrl;
+		$("body").attr("class","");
+		$(".content").fadeOut(function(){$(this).remove()});
+		check_herf(targetPageUrl);
+
+	});
+
+	$(document).on("click",".menu .top",function(){
+		$(".mail_atention").remove();
+		$("body").attr("class","");
+		$("#about").addClass("hide_about");
+		$("title").text("webstudioWhitePallet");
+		var currentPageUrl = location.pathname;
+		currentPageUrl = currentPageUrl.split("/");
+		currentPageUrl = currentPageUrl[currentPageUrl.length - 1];
+		var state = {"targetPageUrl": currentPageUrl};
+		history.replaceState(state, currentPageUrl.split(".")[0], currentPageUrl);
+		$("#option section div,#works section div").animate({"opacity":"0","margin-left":"100%"},800,function(){
+			$("#option,#works").remove();
+		});
+		$("#main_content section *").animate({"opacity":"0","margin-left":"1000px"},1000,function(){
+			$("#main_content").remove();
+		});
+		$("#contact_us .contact").animate({"opacity":"0","margin-top":"1000px"},1200,function(){
+			$("#contact_us").remove();
+		});
+		$("#flow .flow").animate({"opacity":"0","margin-left":"1000px"},800,function(){
+			$("#flow").remove();
+		});
+		$("#course .course,#course .course_menu").animate({"opacity":"0","margin-top":"1000px"},800,function(){
+			$("#course").remove();
+		});
+		$("#open_form").fadeOut(function(){$(this).remove()});
+		$(this).attr("for","wp-open").animate({"top":"50%","background-color":"#333333"},700,function(){
+			$(this).removeClass("top");
+			$('.menu *:not(".wp-open,input")').fadeIn(function(){
+				$('#wp-open').prop('checked', true);
+				$(this).attr("style","");
+			});
+			$(".pac").removeClass("pac");
+			$(".roto").removeClass("roto");
+			$(".ipc").removeClass("ipc");
+			$(".big_fade").removeClass("big_fade");
+			$(".dore_out").removeClass("dore_out");
+			$(".maiload").removeClass("maiload");
+			$(".boxcxc").removeClass("boxcxc");
+			$(".none_filter").removeClass("none_filter");
+			$("#about").animate({"top":"120%"},500,function(){
+				$("#about").remove();
+			});
+			$("#gotop").fadeOut();
+			$("h2").animate({"opacity":"0","margin-top":"-10px"});
+		});
+		return false;
+	});
+
+	$(document).on("change","#wp-open",function(){
+		if(!$("#wp-open").prop('checked')){
+			$("#cs-open,#op-open").prop('checked', false);
+		}
+	});
+
+	$(document).on("click","p.wp-open",function(){
+		document.location.href="./";
+	});
+
+	$("section,.text_box").scroll(function () {
+		if ($(this).scrollTop() > 100) {
+			$("#gotop").fadeIn();
+		} else {
+			$("#gotop").fadeOut();
+		}
+	});
+
+	$(document).on('click','#gotop a',function(){
+		$("section,.text_box").animate({scrollTop:0},500);
+		return false;
+	});
+
+	resize();
+	$(window).on('load resize', function(){
+		resize();
+	});
+
+	$(document).on('click','.works li',function(){
+		var Vmod = $(this).attr("class");
+		var pTxt = $(this).find("p").html();
+		$('body').addClass('modal').prepend('<div id="pre_box"><s>x</s><div></div><p class="lang">'+ pTxt +'</p></div>');
+		$("#pre_box").fadeIn();
+		if(Vmod =="site"){
+			var ImgSrc = $(this).find("img").attr("src").replace("sam/","").replace(".png",".jpg");
+			$("#pre_box p").before('<img src="'+ ImgSrc +'">');
+			var Perh =$("#pre_box").height();
+			$("#pre_box img").bind("load",function(){
+				var Perh =$(window).height();
+				var h = $(this).height();
+				var w = $(this).width();
+				$(this).hide();
+				var mt = (Perh - h)/2-15;
+				$(this).css({"height":"0","width":"0","display":"block","opacity":"1"});
+				$(this).css({"margin-top":Perh/2-10});
+				$(this).animate({"width":w},"1000",function(){
+					$(this).animate({"height":h,"margin-top":mt},function(){
+						$("#pre_box p").fadeIn();
+						$("#pre_box s").css({"margin-top":"-"+(h/2+65)+"px","margin-left":"+"+(w/2-20)+"px"}).fadeIn();
+					});
+				});
+			});
+		}else if(Vmod =="move"){
+			var Youtube = $(this).children('img').attr("alt");
+			$("#pre_box p").before('<iframe width="560" height="315" src="'+Youtube+'" frameborder="0" allowfullscreen></iframe>');
+			$("#pre_box iframe").bind("load",function(){
+				var Perh =$(window).height();
+				var h = $(this).height();
+				var w = $(this).width();
+				$(this).hide();
+				var mt = (Perh - h)/2-15;
+				$(this).css({"height":"0","width":"0","display":"block","opacity":"1"});
+				$(this).css({"margin-top":Perh/2-10});
+				$(this).animate({"width":w},"1000",function(){
+					$(this).animate({"height":h,"margin-top":mt},function(){
+						$("#pre_box em,#pre_box s").fadeIn(function(){$(this).css("display","block")});
+					});
+				});
+			});
+		}else if(Vmod =="lab"){
+			var CSSN=$(this).attr("rel");
+			$("#pre_box p").before('<div id="css_frame"><iframe src="'+CSSN+'.html" frameborder="0"></iframe></div>').after('<em>D</em>');
+			$("#css_frame iframe").bind("load",function(){
+				var Perh =$(window).height();
+				var h = $("#css_frame").height();
+				var w = $("#css_frame").width();
+				$("#css_frame").hide();
+				var mt = (Perh - h)/2-15;
+				$("#css_frame iframe").css({"opacity":"1"});
+				$("#css_frame").css({"height":"0","width":"0","display":"block","opacity":"1"});
+				$("#css_frame").css({"margin-top":Perh/2-10});
+				$("#css_frame").animate({"width":w},"1000",function(){
+					$(this).animate({"height":h,"margin-top":mt},function(){
+						$("#pre_box em,#pre_box s").fadeIn(function(){$(this).css("display","block")});
+					});
+				});
+			});
+			return false;
+		}
+		return false;
+	});
+	$(document).on('click','#pre_box s',function(){
+		$('body').removeClass('modal');
+		$('#pre_box').fadeOut(function(){$(this).remove()});
+		return false;
+	});
+
+	$(document).on('click','#pre_box em',function(){
+		var Href= $('#pre_box iframe').attr("src");
+		window.open(Href, '_blank');
+		$('body').removeClass('modal');
+		$('#pre_box').fadeOut(function(){$(this).remove()});
+		return false;
+	});
+	$(document).on('click','#option ul li',function(){
+
+		var HTmL=$(this).html();
+		var Xec=$(this).offset().top;
+		var Yec=$(this).offset().left;
+		var Wec=$(this).width();
+		var Hec=$(this).height();
+		$('body').addClass('modal').prepend('<div id="op_box" style="width:110px;height:110px;top:'+Xec+'px;left:'+Yec+'px"><div class="option_box">'+HTmL+'</div><s>x</s></div>');
+		$("#op_box").animate({"opacity":"1"},500,function(){
+		$(".option_box p,.option_box span,.option_box ul,.option_box ol").wrapAll("<div>");
+		$(".option_box").fadeIn();
+			$(this).animate({"top":"0","left":"0","margin":"0","width":"100%","height":"100%","border-radius":"0"},200,function(){
+				$("#op_box s").fadeIn();
+			});
+		});
+		return false;
+	});
+	$(document).on('click','#op_box s',function(){
+		$('body').removeClass('modal');
+		$('#op_box').fadeOut(function(){$(this).remove()});
+		return false;
+	});
+	c_pic();
+
+	$(document).on('click','.course_menu li,#course .next,#course .prev',function(){
+		var page =$(this).text();
+		$("#course .next,#course .prev").fadeOut();
+		$(".course_menu .active").removeClass("active");
+		var W=$("#course dl#course"+page).offset().left;
+		$(".course_menu li:nth-child("+page+")").addClass("active");
+		$("section").animate({scrollTop:"0"});
+		$(".course").animate({scrollLeft:"+="+W+"px"},function(){
+			$("#course dt").attr("class","select"+page);
+			if(page=="1"){
+				$("#course .prev").fadeOut().text("");
+				$("#course .next").fadeIn().text("2");
+			}else if(page=="2"){
+				$("#course .prev").fadeIn().text("1");
+				$("#course .next").fadeIn().text("3");
+			}else if(page=="3"){
+				$("#course .prev").fadeIn().text("2");
+				$("#course .next").fadeOut().text("");
+			}
+		});
+		return false;
+	});
+
+	$(document).on('click','.to_mail',function(){
+		$("body").append('<div id="open_form"></div>');
+		$("#open_form").load("contact.html section");
+		return false;
+	});
+	$(document).on('click','#about ol li:not(.no_link)',function(){
+		var Href=$(this).find("a").attr("href");
+		window.open(Href, '_blank');
+		return false;
+	});
+	function mailero(str){
+		$("body").append('<div class="mail_atention"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><p>'+str+'</p><span>OK</span></div>');
+	}
+
+	//しつこい営業メールはやめましょう。//
+
+	const ngwords = [
+		"Fulmo", "ebookcloud", "More want",
+		"WordPress", "Lister", "OOOP株式会社","AI総研",
+		"UH STYLE", "株式会社ウェブライト", "Paak",
+		"CROCO株式会社", "ブランドココ", "PLUS T","PROTOCOL"
+	];
+	const keywords = [
+		"アライアンス", "パートナーシップ", "アウトソーシング","Webコーダー","ポートフォリオ",
+		"コンサルティング", "エージェンシー", "サポート","業務提携","コーディング",
+		"提携", "ビジネス開発", "お問い合わせください","制作実績","SNS運用","サービス概要",
+		"導入支援", "無料お試し", "フリーランス","代行","集客ツール"
+	];
+	$(document).on('keyup', "textarea[name=comment]",function(){
+		const message = $(this).val().toLowerCase();
+		let marketing = false;
+		let ng = false;
+		keywords.forEach(function(keyword) {
+			if (message.includes(keyword.toLowerCase())) {
+				marketing = true;
+			}
+		});
+		if (marketing) {
+			$("#marketing").slideDown();
+		} else {
+			$("#marketing").slideUp();
+		}
+		ngwords.forEach(function(keyword) {
+			if (message.includes(keyword.toLowerCase())) {
+				ng = true;
+			}
+		});
+		if(ng){
+			$(this).val("");
+		}
+	});
+	$(document).on('paste','.contact textarea[name="comment"]',function(e){
+		if ($(this).val().trim() === "") {
+			e.preventDefault();
+		}
+	});
+
+	$(document).on('change','.contact select[name="subject"]',function(e){
+		if ($(this).val() === "marketing") {
+			$("#marketing").slideDown();
+		}else{
+			$("#marketing").slideUp();
+		}
+	});
+
+	$(document).on('change','.contact #marketing input',function(e){
+		var Skils = [];
+		$('#marketing input[type="checkbox"]:checked').each(function() {
+			Skils.push($(this).next("label").text());
+		});
+	});
+
+	$(document).on('click','.contact input[type=submit]',function(){
+		$(".mail_atention").remove();
+		var Sub=$('.contact select[name="subject"]').val();
+		var Nam=$('.contact input[name="name"]').val();
+		var Mal=$('.contact input[name="mail"]').val();
+		var Txt=$('.contact textarea[name="comment"]').val();
+		var MID=$('.contact').parents("div").attr("id");
+		var Skils = [];
+		if(Sub=="marketing"){
+			$('#marketing input[type="checkbox"]:checked').each(function() {
+				Skils.push($(this).next("label").text());
+			});
+		}
+		if(	Sub=="" || Nam=="" || Mal=="" || Txt=="" || 
+			Sub==null || Nam==null || Mal==null || Txt==null ||
+			Sub==false || Nam==false || Mal==false || Txt==false){
+			mailero('未入力項目があります');
+		}else if(	Sub=="marketing" && Skil.length==0){
+			mailero('未入力項目があります');
+		}else{
+			$.ajax({
+				type: 'post',
+				url: 'block/post.php',
+				data: {
+					'subject': Sub,
+					'name': Nam,
+					'mail': Mal,
+					'skil': Skils,
+					'comment': Txt
+				},
+				success: function(data){
+					if(data=="ok"){
+						$(".contact form").addClass("send");
+						if(MID=="contact_us"){
+							$(".contact form").after('<p class="send_end">送信しました<span>返信までしばらくお待ちください</span></p>');
+						}else{
+							$("#"+MID).fadeOut(2000,function(){$(this).remove()});
+						}
+					}else{
+						mailero(data);
+					}
+				}
+			});
+		}
+		return false;
+	});
+	$(document).on('click','.mail_atention span',function(){
+		$(".mail_atention").remove();
+	});
+	$(document).on('click','.contact .send_end',function(){
+		$("#contact_us").load("contact.html section");
+	});
+
+	if(window != window.parent) {
+		$("div.share,a#css_lab,a#js_lab").remove();
+	}
+});
+//	Ⓒwebstudio WhitePallet
