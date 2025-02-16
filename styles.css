@@ -1,7 +1,9 @@
 /* Importación de fuentes */
+
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&family=Noto+Sans+JP:wght@300;400;700&display=swap");
 
 /* Variables de color */
+
 :root {
     --bg-color: #1a1a40;
     --text-color: #fff;
@@ -25,12 +27,17 @@
 }
 
 /* Estilos globales */
+
 body {
     background-image: url("./assets/estrellas\ brillando.gif");
-    background-size: cover; /* Asegura que la imagen cubra toda la pantalla */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    background-position: center center; /* Centra la imagen tanto horizontal como verticalmente */
-    background-attachment: fixed; /* Fija la imagen de fondo para un mejor efecto visual */
+    background-size: cover;
+    /* Asegura que la imagen cubra toda la pantalla */
+    background-repeat: no-repeat;
+    /* Evita que la imagen se repita */
+    background-position: center center;
+    /* Centra la imagen tanto horizontal como verticalmente */
+    background-attachment: fixed;
+    /* Fija la imagen de fondo para un mejor efecto visual */
     color: var(--text-color);
     font-family: "Noto Sans JP", sans-serif;
     margin: 0;
@@ -43,6 +50,7 @@ body {
 }
 
 /* Header */
+
 header {
     padding: 30px;
     text-align: center;
@@ -54,21 +62,25 @@ header {
 }
 
 .header-content {
-    color: #8a2be2; /* Un morado frío */
+    color: #8a2be2;
+    /* Un morado frío */
     text-shadow: 0 0 5px rgba(0, 255, 255, 0.7),
         /* Resplandor verde frío */ 0 0 10px rgba(0, 255, 255, 0.7),
         0 0 15px rgba(0, 255, 255, 0.7), 0 0 20px #8a2be2,
         /* Resplandor morado */ 0 0 30px #8a2be2, 0 0 40px #8a2be2;
     animation: glow 1.5s infinite alternate;
 }
+
 h1 {
     font-size: 2.5rem;
-    color: #8a2be2; /* Un morado frío */
+    color: #8a2be2;
+    /* Un morado frío */
     text-shadow: 0 0 5px rgba(0, 255, 255, 0.7),
         /* Resplandor verde frío */ 0 0 10px rgba(0, 255, 255, 0.7),
         0 0 15px rgba(0, 255, 255, 0.7), 0 0 20px #8a2be2,
         /* Resplandor morado */ 0 0 30px #8a2be2, 0 0 40px #8a2be2;
-    animation: glow 1.5s infinite alternate; /* Efecto de parpadeo de resplandor */
+    animation: glow 1.5s infinite alternate;
+    /* Efecto de parpadeo de resplandor */
 }
 
 @keyframes glow {
@@ -115,7 +127,8 @@ h1 {
 }
 
 .upload-section {
-    color: #8a2be2; /* Un morado frío */
+    color: #8a2be2;
+    /* Un morado frío */
     text-shadow: 0 0 5px rgba(0, 255, 255, 0.7),
         /* Resplandor verde frío */ 0 0 10px rgba(0, 255, 255, 0.7),
         0 0 15px rgba(0, 255, 255, 0.7), 0 0 20px #8a2be2,
@@ -142,13 +155,8 @@ button:hover {
     box-shadow: 0 0 10px rgba(0, 162, 255, 0.8);
 }
 
-footer {
-    text-align: center;
-    padding: 10px;
-    background: var(--footer-bg);
-    border-top: 3px solid var(--border-color);
-}
 /* Animaciones y efectos mágicos */
+
 @keyframes slideIn {
     0% {
         transform: translateY(-100%);
@@ -185,6 +193,7 @@ header h1 {
 }
 
 /* Glow en textos principales */
+
 h1,
 h2,
 h3,
@@ -193,6 +202,7 @@ p {
 }
 
 /* Estilo base para el nav */
+
 nav {
     position: absolute;
     bottom: 10px;
@@ -201,6 +211,7 @@ nav {
 }
 
 /* Estilo para los enlaces en el nav */
+
 nav a {
     color: var(--link-color);
     font-family: "Oswald", sans-serif;
@@ -212,6 +223,7 @@ nav a {
 }
 
 /* Efecto hover en los enlaces */
+
 nav a::before {
     content: "";
     position: absolute;
@@ -240,11 +252,11 @@ nav a:focus {
 }
 
 /* Media Query para dispositivos móviles */
+
 @media (max-width: 768px) {
     nav {
         bottom: 5px;
     }
-
     nav a {
         font-size: 1em;
         margin: 0 10px;
@@ -252,52 +264,62 @@ nav a:focus {
 }
 
 /* Media Query para pantallas muy pequeñas */
+
 @media (max-width: 480px) {
     nav {
         bottom: 3px;
     }
-
     nav a {
         font-size: 0.9em;
         margin: 0 8px;
     }
 }
+
 #logo-link {
-    text-decoration: none; /* Elimina el subrayado predeterminado del enlace */
+    text-decoration: none;
+    /* Elimina el subrayado predeterminado del enlace */
 }
 
 #logo {
     width: 100%;
     max-width: 400px;
-    filter: drop-shadow(0 0 10px rgba(255, 0, 255, 0.6)); /* Sombra mágica */
+    filter: drop-shadow(0 0 10px rgba(255, 0, 255, 0.6));
+    /* Sombra mágica */
     background: linear-gradient(
         45deg,
         rgba(0, 0, 0, 0.8),
         rgba(255, 0, 255, 0.4)
-    ); /* Efecto místico */
+    );
+    /* Efecto místico */
     border-radius: 15px;
-    animation: none !important; /* Desactiva cualquier animación */
-    transition: all 0.3s ease-in-out; /* Suaviza la transición */
-    cursor: pointer; /* Hace que el cursor sea de tipo 'puntero' */
+    animation: none !important;
+    /* Desactiva cualquier animación */
+    transition: all 0.3s ease-in-out;
+    /* Suaviza la transición */
+    cursor: pointer;
+    /* Hace que el cursor sea de tipo 'puntero' */
 }
 
 /* Efecto Hover: Solo cambia el brillo */
+
 #logo:hover {
-    filter: drop-shadow(
-        0 0 15px rgba(0, 0, 255, 0.8)
-    ); /* Resplandor azul místico */
-    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+    filter: drop-shadow(0 0 15px rgba(0, 0, 255, 0.8));
+    /* Resplandor azul místico */
+    transform: scale(1.05);
+    /* Aumenta ligeramente el tamaño */
 }
 
 /* Efecto de clic (cuando el logo es presionado) */
+
 #logo:active {
-    transform: scale(0.98); /* Hace que el logo se encoja ligeramente */
-    filter: drop-shadow(
-        0 0 8px rgba(255, 0, 255, 0.8)
-    ); /* Sombra más intensa */
+    transform: scale(0.98);
+    /* Hace que el logo se encoja ligeramente */
+    filter: drop-shadow(0 0 8px rgba(255, 0, 255, 0.8));
+    /* Sombra más intensa */
 }
 
 /* Responsividad para móviles */
+
 @media (max-width: 768px) {
     #logo {
         max-width: 300px;
@@ -311,6 +333,7 @@ nav a:focus {
 }
 
 /* Contenedor de personajes */
+
 .character-container {
     padding: 20px;
     display: flex;
@@ -321,6 +344,7 @@ nav a:focus {
 }
 
 /* Tarjetas de personajes */
+
 .character-card {
     width: 360px;
     background-color: rgba(20, 20, 20, 0.9);
@@ -352,7 +376,8 @@ nav a:focus {
 .character-img {
     width: 100%;
     height: 350px;
-    object-fit: cover; /* Las imágenes cubrirán todo el espacio sin distorsionarse */
+    object-fit: cover;
+    /* Las imágenes cubrirán todo el espacio sin distorsionarse */
     border-radius: 10px;
     border: 2px solid var(--border-color);
     filter: brightness(0.9) contrast(1.1);
@@ -370,33 +395,42 @@ nav a:focus {
     font-size: 1.6em;
     margin: 15px 0;
     color: var(--primary-color);
-    text-shadow: 0 0 5px rgba(38, 0, 255, 0.8), 0 0 10px rgb(4, 247, 255); /* Efecto de neón con rosa sangre y dorado */
+    text-shadow: 0 0 5px rgba(38, 0, 255, 0.8), 0 0 10px rgb(4, 247, 255);
+    /* Efecto de neón con rosa sangre y dorado */
     transition: text-shadow 0.3s ease;
 }
 
 .character-name:hover {
-    text-shadow: 0 0 10px rgb(25, 0, 255), 0 0 20px rgb(88, 236, 255); /* Aumenta el brillo con neón rosa sangre y dorado */
+    text-shadow: 0 0 10px rgb(25, 0, 255), 0 0 20px rgb(88, 236, 255);
+    /* Aumenta el brillo con neón rosa sangre y dorado */
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap");
-
 .character-description {
-    font-family: "Uncial Antiqua", serif; /* Fuente con estética arcana */
+    font-family: "Uncial Antiqua", serif;
+    /* Fuente con estética arcana */
     font-size: 1.1em;
     margin: 12px 0;
-    color: #6a0dad; /* Púrpura hechizante */
-    text-shadow: 0 0 8px rgba(106, 13, 173, 0.7); /* Brillo mágico */
+    color: #6a0dad;
+    /* Púrpura hechizante */
+    text-shadow: 0 0 8px rgba(106, 13, 173, 0.7);
+    /* Brillo mágico */
     letter-spacing: 1.2px;
 }
 
 /* Botones de edición y eliminación */
+
 /* Botones edit y delete */
+
 .edit-btn,
 .delete-btn {
-    font-family: "Cinzel", serif; /* Fuente con estilo místico */
+    font-family: "Cinzel", serif;
+    /* Fuente con estilo místico */
     font-size: 1.1em;
-    padding: 12px 24px; /* Misma proporción */
-    width: 160px; /* Tamaño fijo para ambos botones */
+    padding: 12px 24px;
+    /* Misma proporción */
+    width: 160px;
+    /* Tamaño fijo para ambos botones */
     height: 50px;
     display: inline-flex;
     justify-content: center;
@@ -409,25 +443,20 @@ nav a:focus {
     letter-spacing: 1.5px;
     box-shadow: 0 0 10px rgba(102, 0, 153, 0.7);
     margin: 6px;
-    color: #ffffff; /* Color blanco para ambos botones */
+    color: #ffffff;
+    /* Color blanco para ambos botones */
     border: 2px solid #6b0077;
 }
 
 .edit-btn {
-    background: linear-gradient(
-        135deg,
-        #6a1b9a,
-        #ab47bc
-    ); /* Violeta profundo y brillante */
+    background: linear-gradient(135deg, #6a1b9a, #ab47bc);
+    /* Violeta profundo y brillante */
     box-shadow: 0 4px 20px rgba(156, 39, 176, 0.6);
 }
 
 .delete-btn {
-    background: linear-gradient(
-        45deg,
-        #c62828,
-        #ff5722
-    ); /* Rojo suave y anaranjado vibrante */
+    background: linear-gradient(45deg, #c62828, #ff5722);
+    /* Rojo suave y anaranjado vibrante */
     box-shadow: 0 0 20px rgba(255, 87, 34, 0.7);
 }
 
@@ -454,33 +483,34 @@ nav a:focus {
 }
 
 .edit-btn:hover {
-    background: linear-gradient(
-        135deg,
-        #ab47bc,
-        #8e24aa
-    ); /* Gradiente de tonos púrpura más cálido */
+    background: linear-gradient(135deg, #ab47bc, #8e24aa);
+    /* Gradiente de tonos púrpura más cálido */
 }
 
 .delete-btn:hover {
     border: rgb(194, 57, 57);
-    background: linear-gradient(
-        45deg,
-        #ff7043,
-        #d32f2f
-    ); /* Rojo anaranjado a rojo profundo */
+    background: linear-gradient(45deg, #ff7043, #d32f2f);
+    /* Rojo anaranjado a rojo profundo */
 }
 
 .edit-btn:focus,
 .delete-btn:focus {
-    outline: 2px solid #9c27b0; /* Color morado para el enfoque */
+    outline: 2px solid #9c27b0;
+    /* Color morado para el enfoque */
 }
 
 /* Footer */
-footer {
-    background-color: var(--footer-bg);
+
+.footer {
+    background: rgba(75, 0, 130, 0.9);
+    /* Púrpura oscuro semi-transparente */
+    color: var(--secondary-color);
+    padding: 20px 10px;
     text-align: center;
-    padding: 20px 0;
-    border-top: 3px solid var(--border-color);
+    border-top: 3px solid var(--secondary-color);
+    position: relative;
+    /* Evita que se superponga con el contenido */
+    z-index: 10;
 }
 
 .footer-links a {
@@ -496,21 +526,21 @@ footer {
 }
 
 /* Media Queries */
+
 @media screen and (max-width: 900px) {
     .character-container {
         grid-template-columns: 1fr;
     }
-
     .character-card {
         max-width: 100%;
     }
-
     header h1 {
         font-size: 2em;
     }
 }
 
 /* Estilo de enlaces */
+
 a {
     color: rgb(49, 9, 114);
     text-decoration: none;
@@ -521,7 +551,12 @@ a:hover {
 }
 
 /* Estilos adicionales para el main */
+
 main {
+    min-height: calc(100vh - 100px);
+    /* Ajusta según la altura del header/footer */
+    padding-bottom: 50px;
+    /* Deja espacio para el footer */
     color: var(--text-color);
     font-family: "Noto Sans JP", sans-serif;
     margin: 0;
@@ -531,6 +566,7 @@ main {
     min-height: 100vh;
     overflow-x: hidden;
 }
+
 audio {
     display: none;
 }
@@ -547,8 +583,10 @@ audio {
     gap: 10px;
     opacity: 0.8;
     transition: opacity 0.3s ease;
-    z-index: 9999; /* Se asegura de que esté por encima de todo */
+    z-index: 9999;
+    /* Se asegura de que esté por encima de todo */
 }
+
 #music-controls:hover {
     opacity: 1;
 }
@@ -563,7 +601,8 @@ audio {
     font-size: 16px;
     font-weight: bold;
     transition: 0.3s;
-    z-index: 10000; /* Asegura que el botón en sí esté en la capa más alta */
+    z-index: 10000;
+    /* Asegura que el botón en sí esté en la capa más alta */
 }
 
 #play-music:hover {
@@ -578,6 +617,7 @@ audio {
 }
 
 /* Glow en los textos principales */
+
 h1,
 h2,
 h3 {
@@ -585,6 +625,7 @@ h3 {
 }
 
 /* Efecto motosierra en el logo */
+
 @keyframes chainsawEffect {
     0% {
         transform: translateX(0) rotate(0deg);
@@ -614,6 +655,7 @@ h3 {
 }
 
 /* Efecto de goteo de sangre en los botones */
+
 @keyframes bloodDrip {
     0% {
         transform: translateY(0);
@@ -626,12 +668,12 @@ h3 {
 }
 
 @import url("https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap");
-
 button {
     position: relative;
     padding: 12px 24px;
     font-size: 18px;
-    font-family: "UnifrakturCook", cursive; /* Fuente gótica */
+    font-family: "UnifrakturCook", cursive;
+    /* Fuente gótica */
     color: #fff;
     background: linear-gradient(45deg, #3b0055, #220033);
     border: 2px solid #8800ff;
@@ -653,6 +695,7 @@ button:hover {
 }
 
 /* Efecto de chispas mágicas */
+
 button::after {
     content: "";
     position: absolute;
@@ -673,6 +716,7 @@ button:hover::after {
 }
 
 /* Animación de la chispa mágica */
+
 @keyframes magicSparkle {
     0% {
         opacity: 0;
@@ -689,6 +733,7 @@ button:hover::after {
 }
 
 /* Transición suave en enlaces del menú */
+
 nav a {
     transition: color 0.3s, transform 0.3s ease-in-out;
 }
@@ -697,39 +742,53 @@ nav a:hover {
     color: var(--link-hover);
     transform: translateY(-3px);
 }
+
 /* Estilo para los GIFs en el header */
+
 /* Estilo básico para la imagen */
+
 .header-gif {
     position: absolute;
     top: 20%;
-    width: 220px; /* Tamaño aumentado para pantallas grandes */
+    width: 220px;
+    /* Tamaño aumentado para pantallas grandes */
     height: auto;
-    border-radius: 15%; /* Borde más curvado */
-    filter: drop-shadow(0 0 25px rgba(4, 0, 255, 0.8)); /* Sombra suave */
+    border-radius: 15%;
+    /* Borde más curvado */
+    filter: drop-shadow(0 0 25px rgba(4, 0, 255, 0.8));
+    /* Sombra suave */
     animation: fadeInSlide 1s ease-out;
-    transform-style: preserve-3d; /* Curvatura 3D */
+    transform-style: preserve-3d;
+    /* Curvatura 3D */
     transition: transform 0.3s ease;
-    z-index: 10; /* Asegura que esté encima del título */
+    z-index: 10;
+    /* Asegura que esté encima del título */
 }
 
 /* Adaptación para dispositivos móviles */
+
 @media (max-width: 768px) {
     .header-gif {
-        width: 160px; /* Reducción del tamaño para pantallas más pequeñas */
-        top: 10%; /* Ajustamos la posición en móviles */
-
-        transform: translateX(-50%); /* Centra la imagen horizontalmente */
+        width: 160px;
+        /* Reducción del tamaño para pantallas más pequeñas */
+        top: 10%;
+        /* Ajustamos la posición en móviles */
+        transform: translateX(-50%);
+        /* Centra la imagen horizontalmente */
     }
 }
 
 @media (max-width: 480px) {
     .header-gif {
-        width: 130px; /* Aún más pequeño para pantallas muy pequeñas */
-        top: 5%; /* Ajustamos la posición aún más */
+        width: 130px;
+        /* Aún más pequeño para pantallas muy pequeñas */
+        top: 5%;
+        /* Ajustamos la posición aún más */
     }
 }
 
 /* Animación de entrada con curvatura */
+
 @keyframes fadeInSlide {
     0% {
         transform: translateY(-20px) rotateY(15deg) rotate(0deg);
@@ -746,6 +805,7 @@ nav a:hover {
 }
 
 /* Estilo para el lado izquierdo con curvatura */
+
 .header-gif.left {
     left: 1%;
     transform: rotate(-5deg);
@@ -753,6 +813,7 @@ nav a:hover {
 }
 
 /* Animación de entrada con curvatura para la izquierda */
+
 @keyframes fadeInSlideLeft {
     0% {
         transform: translateX(-20px) rotateY(15deg) rotate(-10deg);
@@ -769,6 +830,7 @@ nav a:hover {
 }
 
 /* Estilo para el lado derecho con curvatura */
+
 .header-gif.right {
     right: 1%;
     transform: rotate(5deg);
@@ -776,6 +838,7 @@ nav a:hover {
 }
 
 /* Animación de entrada con curvatura para la derecha */
+
 @keyframes fadeInSlideRight {
     0% {
         transform: translateX(20px) rotateY(15deg) rotate(10deg);
@@ -792,17 +855,22 @@ nav a:hover {
 }
 
 /* Efecto al pasar el mouse para dar más curvatura */
+
 .header-gif:hover {
     filter: drop-shadow(0 0 30px rgb(0, 132, 255));
-    transform: scale(1.1) rotateY(15deg); /* Efecto 3D en hover */
+    transform: scale(1.1) rotateY(15deg);
+    /* Efecto 3D en hover */
 }
 
 @media (max-width: 768px) {
     #logo {
-        animation: none; /* Eliminar animación en móviles */
+        animation: none;
+        /* Eliminar animación en móviles */
     }
 }
+
 /* Estilos para el botón Back to Home */
+
 #back-to-home {
     background-color: var(--button-bg);
     color: #fff;
@@ -817,7 +885,8 @@ nav a:hover {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    text-decoration: none; /* Si es un enlace */
+    text-decoration: none;
+    /* Si es un enlace */
 }
 
 #back-to-home:hover {
@@ -833,28 +902,22 @@ nav a:hover {
 }
 
 /* Icono dentro del botón */
+
 #back-to-home i {
     font-size: 1.2em;
 }
 
 /* Estilos cuando el botón se usa dentro de un contenedor centrado */
+
 .center-button {
     display: flex;
     justify-content: center;
     margin-top: 20px;
 }
+
 .upload-section {
     text-align: center;
     margin-top: 30px;
-}
-
-#upload-form {
-    display: inline-block;
-    background: #f9f9f9;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
 }
 
 #upload-form input[type="file"] {
@@ -882,7 +945,8 @@ nav a:hover {
     margin-top: 10px;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.7); /* Efecto de resplandor inicial */
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+    /* Efecto de resplandor inicial */
     transition: all 0.3s ease;
 }
 
@@ -898,9 +962,11 @@ nav a:hover {
             0 0 30px rgba(0, 255, 255, 0.5);
     }
     50% {
-        transform: scale(1.1); /* Efecto de aumento del botón */
+        transform: scale(1.1);
+        /* Efecto de aumento del botón */
         box-shadow: 0 0 40px rgba(0, 255, 255, 1),
-            0 0 60px rgba(0, 255, 255, 0.8); /* Resplandor más fuerte */
+            0 0 60px rgba(0, 255, 255, 0.8);
+        /* Resplandor más fuerte */
     }
     100% {
         transform: scale(1);
@@ -910,11 +976,13 @@ nav a:hover {
 }
 
 #upload-form button:active {
-    transform: scale(0.95); /* Efecto de compresión al hacer clic */
+    transform: scale(0.95);
+    /* Efecto de compresión al hacer clic */
     box-shadow: 0 0 10px rgba(0, 255, 255, 0.9);
 }
 
 /* Estilos para la sección de carga */
+
 .upload-section {
     text-align: center;
     padding: 30px;
@@ -923,21 +991,69 @@ nav a:hover {
     animation: slideIn 1s ease-out;
 }
 
+.about-us {
+    text-align: center;
+    padding: 60px 20px;
+    background: rgba(0, 0, 0, 0.6);
+    /* Fondo oscuro translúcido */
+    border-radius: 15px;
+    max-width: 800px;
+    margin: 50px auto;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.about-us h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 2.5rem;
+    color: #6055ff;
+    /* Amarillo mágico */
+    text-shadow: 2px 2px 8px rgba(20, 29, 167, 0.8);
+    margin-bottom: 20px;
+}
+
+.about-us p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    color: #fff;
+    line-height: 1.6;
+    font-weight: 300;
+    text-shadow: 1px 1px 6px rgba(255, 255, 255, 0.3);
+}
+
+/* Efecto de resplandor en hover */
+
+.about-us:hover {
+    box-shadow: 0 0 25px rgba(1, 88, 202, 0.7);
+    transform: scale(1.02);
+    transition: 0.3s ease-in-out;
+}
+
 /* Estilo general del formulario */
+
 #upload-form {
-    background-color: #8441ff;
+    margin-top: 20px;
+    background: linear-gradient(135deg, #8441ff, #5a2bc2);
     display: inline-block;
     padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     position: relative;
     max-width: 400px;
     width: 100%;
     text-align: center;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+#upload-form:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
 /* Estilo de los campos de entrada */
+
 #upload-form input[type="file"] {
     display: block;
     margin: 0 auto 20px;
@@ -958,6 +1074,7 @@ nav a:hover {
 }
 
 /* Estilo de los campos de texto */
+
 #upload-form input[type="text"] {
     display: block;
     margin: 10px auto;
@@ -978,6 +1095,7 @@ nav a:hover {
 }
 
 /* Estilo del botón */
+
 #upload-form button {
     padding: 15px 30px;
     background-color: #ff4500;
@@ -999,6 +1117,7 @@ nav a:hover {
 }
 
 /* Efecto de "sangre" en el botón */
+
 #upload-form button::after {
     content: "";
     position: absolute;
@@ -1014,10 +1133,12 @@ nav a:hover {
 }
 
 /* Estilo de texto luminoso */
+
 button,
 input[type="text"] {
     text-shadow: 0 0 12px rgba(0, 255, 221, 0.9), 0 0 20px rgba(0, 26, 255, 0.8);
 }
+
 .about.h2 {
     color: #000000;
     font-family: "Roboto", sans-serif;
@@ -1025,9 +1146,11 @@ input[type="text"] {
     text-align: center;
     margin-bottom: 20px;
 }
+
 .subir-imagen {
     font-size: 2rem;
-    color: #8a2be2; /* Morado frío */
+    color: #8a2be2;
+    /* Morado frío */
     text-shadow: 0 0 5px rgba(0, 255, 255, 0.7),
         /* Resplandor verde frío */ 0 0 10px rgba(0, 255, 255, 0.7),
         0 0 15px rgba(0, 255, 255, 0.7), 0 0 20px #8a2be2,
@@ -1038,11 +1161,13 @@ input[type="text"] {
             rgba(0, 0, 0, 0.5),
             rgba(34, 34, 34, 0.6)
         ),
-        url("assets/brujeria-bg.jpg"); /* Imagen de fondo misteriosa de brujería */
+        url("assets/brujeria-bg.jpg");
+    /* Imagen de fondo misteriosa de brujería */
     background-size: cover;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 15px rgba(138, 43, 226, 0.8); /* Sombra morada para un toque extra */
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.8);
+    /* Sombra morada para un toque extra */
 }
 
 @keyframes glow {
@@ -1057,20 +1182,23 @@ input[type="text"] {
             0 0 50px #8a2be2, 0 0 70px #8a2be2, 0 0 100px #8a2be2;
     }
 }
+
 /* Ajustes visuales para dispositivos móviles */
+
 @media (max-width: 600px) {
     #upload-form {
         padding: 20px;
         width: 90%;
     }
-
     #upload-form input[type="text"],
     #upload-form input[type="file"],
     #upload-form button {
         width: 100%;
     }
 }
+
 /* Estilo general para el contenedor de la carga de imagen */
+
 #image-upload {
     background: linear-gradient(45deg, #41d9ff, #0026ff);
     padding: 30px;
@@ -1086,6 +1214,7 @@ input[type="text"] {
 }
 
 /* Contenedor para la imagen */
+
 #image-upload img {
     max-width: 100%;
     height: auto;
@@ -1094,6 +1223,7 @@ input[type="text"] {
 }
 
 /* Estilo de los campos de entrada (file input) */
+
 #image-upload input[type="file"] {
     display: block;
     margin: 20px auto;
@@ -1113,6 +1243,7 @@ input[type="text"] {
 }
 
 /* Estilo para el texto de instrucciones o título */
+
 #image-upload h3 {
     font-size: 1.5rem;
     color: #fff;
@@ -1123,12 +1254,14 @@ input[type="text"] {
 }
 
 /* Animación cuando se pasa el ratón por encima */
+
 #image-upload:hover {
     transform: scale(1.05);
     box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
 }
 
 /* Estilo de los botones de carga y otros controles (si los hubiera) */
+
 #image-upload button {
     padding: 12px 25px;
     background-color: #006eff;
@@ -1148,6 +1281,7 @@ input[type="text"] {
 }
 
 /* Efecto de desvanecimiento en la imagen cargada */
+
 #image-upload img.uploaded {
     opacity: 0;
     animation: fadeIn 0.5s forwards;
@@ -1163,22 +1297,24 @@ input[type="text"] {
 }
 
 /* Efecto de transición suave en el botón */
+
 #image-upload button {
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 /* Estilo para dispositivos móviles */
+
 @media (max-width: 600px) {
     #image-upload {
         padding: 20px;
         width: 90%;
     }
-
     #image-upload input[type="file"],
     #image-upload button {
         width: 100%;
     }
 }
+
 .character-gallery {
     padding: 20px;
     display: flex;
@@ -1204,7 +1340,8 @@ input[type="text"] {
 }
 
 h2 {
-    color: #8a2be2; /* Un morado frío */
+    color: #8a2be2;
+    /* Un morado frío */
     text-shadow: 0 0 5px rgba(0, 255, 255, 0.7),
         /* Resplandor verde frío */ 0 0 10px rgba(0, 255, 255, 0.7),
         0 0 15px rgba(0, 255, 255, 0.7), 0 0 20px #8a2be2,
@@ -1225,7 +1362,10 @@ p {
     justify-content: center;
     background: #224;
 }
+
 .witch {
+    position: absolute;
+    z-index: -1;
     width: 100px;
     height: 100px;
     justify-content: center;
@@ -1235,9 +1375,11 @@ p {
     -webkit-transform: scale(3);
     -ms-transform: scale(3);
     transform: scale(3);
-    position: fixed; /* Mantiene la bruja siempre en pantalla */
+    position: fixed;
+    /* Mantiene la bruja siempre en pantalla */
     animation: moveWitch 5s infinite alternate linear;
 }
+
 .witch:before {
     content: "";
     display: block;
@@ -1276,6 +1418,7 @@ p {
     -webkit-animation: lamp 10s ease 2s infinite;
     animation: lamp 10s ease 2s infinite;
 }
+
 @-webkit-keyframes lamp {
     50% {
         opacity: 0.2;
@@ -1283,6 +1426,7 @@ p {
         transform: scale(0.8);
     }
 }
+
 @keyframes lamp {
     50% {
         opacity: 0.2;
@@ -1290,6 +1434,7 @@ p {
         transform: scale(0.8);
     }
 }
+
 .witch div,
 .witch div:before,
 .witch div:after {
@@ -1297,6 +1442,7 @@ p {
     display: block;
     position: absolute;
 }
+
 .witch div {
     width: 100px;
     height: 100px;
@@ -1304,6 +1450,7 @@ p {
     left: 20px;
     margin-top: -50px;
 }
+
 .witch div:nth-child(1) {
     width: 80px;
     height: 3px;
@@ -1314,6 +1461,7 @@ p {
     -ms-transform: rotate(14deg);
     transform: rotate(14deg);
 }
+
 .witch div:nth-child(1):before {
     width: 20px;
     height: 20px;
@@ -1325,6 +1473,7 @@ p {
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
+
 .witch div:nth-child(1):after {
     width: 25px;
     height: 18px;
@@ -1336,6 +1485,7 @@ p {
     -ms-transform: rotate(-30deg);
     transform: rotate(-30deg);
 }
+
 .witch div:nth-child(2) {
     width: 11px;
     height: 18px;
@@ -1347,6 +1497,7 @@ p {
     -ms-transform: rotate(-23deg);
     transform: rotate(-23deg);
 }
+
 .witch div:nth-child(2):before,
 .witch div:nth-child(2):after {
     width: 12px;
@@ -1359,6 +1510,7 @@ p {
     -ms-transform: rotate(64deg);
     transform: rotate(64deg);
 }
+
 .witch div:nth-child(2):after {
     width: 10px;
     height: 10px;
@@ -1369,6 +1521,7 @@ p {
     -ms-transform: rotate(42deg);
     transform: rotate(42deg);
 }
+
 .witch div:nth-child(3) {
     width: 16px;
     height: 18px;
@@ -1377,6 +1530,7 @@ p {
     margin-top: -42px;
     border-radius: 40px 0 30px 10px/33px 0 30px 35px;
 }
+
 .witch div:nth-child(3):before {
     width: 4px;
     height: 0px;
@@ -1390,6 +1544,7 @@ p {
     border-right: 2px solid transparent;
     border-bottom: 20px solid #224;
 }
+
 .witch div:nth-child(3):after {
     width: 39px;
     height: 8px;
@@ -1401,6 +1556,7 @@ p {
     -ms-transform: rotate(37deg);
     transform: rotate(37deg);
 }
+
 .witch div:nth-child(4) {
     width: 6px;
     height: 8px;
@@ -1411,6 +1567,7 @@ p {
     -ms-transform: rotate(-15deg);
     transform: rotate(-15deg);
 }
+
 .witch div:nth-child(4):before {
     left: 7px;
     top: 6px;
@@ -1422,6 +1579,7 @@ p {
     -ms-transform: rotate(20deg);
     transform: rotate(20deg);
 }
+
 .witch div:nth-child(4):after {
     width: 4px;
     height: 7px;
@@ -1433,6 +1591,7 @@ p {
     -ms-transform: rotate(45deg) skewX(-10deg);
     transform: rotate(45deg) skewX(-10deg);
 }
+
 .witch div:nth-child(5) {
     width: 27px;
     height: 12px;
@@ -1444,6 +1603,7 @@ p {
     transform: rotate(-9deg);
     border-radius: 35px 0 30px 30px/50px 0 30px 100px;
 }
+
 .witch div:nth-child(5):before,
 .witch div:nth-child(5):after {
     width: 3.5px;
@@ -1456,6 +1616,7 @@ p {
     -ms-transform: rotate(-5deg);
     transform: rotate(-5deg);
 }
+
 .witch div:nth-child(5):after {
     left: 19px;
     top: 20px;
@@ -1463,6 +1624,7 @@ p {
     -ms-transform: rotate(-21deg);
     transform: rotate(-21deg);
 }
+
 .witch div:nth-child(6) {
     width: 13px;
     height: 6px;
@@ -1472,6 +1634,7 @@ p {
     border-left: 0px solid transparent;
     border-top: 1px solid #224;
 }
+
 .witch div:nth-child(6):before,
 .witch div:nth-child(6):after {
     width: 3px;
@@ -1484,6 +1647,7 @@ p {
     -ms-transform: rotate(-55deg);
     transform: rotate(-55deg);
 }
+
 .witch div:nth-child(6):after {
     left: -12px;
     top: 51px;
@@ -1491,6 +1655,7 @@ p {
     -ms-transform: rotate(-40deg);
     transform: rotate(-40deg);
 }
+
 .witch div:nth-child(7) {
     width: 5px;
     height: 5px;
@@ -1499,6 +1664,7 @@ p {
     margin-left: 44px;
     margin-top: -38px;
 }
+
 .witch div:nth-child(7):before {
     width: 5px;
     height: 5px;
@@ -1512,6 +1678,7 @@ p {
     -webkit-box-shadow: 1px 1.5px 0 #224, -4px 31px 0 #224;
     box-shadow: 1px 1.5px 0 #224, -4px 31px 0 #224;
 }
+
 .witch div:nth-child(7):after {
     width: 5px;
     height: 3px;
@@ -1523,6 +1690,7 @@ p {
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
 }
+
 .witch div:nth-child(8) {
     width: 25px;
     height: 28px;
@@ -1533,6 +1701,7 @@ p {
     transform: rotate(-25deg);
     overflow: hidden;
 }
+
 .witch div:nth-child(8):before,
 .witch div:nth-child(8):after {
     width: 5px;
@@ -1542,6 +1711,7 @@ p {
     background: #224;
     border-radius: 50%;
 }
+
 .witch div:nth-child(8):after {
     width: 5px;
     height: 50px;
@@ -1553,6 +1723,7 @@ p {
     -ms-transform: rotate(-28deg);
     transform: rotate(-28deg);
 }
+
 .witch div:nth-child(9) {
     width: 9px;
     height: 10px;
@@ -1560,6 +1731,7 @@ p {
     overflow: hidden;
     margin-left: 56px;
 }
+
 .witch div:nth-child(9):before {
     width: 20px;
     height: 6px;
@@ -1569,6 +1741,7 @@ p {
     border-radius: 0 50% 50% 0;
     border: 5px solid #224;
 }
+
 .witch div:nth-child(9):after {
     width: 18px;
     height: 18px;
@@ -1578,6 +1751,7 @@ p {
     border-radius: 50%;
     border: 5px solid #224;
 }
+
 .witch div:nth-child(10) {
     width: 4px;
     height: 9px;
@@ -1589,6 +1763,7 @@ p {
     -ms-transform: rotate(46deg);
     transform: rotate(46deg);
 }
+
 .witch div:nth-child(10):before {
     width: 4px;
     height: 16px;
@@ -1600,6 +1775,7 @@ p {
     -ms-transform: rotate(2deg);
     transform: rotate(2deg);
 }
+
 .witch div:nth-child(10):after {
     width: 2px;
     height: 0;
@@ -1608,6 +1784,7 @@ p {
     top: 4px;
     left: 0px;
 }
+
 .witch div:nth-child(11) {
     width: 5px;
     height: 6px;
@@ -1619,6 +1796,7 @@ p {
     -ms-transform: rotate(35deg);
     transform: rotate(35deg);
 }
+
 .witch div:nth-child(11):before {
     width: 9px;
     height: 7px;
@@ -1630,6 +1808,7 @@ p {
     -ms-transform: rotate(-14deg) skewX(-40deg);
     transform: rotate(-14deg) skewX(-40deg);
 }
+
 .witch div:nth-child(11):after {
     width: 22px;
     height: 9px;
@@ -1654,6 +1833,7 @@ p {
     -ms-transform: rotate(44deg);
     transform: rotate(44deg);
 }
+
 .witch div:nth-child(12):before {
     width: 5px;
     height: 0;
@@ -1665,6 +1845,7 @@ p {
     -ms-transform: rotate(-47deg);
     transform: rotate(-47deg);
 }
+
 .witch div:nth-child(12):after {
     width: 0;
     height: 4px;
@@ -1689,6 +1870,7 @@ p {
     -ms-transform: rotate(-20deg);
     transform: rotate(-20deg);
 }
+
 .witch div:nth-child(13):before {
     width: 10px;
     height: 3px;
@@ -1697,6 +1879,7 @@ p {
     margin-left: 0.5px;
     background: #224;
 }
+
 .witch div:nth-child(13):after {
     width: 12px;
     height: 3px;
@@ -1705,6 +1888,7 @@ p {
     margin-left: -0.5px;
     background: #224;
 }
+
 .witch div:nth-child(14) {
     width: 10px;
     height: 15px;
@@ -1733,6 +1917,7 @@ p {
     -ms-transform: rotate(-20deg);
     transform: rotate(-20deg);
 }
+
 .witch div:nth-child(14):before {
     width: 6px;
     height: 0px;
@@ -1741,6 +1926,7 @@ p {
     top: -4px;
     left: 0px;
 }
+
 .witch div:nth-child(14):after {
     width: 12px;
     height: 9px;
@@ -1754,6 +1940,7 @@ p {
     -ms-transform: rotate(65deg) skewX(42deg);
     transform: rotate(65deg) skewX(42deg);
 }
+
 .css_lab:after {
     display: block;
     width: 250px;
@@ -1764,4 +1951,79 @@ p {
     text-align: center;
     font-size: 10pt;
     color: #666;
+}
+
+/* Fondo general con temática mágica */
+
+body {
+    font-family: "Poppins", sans-serif;
+    color: #fff;
+    text-align: center;
+}
+
+/* Estilos para el formulario */
+
+.contact-form {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    border-radius: 10px;
+    width: 60%;
+    margin: 50px auto;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.contact-form h2 {
+    color: #4813d8;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #5582ff;
+    border-radius: 5px;
+    background: rgba(3, 157, 168, 0.8);
+}
+
+.contact-form button {
+    background: #0a0dda;
+    color: black;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background: #2205a5;
+}
+
+/* Estilos para el footer */
+
+.footer {
+    background: rgba(30, 0, 60, 0.9);
+    padding: 20px;
+    text-align: center;
+    border-top: 3px solid #1d375a;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer p {
+    color: white;
+}
+
+.footer a {
+    color: rgb(4, 0, 241);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }

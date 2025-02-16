@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Contacto - Little Witch Academia</title>
+        <link rel="stylesheet" href="styles.css" />
+        <link rel="icon" href="./assets/lwa-icon.png" />
+    </head>
+    <body>
+        <div class="css_lab">
+            <div class="witch">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <header class="header">
+            <div class="header-content">
+                <nav>
+                    <a href="index.html">Inicio</a>
+                    <a href="characters.html">Personajes</a>
+                    <a href="about.html">Sobre Nosotros</a>
+                    <a href="contact.html">Contacto</a>
+                    <a href="juego.html">Juego</a>
+                </nav>
+                <img
+                    src="./assets/show.gif"
+                    class="header-gif left"
+                    alt="Little Witch Academia Left"
+                />
+                <img
+                    src="./assets/show.gif"
+                    class="header-gif right"
+                    alt="Little Witch Academia Right"
+                />
+                <div class="logo-container">
+                    <img
+                        id="logo"
+                        src="./assets/logo.png"
+                        alt="Little Witch Academia Logo"
+                    />
+                </div>
+                <h1>Contacto</h1>
+            </div>
+        </header>
+
+        <main>
+            <section class="contact-form">
+                <h2>Envíanos un mensaje</h2>
+                <form action="submit-form.php" method="post">
+                    <label for="name">Nombre:</label>
+                    <input type="text" id="name" name="name" required />
+
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" id="email" name="email" required />
+
+                    <label for="message">Mensaje:</label>
+                    <textarea id="message" name="message" required></textarea>
+
+                    <button type="submit">Enviar</button>
+                </form>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>
+                &copy; 2025 Galería de Little Witch Academia. Todos los derechos
+                reservados.
+            </p>
+            <nav>
+                <a href="privacy.html">Política de Privacidad</a> |
+                <a href="cookies.html">Política de Cookies</a>
+            </nav>
+        </footer>
+    </body>
+</html>

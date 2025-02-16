@@ -1,0 +1,149 @@
+/* Importación de fuentes */
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&family=Noto+Sans+JP:wght@300;400;700&display=swap");
+
+/* Variables de color */
+:root {
+    --bg-color: #1a1a2e; /* Fondo oscuro y misterioso */
+    --text-color: #f1f1f1; /* Texto claro */
+    --header-bg: #23234d; /* Fondo oscuro para el encabezado */
+    --logo-bg: #9b59b6; /* Morado oscuro para el logo */
+    --edit-color: #ffcc00;
+    --delete-color: #ff0033;
+    --edit-hover: #ffdd44;
+    --delete-hover: #ff2244;
+    --footer-bg: #23234d; /* Fondo oscuro para el pie de página */
+    --shadow: rgba(255, 255, 255, 0.3); /* Sombra blanca tenue */
+    --shadow-hover: rgba(
+        255,
+        255,
+        255,
+        0.6
+    ); /* Sombra más brillante al pasar el cursor */
+    --link-color: #9b59b6; /* Violeta para los enlaces */
+    --link-hover: #8e44ad; /* Violeta más oscuro al pasar el cursor */
+    --btn-hover-transform: translateY(-2px);
+    --btn-hover-size: scale(1.08);
+    --border-color: #9b59b6; /* Violeta para los bordes */
+    --primary-color: #8e44ad; /* Violeta oscuro */
+    --secondary-color: #f1f1f1; /* Blanco para los elementos secundarios */
+}
+
+/* Estilos globales */
+body {
+    color: var(--text-color);
+    font-family: "Noto Sans JP", sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Contenedor del juego */
+.container {
+    text-align: center;
+    display: flex; /* Centrado horizontal */
+    justify-content: center; /* Centrado horizontal */
+    align-items: center; /* Centrado vertical */
+    flex-direction: column; /* Asegura que los elementos estén en columna */
+    height: 100vh; /* Asegura que ocupe toda la altura de la pantalla */
+}
+
+/* Título */
+h1 {
+    margin-bottom: 20px;
+    color: var(--text-color);
+    font-family: "Oswald", sans-serif;
+    font-size: 3em;
+    letter-spacing: 5px;
+    text-shadow: 2px 2px 10px var(--shadow-hover);
+}
+
+/* Tablero del juego */
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 10px;
+    margin-bottom: 20px;
+    background-color: var(--header-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px var(--shadow);
+}
+
+/* Celdas del tablero */
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    border: 2px solid var(--border-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 8px var(--shadow);
+    border-radius: 8px;
+}
+
+.cell:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+/* Estilo de los botones */
+button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: all 0.3s;
+    box-shadow: 0 0 8px var(--shadow);
+}
+
+button:hover {
+    background-color: var(--link-hover);
+    transform: var(--btn-hover-transform) var(--btn-hover-size);
+    box-shadow: 0 0 12px var(--shadow-hover);
+}
+
+/* Mensaje */
+#message {
+    margin-top: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Animación de aparición */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .board {
+        grid-template-columns: repeat(3, 80px);
+        grid-template-rows: repeat(3, 80px);
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    button {
+        font-size: 1em;
+    }
+}
