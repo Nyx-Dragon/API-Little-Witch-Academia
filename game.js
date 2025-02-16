@@ -1,65 +1,86 @@
-const cells = document.querySelectorAll('.cell');
-const message = document.getElementById('message');
-const resetButton = document.getElementById('reset-btn');
+const player = document.getElementById('player');
+const gameContainer = document.getElementById('game-container');
+const potion = document.getElementById('potion');
+const scoreDisplay = document.getElementById('score');
+const restartButton = document.getElementById('restart-button');
 
-let currentPlayer = 'X';
-let gameBoard = ['', '', '', '', '', '', '', '', ''];
+let playerPosition = 275;
+const playerSpeed = 20;
+let score = 0;
+let potionSpeed = 2;
+let potionPosition = { x: 0, y: 10 };
+let gameOver = false;
 
-const winningCombinations = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6]
-];
-
-// Función para verificar el ganador
-function checkWinner() {
-    for (let combo of winningCombinations) {
-        const [a, b, c] = combo;
-        if (gameBoard[a] && gameBoard[a] === gameBoard[b] && gameBoard[a] === gameBoard[c]) {
-            return gameBoard[a];
-        }
+// Mueve a Akko con las teclas de flecha izquierda y derecha
+function movePlayer(event) {
+    if (event.key === 'ArrowLeft' && playerPosition > 0) {
+        playerPosition -= playerSpeed;
+    } else if (event.key === 'ArrowRight' && playerPosition < gameContainer.clientWidth - player.clientWidth) {
+        playerPosition += playerSpeed;
     }
-    return null;
+    player.style.left = `${playerPosition}px`;
 }
 
-// Función para manejar el clic en las celdas
-function handleCellClick(event) {
-    const cellIndex = parseInt(event.target.id.split('-')[1]);
-    if (gameBoard[cellIndex] === '') {
-        gameBoard[cellIndex] = currentPlayer;
-        event.target.textContent = currentPlayer;
-        const winner = checkWinner();
+// Comprobación de colisión precisa
+function checkCollision() {
+    const playerRect = player.getBoundingClientRect();
+    const potionRect = potion.getBoundingClientRect();
+    const containerRect = gameContainer.getBoundingClientRect();
 
-        if (winner) {
-            message.textContent = `${winner} ha ganado!`;
-            cells.forEach(cell => cell.removeEventListener('click', handleCellClick));
-        } else if (!gameBoard.includes('')) {
-            message.textContent = '¡Es un empate!';
-        } else {
-            currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-        }
-    }
+    return (
+        potionRect.bottom >= playerRect.top &&
+        potionRect.top <= playerRect.bottom &&
+        potionRect.left < playerRect.right &&
+        potionRect.right > playerRect.left &&
+        potionRect.bottom <= containerRect.bottom
+    );
 }
 
-// Función para reiniciar el juego
+// Mueve la poción hacia abajo
+function dropPotion() {
+    if (gameOver) return; // Si el juego terminó, detiene la animación
+
+    potionPosition.y += potionSpeed;
+    potion.style.top = `${potionPosition.y}px`; // Actualiza la posición de la poción
+
+    if (checkCollision()) {
+        score++;
+        scoreDisplay.textContent = `Puntos: ${score}`;
+        potionSpeed += 0.5; // Aumenta la velocidad de la poción progresivamente
+        resetPotion();
+    } else if (potionPosition.y > gameContainer.clientHeight) {
+        endGame();
+    }
+
+    requestAnimationFrame(dropPotion); // Vuelve a llamar a esta función
+}
+
+// Resetea la posición de la poción tras atraparla
+function resetPotion() {
+    potionPosition.y = 10;
+    potionPosition.x = Math.random() * (gameContainer.clientWidth - potion.clientWidth);
+    potion.style.top = `${potionPosition.y}px`;
+    potion.style.left = `${potionPosition.x}px`; // Posición aleatoria horizontal
+}
+
+// Termina el juego y muestra una alerta
+
+// Reinicia todo el juego
 function resetGame() {
-    gameBoard = ['', '', '', '', '', '', '', '', ''];
-    cells.forEach(cell => {
-        cell.textContent = '';
-        cell.addEventListener('click', handleCellClick);
-    });
-    message.textContent = '';
-    currentPlayer = 'X';
+    score = 0;
+    potionSpeed = 2;
+    gameOver = false;
+    scoreDisplay.textContent = `Puntos: ${score}`;
+    resetPotion();
+    dropPotion(); // Reiniciar la caída de la poción
 }
 
-// Agregar event listener a cada celda y al botón de reiniciar
-cells.forEach((cell, index) => {
-    cell.addEventListener('click', handleCellClick);
-});
+// Inicia el juego
+function startPotionFall() {
+    dropPotion();
+}
 
-resetButton.addEventListener('click', resetGame);
+document.addEventListener('keydown', movePlayer);
+restartButton.addEventListener('click', resetGame);
+
+startPotionFall();

@@ -10,32 +10,12 @@
         />
         <meta name="author" content="Ruben Garrido Piquer" />
         <link rel="stylesheet" href="styles.css" />
-        <link rel="stylesheet" href="game.css" />
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
         />
         <link rel="icon" href="./assets/icon.png" sizes="32x32" />
         <title>Little Witch Academia - Juego</title>
-
-        <div id="music-controls">
-            <button id="play-music">Reproducir</button>
-            <input
-                type="range"
-                id="volume-control"
-                min="0"
-                max="1"
-                step="0.1"
-                value="1"
-            />
-        </div>
-        <audio id="background-music" loop>
-            <source
-                src="./audio/Little Witch Academia OST - Everyday At Luna Nova.mp3"
-                type="audio/mp3"
-            />
-            Tu navegador no soporta el formato de audio.
-        </audio>
     </head>
     <body>
         <div class="css_lab">
@@ -85,32 +65,34 @@
             </a>
             <h1>Juego</h1>
         </div>
+        <div class="header-content">
+            <nav>
+                <a href="index.html">Inicio</a>
+                <a href="characters.html">Personajes</a>
+                <a href="about.html">Sobre Nosotros</a>
+                <a href="contact.html">Contacto</a>
+                <a href="juego.html">Juego</a>
+            </nav>
+        </div>
     </header>
     <div class="container">
-        <h1>Tres en Raya</h1>
-        <div id="game-board" class="board">
-            <div class="cell" id="cell-0"></div>
-            <div class="cell" id="cell-1"></div>
-            <div class="cell" id="cell-2"></div>
-            <div class="cell" id="cell-3"></div>
-            <div class="cell" id="cell-4"></div>
-            <div class="cell" id="cell-5"></div>
-            <div class="cell" id="cell-6"></div>
-            <div class="cell" id="cell-7"></div>
-            <div class="cell" id="cell-8"></div>
+        <h1>Atrapa pociones</h1>
+        <div id="game-container">
+            <div id="player"></div>
+            <div id="potion"></div>
         </div>
-        <button id="reset-btn">Reiniciar Juego</button>
+        <div id="score">Puntos: 0</div>
+        <button id="restart-button">Reiniciar Juego</button>
         <p id="message"></p>
     </div>
 
-        <!-- Footer -->
-        <footer>
+        <footer class="footer" id="footer">
             <p>
-                &copy; 2025 Little Witch Academia. Todos los derechos
+                &copy; 2025 Galería de Personajes. Todos los derechos
                 reservados.
             </p>
             <p>
-                Este juego es solo para fines informativos y no posee derechos
+                Esta galería es solo para fines informativos y no posee derechos
                 sobre las imágenes utilizadas.
             </p>
             <div class="footer-links">
@@ -127,6 +109,7 @@
                 ></a>
             </div>
         </footer>
+        <script src="./game.js" defer></script>
         <script src="./cookiesprivacy.js" defer></script>
     </body>
 </html>

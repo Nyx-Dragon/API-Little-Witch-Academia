@@ -60,7 +60,6 @@ header {
     overflow: hidden;
     animation: slideIn 1s ease-out;
 }
-
 .header-content {
     color: #8a2be2;
     /* Un morado frío */
@@ -68,31 +67,25 @@ header {
         /* Resplandor verde frío */ 0 0 10px rgba(0, 255, 255, 0.7),
         0 0 15px rgba(0, 255, 255, 0.7), 0 0 20px #8a2be2,
         /* Resplandor morado */ 0 0 30px #8a2be2, 0 0 40px #8a2be2;
-    animation: glow 1.5s infinite alternate;
 }
-
 h1 {
     font-size: 2.5rem;
-    color: #8a2be2;
-    /* Un morado frío */
-    text-shadow: 0 0 5px rgba(0, 255, 255, 0.7),
-        /* Resplandor verde frío */ 0 0 10px rgba(0, 255, 255, 0.7),
-        0 0 15px rgba(0, 255, 255, 0.7), 0 0 20px #8a2be2,
-        /* Resplandor morado */ 0 0 30px #8a2be2, 0 0 40px #8a2be2;
-    animation: glow 1.5s infinite alternate;
-    /* Efecto de parpadeo de resplandor */
+    color: #8a2be2; /* Un morado frío */
+    text-align: center;
+    text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff,
+        0 0 50px #00ffff, 0 0 75px #00ffff; /* Luces de neón azul claro */
+    animation: neon 1.5s infinite alternate;
 }
 
-@keyframes glow {
+/* Animación para el texto con efecto neón */
+@keyframes neon {
     0% {
-        text-shadow: 0 0 5px rgba(0, 255, 255, 0.7),
-            0 0 10px rgba(0, 255, 255, 0.7), 0 0 15px rgba(0, 255, 255, 0.7),
-            0 0 20px #8a2be2, 0 0 30px #8a2be2, 0 0 40px #8a2be2;
+        text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff,
+            0 0 50px #00ffff, 0 0 75px #00ffff;
     }
     100% {
-        text-shadow: 0 0 10px rgba(0, 255, 255, 0.9),
-            0 0 20px rgba(0, 255, 255, 0.9), 0 0 30px rgba(0, 255, 255, 0.9),
-            0 0 50px #8a2be2, 0 0 70px #8a2be2, 0 0 100px #8a2be2;
+        text-shadow: 0 0 25px #00ffff, 0 0 35px #00ffff, 0 0 45px #00ffff,
+            0 0 55px #00ffff, 0 0 85px #00ffff;
     }
 }
 
@@ -111,7 +104,22 @@ h1 {
     width: 200px;
     text-align: center;
     box-shadow: 0 0 10px var(--shadow);
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    opacity: 1;
+    animation: magic-appear 1s forwards;
+}
+
+@keyframes magic-appear {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+        filter: blur(10px);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+        filter: blur(0);
+    }
 }
 
 .character-card:hover {
@@ -125,7 +133,6 @@ h1 {
     border-radius: 10px;
     box-shadow: 0 0 10px var(--secondary-color);
 }
-
 .upload-section {
     color: #8a2be2;
     /* Un morado frío */
@@ -137,7 +144,6 @@ h1 {
     text-align: center;
     padding: 20px;
 }
-
 button {
     background: var(--edit-color);
     border: none;
@@ -149,24 +155,12 @@ button {
     transition: 0.3s;
     border-radius: 10px;
 }
-
 button:hover {
     background: var(--edit-hover);
     box-shadow: 0 0 10px rgba(0, 162, 255, 0.8);
 }
 
 /* Animaciones y efectos mágicos */
-
-@keyframes slideIn {
-    0% {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
 
 header::before {
     content: "";
@@ -183,7 +177,6 @@ header::before {
     opacity: 0.3;
     filter: blur(5px);
 }
-
 header h1 {
     font-family: "Oswald", sans-serif;
     font-size: 4em;
@@ -236,17 +229,14 @@ nav a::before {
     transform: scaleX(0);
     transition: all 0.3s ease-in-out;
 }
-
 nav a:hover::before {
     visibility: visible;
     transform: scaleX(1);
 }
-
 nav a:hover {
     color: var(--link-hover);
     transform: translateY(-5px);
 }
-
 nav a:focus {
     outline: 3px solid var(--link-hover);
 }
@@ -274,12 +264,10 @@ nav a:focus {
         margin: 0 8px;
     }
 }
-
 #logo-link {
     text-decoration: none;
     /* Elimina el subrayado predeterminado del enlace */
 }
-
 #logo {
     width: 100%;
     max-width: 400px;
@@ -325,7 +313,6 @@ nav a:focus {
         max-width: 300px;
     }
 }
-
 @media (max-width: 480px) {
     #logo {
         max-width: 200px;
@@ -359,20 +346,10 @@ nav a:focus {
     animation: fadeIn 0.5s ease-in;
 }
 
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
 .character-card:hover {
     transform: translateY(-10px) scale(1.05);
     box-shadow: 0 12px 24px var(--shadow-hover);
 }
-
 .character-img {
     width: 100%;
     height: 350px;
@@ -383,13 +360,11 @@ nav a:focus {
     filter: brightness(0.9) contrast(1.1);
     transition: filter 0.3s, transform 0.3s, box-shadow 0.3s;
 }
-
 .character-img:hover {
     filter: brightness(1) contrast(1.3);
     transform: scale(1.05);
     box-shadow: 0 0 15px rgba(0, 26, 255, 0.8), 0 0 30px rgb(0, 192, 250);
 }
-
 .character-name {
     font-family: "Oswald", sans-serif;
     font-size: 1.6em;
@@ -399,12 +374,10 @@ nav a:focus {
     /* Efecto de neón con rosa sangre y dorado */
     transition: text-shadow 0.3s ease;
 }
-
 .character-name:hover {
     text-shadow: 0 0 10px rgb(25, 0, 255), 0 0 20px rgb(88, 236, 255);
     /* Aumenta el brillo con neón rosa sangre y dorado */
 }
-
 @import url("https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap");
 .character-description {
     font-family: "Uncial Antiqua", serif;
@@ -447,19 +420,16 @@ nav a:focus {
     /* Color blanco para ambos botones */
     border: 2px solid #6b0077;
 }
-
 .edit-btn {
     background: linear-gradient(135deg, #6a1b9a, #ab47bc);
     /* Violeta profundo y brillante */
     box-shadow: 0 4px 20px rgba(156, 39, 176, 0.6);
 }
-
 .delete-btn {
     background: linear-gradient(45deg, #c62828, #ff5722);
     /* Rojo suave y anaranjado vibrante */
     box-shadow: 0 0 20px rgba(255, 87, 34, 0.7);
 }
-
 .edit-btn:hover,
 .delete-btn:hover {
     transform: scale(1.05);
@@ -468,7 +438,6 @@ nav a:focus {
     border: 2px solid #9c27b0;
     color: #ffffff;
 }
-
 @keyframes pulse {
     0% {
         transform: scale(1);
@@ -481,18 +450,15 @@ nav a:focus {
         transform: scale(1);
     }
 }
-
 .edit-btn:hover {
     background: linear-gradient(135deg, #ab47bc, #8e24aa);
     /* Gradiente de tonos púrpura más cálido */
 }
-
 .delete-btn:hover {
     border: rgb(194, 57, 57);
     background: linear-gradient(45deg, #ff7043, #d32f2f);
     /* Rojo anaranjado a rojo profundo */
 }
-
 .edit-btn:focus,
 .delete-btn:focus {
     outline: 2px solid #9c27b0;
@@ -512,14 +478,12 @@ nav a:focus {
     /* Evita que se superponga con el contenido */
     z-index: 10;
 }
-
 .footer-links a {
     color: var(--link-color);
     margin: 0 15px;
     font-size: 1.3em;
     transition: color 0.3s, text-shadow 0.3s ease-in-out;
 }
-
 .footer-links a:hover {
     color: var(--link-hover);
     text-shadow: 0 0 10px var(--link-hover);
@@ -545,7 +509,6 @@ a {
     color: rgb(49, 9, 114);
     text-decoration: none;
 }
-
 a:hover {
     color: rgb(13, 128, 194);
 }
@@ -566,11 +529,9 @@ main {
     min-height: 100vh;
     overflow-x: hidden;
 }
-
 audio {
     display: none;
 }
-
 #music-controls {
     position: fixed;
     bottom: 20px;
@@ -586,12 +547,11 @@ audio {
     z-index: 9999;
     /* Se asegura de que esté por encima de todo */
 }
-
 #music-controls:hover {
     opacity: 1;
 }
-
 #play-music {
+    margin: auto;
     background: linear-gradient(135deg, #00a2ff, #1809ee);
     color: white;
     border: none;
@@ -604,12 +564,10 @@ audio {
     z-index: 10000;
     /* Asegura que el botón en sí esté en la capa más alta */
 }
-
 #play-music:hover {
     background: linear-gradient(135deg, #09c0ee, #4400ff);
     transform: scale(1.05);
 }
-
 #volume-control {
     width: 100px;
     cursor: pointer;
@@ -626,46 +584,16 @@ h3 {
 
 /* Efecto motosierra en el logo */
 
-@keyframes chainsawEffect {
-    0% {
-        transform: translateX(0) rotate(0deg);
-    }
-    25% {
-        transform: translateX(-5px) rotate(-10deg);
-    }
-    50% {
-        transform: translateX(5px) rotate(10deg);
-    }
-    75% {
-        transform: translateX(-5px) rotate(-5deg);
-    }
-    100% {
-        transform: translateX(0) rotate(0deg);
-    }
-}
-
 #logo {
     width: 100%;
     max-width: 400px;
     transition: transform 0.1s;
 }
-
 #logo:hover {
     animation: chainsawEffect 0.2s infinite;
 }
 
 /* Efecto de goteo de sangre en los botones */
-
-@keyframes bloodDrip {
-    0% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(10px);
-        opacity: 0;
-    }
-}
 
 @import url("https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap");
 button {
@@ -686,7 +614,6 @@ button {
         inset 0 0 5px rgba(255, 0, 255, 0.5);
     transition: 0.3s ease-in-out;
 }
-
 button:hover {
     background: linear-gradient(45deg, #550077, #330044);
     box-shadow: 0 0 15px rgba(255, 0, 255, 0.9),
@@ -710,7 +637,6 @@ button::after {
     border-radius: 50%;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
 }
-
 button:hover::after {
     animation: magicSparkle 0.5s forwards;
 }
@@ -737,7 +663,6 @@ button:hover::after {
 nav a {
     transition: color 0.3s, transform 0.3s ease-in-out;
 }
-
 nav a:hover {
     color: var(--link-hover);
     transform: translateY(-3px);
@@ -777,7 +702,6 @@ nav a:hover {
         /* Centra la imagen horizontalmente */
     }
 }
-
 @media (max-width: 480px) {
     .header-gif {
         width: 130px;
@@ -861,7 +785,6 @@ nav a:hover {
     transform: scale(1.1) rotateY(15deg);
     /* Efecto 3D en hover */
 }
-
 @media (max-width: 768px) {
     #logo {
         animation: none;
@@ -888,14 +811,12 @@ nav a:hover {
     text-decoration: none;
     /* Si es un enlace */
 }
-
 #back-to-home:hover {
     background-color: var(--button-hover-bg);
     border-color: var(--button-hover-bg);
     transform: translateY(-5px);
     box-shadow: 0 6px 12px var(--shadow);
 }
-
 #back-to-home:active {
     transform: translateY(0);
     box-shadow: 0 4px 8px var(--shadow);
@@ -914,17 +835,14 @@ nav a:hover {
     justify-content: center;
     margin-top: 20px;
 }
-
 .upload-section {
     text-align: center;
     margin-top: 30px;
 }
-
 #upload-form input[type="file"] {
     display: block;
     margin: 0 auto 10px;
 }
-
 #upload-form input[type="text"] {
     display: block;
     margin: 10px auto;
@@ -934,7 +852,6 @@ nav a:hover {
     border-radius: 5px;
     width: 250px;
 }
-
 #upload-form button {
     padding: 10px 20px;
     background-color: #4c5baf;
@@ -949,12 +866,10 @@ nav a:hover {
     /* Efecto de resplandor inicial */
     transition: all 0.3s ease;
 }
-
 #upload-form button:hover {
     background-color: #26f5fc;
     animation: magicPulse 1.5s ease-in-out infinite;
 }
-
 @keyframes magicPulse {
     0% {
         transform: scale(1);
@@ -974,7 +889,6 @@ nav a:hover {
             0 0 30px rgba(0, 255, 255, 0.5);
     }
 }
-
 #upload-form button:active {
     transform: scale(0.95);
     /* Efecto de compresión al hacer clic */
@@ -990,7 +904,6 @@ nav a:hover {
     box-shadow: 0 4px 10px var(--shadow);
     animation: slideIn 1s ease-out;
 }
-
 .about-us {
     text-align: center;
     padding: 60px 20px;
@@ -1001,7 +914,6 @@ nav a:hover {
     margin: 50px auto;
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
 }
-
 .about-us h2 {
     font-family: "Playfair Display", serif;
     font-size: 2.5rem;
@@ -1010,7 +922,6 @@ nav a:hover {
     text-shadow: 2px 2px 8px rgba(20, 29, 167, 0.8);
     margin-bottom: 20px;
 }
-
 .about-us p {
     font-size: 1.2rem;
     max-width: 700px;
@@ -1046,7 +957,6 @@ nav a:hover {
     border: 2px solid rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
 }
-
 #upload-form:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
@@ -1067,7 +977,6 @@ nav a:hover {
     width: 80%;
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
-
 #upload-form input[type="file"]:hover {
     background-color: rgba(255, 69, 0, 0.1);
     border-color: #03d8cd;
@@ -1088,7 +997,6 @@ nav a:hover {
     box-shadow: 0 2px 5px rgba(0, 195, 255, 0.6);
     transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
-
 #upload-form input[type="text"]:focus {
     border-color: #00ffea;
     box-shadow: 0 0 8px rgba(0, 26, 255, 0.6);
@@ -1109,7 +1017,6 @@ nav a:hover {
     margin-top: 20px;
     width: 80%;
 }
-
 #upload-form button:hover {
     background-color: #00c9e4;
     transform: translateY(-5px);
@@ -1138,7 +1045,6 @@ button,
 input[type="text"] {
     text-shadow: 0 0 12px rgba(0, 255, 221, 0.9), 0 0 20px rgba(0, 26, 255, 0.8);
 }
-
 .about.h2 {
     color: #000000;
     font-family: "Roboto", sans-serif;
@@ -1146,7 +1052,6 @@ input[type="text"] {
     text-align: center;
     margin-bottom: 20px;
 }
-
 .subir-imagen {
     font-size: 2rem;
     color: #8a2be2;
@@ -1169,7 +1074,6 @@ input[type="text"] {
     box-shadow: 0 0 15px rgba(138, 43, 226, 0.8);
     /* Sombra morada para un toque extra */
 }
-
 @keyframes glow {
     0% {
         text-shadow: 0 0 5px rgba(0, 255, 255, 0.7),
@@ -1236,7 +1140,6 @@ input[type="text"] {
     width: 80%;
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
-
 #image-upload input[type="file"]:hover {
     background-color: rgb(16, 147, 255);
     border-color: #9000e4;
@@ -1274,7 +1177,6 @@ input[type="text"] {
     transition: background-color 0.3s ease, transform 0.3s ease;
     width: 80%;
 }
-
 #image-upload button:hover {
     background-color: #86d9ff;
     transform: translateY(-5px);
@@ -1286,7 +1188,6 @@ input[type="text"] {
     opacity: 0;
     animation: fadeIn 0.5s forwards;
 }
-
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -1314,7 +1215,6 @@ input[type="text"] {
         width: 100%;
     }
 }
-
 .character-gallery {
     padding: 20px;
     display: flex;
@@ -1323,15 +1223,30 @@ input[type="text"] {
     margin: auto;
     justify-content: center;
 }
-
 .character-detail {
     background: black;
     border: 2px solid rgb(0, 132, 255);
     border-radius: 10px;
     padding: 20px;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease,
+        opacity 0.5s ease-in-out;
     width: 250px;
+    opacity: 0;
+    animation: magic-appear 1s forwards;
+}
+
+@keyframes magic-appear {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+        filter: blur(10px);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+        filter: blur(0);
+    }
 }
 
 .character-detail:hover {
@@ -1346,23 +1261,19 @@ h2 {
         /* Resplandor verde frío */ 0 0 10px rgba(0, 255, 255, 0.7),
         0 0 15px rgba(0, 255, 255, 0.7), 0 0 20px #8a2be2,
         /* Resplandor morado */ 0 0 30px #8a2be2, 0 0 40px #8a2be2;
-    animation: glow 1.5s infinite alternate;
 }
-
 p {
     color: #fff;
     font-size: 1rem;
     line-height: 1.5;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
-
 .css_lab {
     width: 100%;
     height: 100%;
     justify-content: center;
     background: #224;
 }
-
 .witch {
     position: absolute;
     z-index: -1;
@@ -1379,7 +1290,6 @@ p {
     /* Mantiene la bruja siempre en pantalla */
     animation: moveWitch 5s infinite alternate linear;
 }
-
 .witch:before {
     content: "";
     display: block;
@@ -1418,7 +1328,6 @@ p {
     -webkit-animation: lamp 10s ease 2s infinite;
     animation: lamp 10s ease 2s infinite;
 }
-
 @-webkit-keyframes lamp {
     50% {
         opacity: 0.2;
@@ -1426,7 +1335,6 @@ p {
         transform: scale(0.8);
     }
 }
-
 @keyframes lamp {
     50% {
         opacity: 0.2;
@@ -1434,7 +1342,6 @@ p {
         transform: scale(0.8);
     }
 }
-
 .witch div,
 .witch div:before,
 .witch div:after {
@@ -1442,7 +1349,6 @@ p {
     display: block;
     position: absolute;
 }
-
 .witch div {
     width: 100px;
     height: 100px;
@@ -1450,7 +1356,6 @@ p {
     left: 20px;
     margin-top: -50px;
 }
-
 .witch div:nth-child(1) {
     width: 80px;
     height: 3px;
@@ -1461,7 +1366,6 @@ p {
     -ms-transform: rotate(14deg);
     transform: rotate(14deg);
 }
-
 .witch div:nth-child(1):before {
     width: 20px;
     height: 20px;
@@ -1473,7 +1377,6 @@ p {
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
-
 .witch div:nth-child(1):after {
     width: 25px;
     height: 18px;
@@ -1485,7 +1388,6 @@ p {
     -ms-transform: rotate(-30deg);
     transform: rotate(-30deg);
 }
-
 .witch div:nth-child(2) {
     width: 11px;
     height: 18px;
@@ -1497,7 +1399,6 @@ p {
     -ms-transform: rotate(-23deg);
     transform: rotate(-23deg);
 }
-
 .witch div:nth-child(2):before,
 .witch div:nth-child(2):after {
     width: 12px;
@@ -1510,7 +1411,6 @@ p {
     -ms-transform: rotate(64deg);
     transform: rotate(64deg);
 }
-
 .witch div:nth-child(2):after {
     width: 10px;
     height: 10px;
@@ -1521,7 +1421,6 @@ p {
     -ms-transform: rotate(42deg);
     transform: rotate(42deg);
 }
-
 .witch div:nth-child(3) {
     width: 16px;
     height: 18px;
@@ -1530,7 +1429,6 @@ p {
     margin-top: -42px;
     border-radius: 40px 0 30px 10px/33px 0 30px 35px;
 }
-
 .witch div:nth-child(3):before {
     width: 4px;
     height: 0px;
@@ -1544,7 +1442,6 @@ p {
     border-right: 2px solid transparent;
     border-bottom: 20px solid #224;
 }
-
 .witch div:nth-child(3):after {
     width: 39px;
     height: 8px;
@@ -1556,7 +1453,6 @@ p {
     -ms-transform: rotate(37deg);
     transform: rotate(37deg);
 }
-
 .witch div:nth-child(4) {
     width: 6px;
     height: 8px;
@@ -1567,7 +1463,6 @@ p {
     -ms-transform: rotate(-15deg);
     transform: rotate(-15deg);
 }
-
 .witch div:nth-child(4):before {
     left: 7px;
     top: 6px;
@@ -1579,7 +1474,6 @@ p {
     -ms-transform: rotate(20deg);
     transform: rotate(20deg);
 }
-
 .witch div:nth-child(4):after {
     width: 4px;
     height: 7px;
@@ -1591,7 +1485,6 @@ p {
     -ms-transform: rotate(45deg) skewX(-10deg);
     transform: rotate(45deg) skewX(-10deg);
 }
-
 .witch div:nth-child(5) {
     width: 27px;
     height: 12px;
@@ -1603,7 +1496,6 @@ p {
     transform: rotate(-9deg);
     border-radius: 35px 0 30px 30px/50px 0 30px 100px;
 }
-
 .witch div:nth-child(5):before,
 .witch div:nth-child(5):after {
     width: 3.5px;
@@ -1616,7 +1508,6 @@ p {
     -ms-transform: rotate(-5deg);
     transform: rotate(-5deg);
 }
-
 .witch div:nth-child(5):after {
     left: 19px;
     top: 20px;
@@ -1624,7 +1515,6 @@ p {
     -ms-transform: rotate(-21deg);
     transform: rotate(-21deg);
 }
-
 .witch div:nth-child(6) {
     width: 13px;
     height: 6px;
@@ -1634,7 +1524,6 @@ p {
     border-left: 0px solid transparent;
     border-top: 1px solid #224;
 }
-
 .witch div:nth-child(6):before,
 .witch div:nth-child(6):after {
     width: 3px;
@@ -1647,7 +1536,6 @@ p {
     -ms-transform: rotate(-55deg);
     transform: rotate(-55deg);
 }
-
 .witch div:nth-child(6):after {
     left: -12px;
     top: 51px;
@@ -1655,7 +1543,6 @@ p {
     -ms-transform: rotate(-40deg);
     transform: rotate(-40deg);
 }
-
 .witch div:nth-child(7) {
     width: 5px;
     height: 5px;
@@ -1664,7 +1551,6 @@ p {
     margin-left: 44px;
     margin-top: -38px;
 }
-
 .witch div:nth-child(7):before {
     width: 5px;
     height: 5px;
@@ -1678,7 +1564,6 @@ p {
     -webkit-box-shadow: 1px 1.5px 0 #224, -4px 31px 0 #224;
     box-shadow: 1px 1.5px 0 #224, -4px 31px 0 #224;
 }
-
 .witch div:nth-child(7):after {
     width: 5px;
     height: 3px;
@@ -1690,7 +1575,6 @@ p {
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
 }
-
 .witch div:nth-child(8) {
     width: 25px;
     height: 28px;
@@ -1701,7 +1585,6 @@ p {
     transform: rotate(-25deg);
     overflow: hidden;
 }
-
 .witch div:nth-child(8):before,
 .witch div:nth-child(8):after {
     width: 5px;
@@ -1711,7 +1594,6 @@ p {
     background: #224;
     border-radius: 50%;
 }
-
 .witch div:nth-child(8):after {
     width: 5px;
     height: 50px;
@@ -1723,7 +1605,6 @@ p {
     -ms-transform: rotate(-28deg);
     transform: rotate(-28deg);
 }
-
 .witch div:nth-child(9) {
     width: 9px;
     height: 10px;
@@ -1731,7 +1612,6 @@ p {
     overflow: hidden;
     margin-left: 56px;
 }
-
 .witch div:nth-child(9):before {
     width: 20px;
     height: 6px;
@@ -1741,7 +1621,6 @@ p {
     border-radius: 0 50% 50% 0;
     border: 5px solid #224;
 }
-
 .witch div:nth-child(9):after {
     width: 18px;
     height: 18px;
@@ -1751,7 +1630,6 @@ p {
     border-radius: 50%;
     border: 5px solid #224;
 }
-
 .witch div:nth-child(10) {
     width: 4px;
     height: 9px;
@@ -1763,7 +1641,6 @@ p {
     -ms-transform: rotate(46deg);
     transform: rotate(46deg);
 }
-
 .witch div:nth-child(10):before {
     width: 4px;
     height: 16px;
@@ -1775,7 +1652,6 @@ p {
     -ms-transform: rotate(2deg);
     transform: rotate(2deg);
 }
-
 .witch div:nth-child(10):after {
     width: 2px;
     height: 0;
@@ -1784,7 +1660,6 @@ p {
     top: 4px;
     left: 0px;
 }
-
 .witch div:nth-child(11) {
     width: 5px;
     height: 6px;
@@ -1796,7 +1671,6 @@ p {
     -ms-transform: rotate(35deg);
     transform: rotate(35deg);
 }
-
 .witch div:nth-child(11):before {
     width: 9px;
     height: 7px;
@@ -1808,7 +1682,6 @@ p {
     -ms-transform: rotate(-14deg) skewX(-40deg);
     transform: rotate(-14deg) skewX(-40deg);
 }
-
 .witch div:nth-child(11):after {
     width: 22px;
     height: 9px;
@@ -1820,7 +1693,6 @@ p {
     -ms-transform: rotate(21deg);
     transform: rotate(21deg);
 }
-
 .witch div:nth-child(12) {
     width: 23px;
     height: 8px;
@@ -1833,7 +1705,6 @@ p {
     -ms-transform: rotate(44deg);
     transform: rotate(44deg);
 }
-
 .witch div:nth-child(12):before {
     width: 5px;
     height: 0;
@@ -1845,7 +1716,6 @@ p {
     -ms-transform: rotate(-47deg);
     transform: rotate(-47deg);
 }
-
 .witch div:nth-child(12):after {
     width: 0;
     height: 4px;
@@ -1858,7 +1728,6 @@ p {
     -ms-transform: rotate(-34deg);
     transform: rotate(-34deg);
 }
-
 .witch div:nth-child(13) {
     width: 12px;
     height: 15px;
@@ -1870,7 +1739,6 @@ p {
     -ms-transform: rotate(-20deg);
     transform: rotate(-20deg);
 }
-
 .witch div:nth-child(13):before {
     width: 10px;
     height: 3px;
@@ -1879,7 +1747,6 @@ p {
     margin-left: 0.5px;
     background: #224;
 }
-
 .witch div:nth-child(13):after {
     width: 12px;
     height: 3px;
@@ -1888,7 +1755,6 @@ p {
     margin-left: -0.5px;
     background: #224;
 }
-
 .witch div:nth-child(14) {
     width: 10px;
     height: 15px;
@@ -1917,7 +1783,6 @@ p {
     -ms-transform: rotate(-20deg);
     transform: rotate(-20deg);
 }
-
 .witch div:nth-child(14):before {
     width: 6px;
     height: 0px;
@@ -1926,7 +1791,6 @@ p {
     top: -4px;
     left: 0px;
 }
-
 .witch div:nth-child(14):after {
     width: 12px;
     height: 9px;
@@ -1940,7 +1804,6 @@ p {
     -ms-transform: rotate(65deg) skewX(42deg);
     transform: rotate(65deg) skewX(42deg);
 }
-
 .css_lab:after {
     display: block;
     width: 250px;
@@ -1971,19 +1834,16 @@ body {
     margin: 50px auto;
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
 }
-
 .contact-form h2 {
     color: #4813d8;
     font-size: 24px;
     margin-bottom: 20px;
 }
-
 .contact-form label {
     display: block;
     margin: 10px 0;
     font-weight: bold;
 }
-
 .contact-form input,
 .contact-form textarea {
     width: 100%;
@@ -1992,7 +1852,6 @@ body {
     border-radius: 5px;
     background: rgba(3, 157, 168, 0.8);
 }
-
 .contact-form button {
     background: #0a0dda;
     color: black;
@@ -2002,7 +1861,6 @@ body {
     border-radius: 5px;
     cursor: pointer;
 }
-
 .contact-form button:hover {
     background: #2205a5;
 }
@@ -2018,12 +1876,121 @@ body {
     bottom: 0;
     width: 100%;
 }
-
 .footer p {
     color: white;
 }
-
 .footer a {
     color: rgb(4, 0, 241);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+.container {
+    text-align: center;
+    display: flex; /* Centrado horizontal */
+    justify-content: center; /* Centrado horizontal */
+    align-items: center; /* Centrado vertical */
+    flex-direction: column; /* Asegura que los elementos estén en columna */
+    height: 100vh; /* Asegura que ocupe toda la altura de la pantalla */
+}
+
+/* Tablero del juego */
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 10px;
+    margin-bottom: 20px;
+    background-color: var(--header-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px var(--shadow);
+}
+#game-container {
+    width: 600px;
+    height: 400px;
+    position: relative;
+    border: 5px solid #6a0dad; /* Morado brillante */
+    background-image: url("./assets/shiny-chariot-game.gif"); /* Imagen de fondo (ajusta la ruta) */
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+}
+
+#player {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    bottom: 10px;
+    left: 275px;
+    background-image: url("./assets/akko__little_witch_academia__.png");
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.7); /* Sombra morada */
+    border-radius: 50%;
+    animation: glow 1.5s infinite alternate;
+}
+
+/* Efecto de brillo para el jugador */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 15px rgba(255, 0, 255, 0.7);
+    }
+    100% {
+        box-shadow: 0 0 30px rgba(255, 0, 255, 1);
+    }
+}
+
+#potion {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    background-image: url("./assets/pocion.png");
+    background-size: cover;
+    background-position: center;
+    top: 10px;
+    left: 50%;
+    z-index: 10;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.8); /* Brillo cian */
+    animation: potion-glow 2s infinite alternate;
+}
+
+/* Animación de la poción */
+@keyframes potion-glow {
+    0% {
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(0, 255, 255, 1);
+    }
+}
+
+#score {
+    font-size: 24px;
+    font-weight: bold;
+    color: #8e44ad; /* Morado brillante */
+    text-align: center;
+    margin-top: 20px;
+    text-shadow: 0 0 10px #8e44ad, 0 0 20px #8e44ad; /* Sombra de texto morada */
+}
+
+#restart-button {
+    background-color: #6a0dad;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+    transition: all 0.3s ease;
+    margin: 30px auto;
+    display: block;
+}
+
+#restart-button:hover {
+    background-color: #8e44ad;
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.7);
 }
