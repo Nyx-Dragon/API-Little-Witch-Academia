@@ -10,6 +10,7 @@ let score = 0;
 let potionSpeed = 2;
 let potionPosition = { x: 0, y: 10 };
 let gameOver = false;
+let potionAnimationFrame;  // Variable para almacenar la referencia a la animación
 
 // Mueve a Akko con las teclas de flecha izquierda y derecha
 function movePlayer(event) {
@@ -52,7 +53,7 @@ function dropPotion() {
         endGame();
     }
 
-    requestAnimationFrame(dropPotion); // Vuelve a llamar a esta función
+    potionAnimationFrame = requestAnimationFrame(dropPotion); // Vuelve a llamar a esta función
 }
 
 // Resetea la posición de la poción tras atraparla
@@ -64,6 +65,11 @@ function resetPotion() {
 }
 
 // Termina el juego y muestra una alerta
+function endGame() {
+    gameOver = true;
+    cancelAnimationFrame(potionAnimationFrame);  // Detiene la animación
+    alert(`Juego terminado. Puntos finales: ${score}`);
+}
 
 // Reinicia todo el juego
 function resetGame() {
@@ -72,15 +78,16 @@ function resetGame() {
     gameOver = false;
     scoreDisplay.textContent = `Puntos: ${score}`;
     resetPotion();
-    dropPotion(); // Reiniciar la caída de la poción
+    startPotionFall(); // Reinicia la caída de la poción
 }
 
-// Inicia el juego
+// Inicia la caída de la poción
 function startPotionFall() {
-    dropPotion();
+    if (!gameOver) {
+        dropPotion(); // Solo empieza a caer si el juego no ha terminado
+    }
 }
 
 document.addEventListener('keydown', movePlayer);
 restartButton.addEventListener('click', resetGame);
 
-startPotionFall();

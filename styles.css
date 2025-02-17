@@ -582,17 +582,6 @@ h3 {
     text-shadow: var(--glow-text);
 }
 
-/* Efecto motosierra en el logo */
-
-#logo {
-    width: 100%;
-    max-width: 400px;
-    transition: transform 0.1s;
-}
-#logo:hover {
-    animation: chainsawEffect 0.2s infinite;
-}
-
 /* Efecto de goteo de sangre en los botones */
 
 @import url("https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap");
