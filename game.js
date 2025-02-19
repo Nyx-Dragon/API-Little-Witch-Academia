@@ -10,9 +10,14 @@ let score = 0;
 let potionSpeed = 2;
 let potionPosition = { x: 0, y: 10 };
 let gameOver = false;
-let potionAnimationFrame;  // Variable para almacenar la referencia a la animación
+let potionAnimationFrame;
+let timer = 60;
+let level = 1;
+let timerInterval;
+const catchSound = new Audio('audio/catch.mp3');
+const gameOverSound = new Audio('audio/gameover.wav');
 
-// Mueve a Akko con las teclas de flecha izquierda y derecha
+// Mueve al personaje con las teclas
 function movePlayer(event) {
     if (event.key === 'ArrowLeft' && playerPosition > 0) {
         playerPosition -= playerSpeed;
@@ -39,54 +44,60 @@ function checkCollision() {
 
 // Mueve la poción hacia abajo
 function dropPotion() {
-    if (gameOver) return; // Si el juego terminó, detiene la animación
+    if (gameOver) return;
 
     potionPosition.y += potionSpeed;
-    potion.style.top = `${potionPosition.y}px`; // Actualiza la posición de la poción
+    potion.style.top = `${potionPosition.y}px`;
 
     if (checkCollision()) {
         score++;
         scoreDisplay.textContent = `Puntos: ${score}`;
-        potionSpeed += 0.5; // Aumenta la velocidad de la poción progresivamente
+        catchSound.play();
+        potionSpeed += 0.5; // Aumentar la velocidad de la poción
         resetPotion();
     } else if (potionPosition.y > gameContainer.clientHeight) {
         endGame();
     }
 
-    potionAnimationFrame = requestAnimationFrame(dropPotion); // Vuelve a llamar a esta función
+    potionAnimationFrame = requestAnimationFrame(dropPotion);
 }
 
-// Resetea la posición de la poción tras atraparla
+// Resetea la poción
 function resetPotion() {
     potionPosition.y = 10;
     potionPosition.x = Math.random() * (gameContainer.clientWidth - potion.clientWidth);
     potion.style.top = `${potionPosition.y}px`;
-    potion.style.left = `${potionPosition.x}px`; // Posición aleatoria horizontal
+    potion.style.left = `${potionPosition.x}px`;
 }
 
-// Termina el juego y muestra una alerta
+// Termina el juego
 function endGame() {
     gameOver = true;
-    cancelAnimationFrame(potionAnimationFrame);  // Detiene la animación
+    cancelAnimationFrame(potionAnimationFrame);
+    clearInterval(timerInterval);
+    gameOverSound.play();
     alert(`Juego terminado. Puntos finales: ${score}`);
 }
 
-// Reinicia todo el juego
+// Reinicia el juego
 function resetGame() {
     score = 0;
     potionSpeed = 2;
+    timer = 60;
+    level = 1;
     gameOver = false;
     scoreDisplay.textContent = `Puntos: ${score}`;
     resetPotion();
-    startPotionFall(); // Reinicia la caída de la poción
+    startPotionFall();
 }
 
 // Inicia la caída de la poción
 function startPotionFall() {
-    if (!gameOver) {
-        dropPotion(); // Solo empieza a caer si el juego no ha terminado
-    }
+    dropPotion(); // Inicia la animación de caída de la poción
 }
 
 document.addEventListener('keydown', movePlayer);
 restartButton.addEventListener('click', resetGame);
+
+// Inicializa el juego al cargar
+resetGame();

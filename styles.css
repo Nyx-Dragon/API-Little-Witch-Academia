@@ -1993,3 +1993,11 @@ p {
     background-size: cover;
     border-radius: 50%;
 }
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+    }
+    100% {
+        box-shadow: 0 0 30px rgb(247, 68, 128);
+    }
+}
