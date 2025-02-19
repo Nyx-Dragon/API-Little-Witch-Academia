@@ -910,6 +910,7 @@ nav a:hover {
     /* Amarillo mágico */
     text-shadow: 2px 2px 8px rgba(20, 29, 167, 0.8);
     margin-bottom: 20px;
+    margin-top: -20px;
 }
 .about-us p {
     font-size: 1.2rem;
@@ -1225,6 +1226,11 @@ input[type="text"] {
     animation: magic-appear 1s forwards;
 }
 
+.character-detail:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(68, 0, 255, 0.5);
+}
+
 @keyframes magic-appear {
     0% {
         transform: scale(0.5);
@@ -1236,11 +1242,6 @@ input[type="text"] {
         opacity: 1;
         filter: blur(0);
     }
-}
-
-.character-detail:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(68, 0, 255, 0.5);
 }
 
 h2 {
@@ -1805,14 +1806,6 @@ p {
     color: #666;
 }
 
-/* Fondo general con temática mágica */
-
-body {
-    font-family: "Poppins", sans-serif;
-    color: #fff;
-    text-align: center;
-}
-
 /* Estilos para el formulario */
 
 .contact-form {
@@ -1822,25 +1815,35 @@ body {
     width: 60%;
     margin: 50px auto;
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    box-sizing: border-box; /* Incluye el padding en el cálculo del tamaño */
 }
+
 .contact-form h2 {
     color: #4813d8;
     font-size: 24px;
     margin-bottom: 20px;
 }
+
 .contact-form label {
     display: block;
     margin: 10px 0;
     font-weight: bold;
 }
+
 .contact-form input,
 .contact-form textarea {
-    width: 100%;
-    padding: 10px;
+    width: 100%; /* Asegura que el input y textarea se ajusten al contenedor */
+    padding: 10px 20px; /* Espacio adicional en los laterales */
+    max-width: 100%;
     border: 2px solid #5582ff;
     border-radius: 5px;
     background: rgba(3, 157, 168, 0.8);
+    overflow-wrap: break-word; /* Rompe las palabras largas */
+    word-break: break-word;
+    direction: ltr; /* Asegura que el texto se alinee a la izquierda */
+    box-sizing: border-box; /* Asegura que el padding y borde no se salgan del contenedor */
 }
+
 .contact-form button {
     background: #0a0dda;
     color: black;
@@ -1849,6 +1852,7 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 20px;
 }
 .contact-form button:hover {
     background: #2205a5;

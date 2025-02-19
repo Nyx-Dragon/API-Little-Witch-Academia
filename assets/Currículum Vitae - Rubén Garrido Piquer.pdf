@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://127.0.0.1:5502/index.html -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Currículum Vitae - Rubén Garrido Piquer</title>
+        
+        
+    <link rel="stylesheet" href="./Currículum Vitae - Rubén Garrido Piquer_files/styles.css"><link rel="stylesheet" href="./Currículum Vitae - Rubén Garrido Piquer_files/all.min.css" crossorigin="anonymous"></head>
+    <body>
+        <div class="container">
+            <header class="header">
+                <div class="profile-pic-container">
+                    <img src="./Currículum Vitae - Rubén Garrido Piquer_files/foto perfil.jpg" alt="Foto de perfil" class="profile-pic">
+                </div>
+                <div class="header-info">
+                    <h1>Rubén Garrido Piquer</h1>
+                    <p><i class="fas fa-map-marker-alt"></i> Valencia, 46017</p>
+                    <p><i class="fas fa-phone"></i> 610 22 50 35</p>
+                    <p>
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:rubengarrido241@gmail.com">rubengarrido241@gmail.com</a>
+                    </p>
+                </div>
+                <img class="word-cloud" src="./Currículum Vitae - Rubén Garrido Piquer_files/DALL·E 2025-02-17 10.47.26 - A visually engaging word cloud representing Full Stack Web Development. Words included_ HTM.webp" alt="Nube de palabras sobre desarrollo web">
+            </header>
+
+            <section class="profile">
+                <h2><i class="fas fa-user"></i> Perfil Profesional</h2>
+                <p>
+                    Desarrollador Web Full Stack en formación, especializado en
+                    la estilización y diseño de páginas web atractivas y
+                    funcionales. Apasionado por la experiencia de usuario y el
+                    diseño responsive, con conocimientos en HTML, CSS y
+                    JavaScript.
+                </p>
+            </section>
+
+            <section class="experience">
+                <h2><i class="fas fa-briefcase"></i> Experiencia Laboral</h2>
+                <div class="info-box">
+                    <h3>Desarrollador Web</h3>
+                    <p><strong>2023 - Presente</strong></p>
+                    <ul>
+                        <li>
+                            Desarrollo y estilización de sitios web responsivos.
+                        </li>
+                        <li>
+                            Implementación de estilos avanzados y optimización
+                            de UI/UX.
+                        </li>
+                        <li>
+                            Publicación de proyectos en GitHub para ampliar mi
+                            portfolio.
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="education">
+                <h2>
+                    <i class="fas fa-graduation-cap"></i> Formación Académica
+                </h2>
+                <div class="info-box">
+                    <h3>Inserta ONCE The Bridge</h3>
+                    <p><strong>2024</strong></p>
+                    <ul>
+                        <li>
+                            Desarrollo de páginas web estáticas y dinámicas.
+                        </li>
+                        <li>
+                            Enfoque en HTML, CSS y JavaScript con prácticas en
+                            GitHub.
+                        </li>
+                    </ul>
+                </div>
+                <div class="info-box">
+                    <h3>PICE Cámara de Valencia</h3>
+                    <p><strong>2023</strong></p>
+                    <ul>
+                        <li>
+                            Creación de un CV profesional y optimización de
+                            LinkedIn.
+                        </li>
+                    </ul>
+                </div>
+                <div class="info-box">
+                    <h3>
+                        FP Grado Medio en Sistemas Microinformáticos y Redes
+                    </h3>
+                    <p><strong>2019 - 2022</strong></p>
+                    <ul>
+                        <li>
+                            Montaje de ordenadores y configuración de redes.
+                        </li>
+                        <li>
+                            Instalación y administración de sistemas operativos.
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="skills">
+                <h2><i class="fas fa-cogs"></i> Competencias y Habilidades</h2>
+                <ul>
+                    <li>
+                        <i class="fas fa-paint-brush"></i> Especialización en
+                        diseño y estilización web con CSS y frameworks.
+                    </li>
+                    <li>
+                        <i class="fab fa-js"></i> Conocimientos basicos en
+                        JavaScript para interactividad.
+                    </li>
+                    <li>
+                        <i class="fab fa-git-alt"></i> Control de versiones con
+                        Git y GitHub.
+                    </li>
+                    <li>
+                        <i class="fas fa-desktop"></i> Optimización de UI/UX
+                        para mejorar la experiencia del usuario.
+                    </li>
+                </ul>
+            </section>
+
+            <section class="languages">
+                <h2><i class="fas fa-language"></i> Idiomas</h2>
+                <ul>
+                    <li>
+                        <i class="fas fa-flag"></i>
+                        <strong>Español:</strong> Nativo
+                    </li>
+                    <li>
+                        <i class="fas fa-globe"></i>
+                        <strong>Inglés:</strong> Nivel básico en mejora
+                        continua.
+                    </li>
+                </ul>
+            </section>
+
+            <footer class="footer">
+                <p>
+                    <a href="https://www.linkedin.com/in/rub%C3%A9n-garrido-piquer/" target="_blank">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    |
+                    <a href="https://github.com/Nyx-Dragon" target="_blank">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </p>
+            </footer>
+        </div>
+    <!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+</body></html>

@@ -90,4 +90,3 @@ function startPotionFall() {
 
 document.addEventListener('keydown', movePlayer);
 restartButton.addEventListener('click', resetGame);
-
