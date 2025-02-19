@@ -1013,8 +1013,6 @@ nav a:hover {
     box-shadow: 0 12px 24px rgba(0, 17, 255, 0.4);
 }
 
-/* Efecto de "sangre" en el botón */
-
 #upload-form button::after {
     content: "";
     position: absolute;
@@ -1986,4 +1984,12 @@ p {
     background-color: #8e44ad;
     transform: scale(1.05);
     box-shadow: 0 0 20px rgba(255, 0, 255, 0.7);
+}
+#power-up {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-image: url("./assets/powerup.png"); /* Imagen del power-up */
+    background-size: cover;
+    border-radius: 50%;
 }
