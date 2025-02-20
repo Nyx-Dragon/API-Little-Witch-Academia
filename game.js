@@ -3,6 +3,15 @@ const gameContainer = document.getElementById('game-container');
 const potion = document.getElementById('potion');
 const scoreDisplay = document.getElementById('score');
 const restartButton = document.getElementById('restart-button');
+const leftButton = document.createElement('button');
+const rightButton = document.createElement('button');
+
+leftButton.textContent = '◀';
+rightButton.textContent = '▶';
+leftButton.classList.add('control-button');
+rightButton.classList.add('control-button');
+document.body.appendChild(leftButton);
+document.body.appendChild(rightButton);
 
 let playerPosition = 275;
 const playerSpeed = 20;
@@ -26,6 +35,21 @@ function movePlayer(event) {
     }
     player.style.left = `${playerPosition}px`;
 }
+
+// Movimiento táctil con botones
+leftButton.addEventListener('click', () => {
+    if (playerPosition > 0) {
+        playerPosition -= playerSpeed;
+        player.style.left = `${playerPosition}px`;
+    }
+});
+
+rightButton.addEventListener('click', () => {
+    if (playerPosition < gameContainer.clientWidth - player.clientWidth) {
+        playerPosition += playerSpeed;
+        player.style.left = `${playerPosition}px`;
+    }
+});
 
 // Comprobación de colisión precisa
 function checkCollision() {
@@ -53,7 +77,7 @@ function dropPotion() {
         score++;
         scoreDisplay.textContent = `Puntos: ${score}`;
         catchSound.play();
-        potionSpeed += 0.5; // Aumentar la velocidad de la poción
+        potionSpeed += 0.5;
         resetPotion();
     } else if (potionPosition.y > gameContainer.clientHeight) {
         endGame();
@@ -93,7 +117,7 @@ function resetGame() {
 
 // Inicia la caída de la poción
 function startPotionFall() {
-    dropPotion(); // Inicia la animación de caída de la poción
+    dropPotion();
 }
 
 document.addEventListener('keydown', movePlayer);
@@ -101,3 +125,32 @@ restartButton.addEventListener('click', resetGame);
 
 // Inicializa el juego al cargar
 resetGame();
+
+// Estilos para los botones de control
+document.head.insertAdjacentHTML('beforeend', `
+    <style>
+        .control-button {
+            position: fixed;
+            bottom: 20px;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .control-button:active {
+            background-color: #555;
+        }
+        .control-button:first-of-type {
+            left: 20px;
+        }
+        .control-button:last-of-type {
+            right: 20px;
+        }
+    </style>
+`);
