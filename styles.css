@@ -418,17 +418,18 @@ nav a:focus {
     margin: 6px;
     color: #ffffff;
     /* Color blanco para ambos botones */
-    border: 2px solid #6b0077;
 }
 .edit-btn {
     background: linear-gradient(135deg, #6a1b9a, #ab47bc);
     /* Violeta profundo y brillante */
     box-shadow: 0 4px 20px rgba(156, 39, 176, 0.6);
+    border: 2px solid #6b0077;
 }
 .delete-btn {
     background: linear-gradient(45deg, #c62828, #ff5722);
     /* Rojo suave y anaranjado vibrante */
     box-shadow: 0 0 20px rgba(255, 87, 34, 0.7);
+    border: 2px solid #fc3838;
 }
 .edit-btn:hover,
 .delete-btn:hover {
