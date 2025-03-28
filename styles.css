@@ -129,15 +129,6 @@ h1 {
     box-shadow: 0 0 15px var(--shadow-hover);
 }
 
-.character-img {
-    color: white;
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 0 10px var(--secondary-color);
-    height: auto; /* Mantiene la proporción */
-    max-height: 350px;
-    object-fit: contain; /* Evita que se recorte */
-}
 .upload-section {
     color: #8a2be2;
     /* Un morado frío */
@@ -248,7 +239,7 @@ nav a:focus {
 
 /* Media Query para pantallas muy pequeñas */
 
-@media (max-width: 300px) {
+@media (max-width: 480px) {
     .character-card {
         width: 95%; /* Más flexible en pantallas pequeñas */
         padding: 15px;
@@ -338,7 +329,9 @@ nav a:focus {
 /* Tarjetas de personajes */
 
 .character-card {
-    width: 360px;
+    width: 90%; /* Usa un porcentaje en lugar de un valor fijo */
+    max-width: 360px; /* Pero no dejes que se haga demasiado grande */
+    margin: 0 auto; /* Centrar en la pantalla */
     background-color: rgba(20, 20, 20, 0.9);
     border-radius: 15px;
     border: 2px solid var(--border-color);
@@ -359,7 +352,6 @@ nav a:focus {
     width: 100%;
     height: 350px;
     object-fit: cover;
-    /* Las imágenes cubrirán todo el espacio sin distorsionarse */
     border-radius: 10px;
     border: 2px solid var(--border-color);
     filter: brightness(0.9) contrast(1.1);
