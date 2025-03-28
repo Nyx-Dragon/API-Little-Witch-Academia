@@ -101,7 +101,9 @@ h1 {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 15px;
     padding: 20px;
-    width: 200px;
+    width: 90%; /* Usa un porcentaje en lugar de un valor fijo */
+    max-width: 360px; /* Pero no dejes que se haga demasiado grande */
+    margin: 0 auto; /* Centrar en la pantalla */
     text-align: center;
     box-shadow: 0 0 10px var(--shadow);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
@@ -132,6 +134,9 @@ h1 {
     width: 100%;
     border-radius: 10px;
     box-shadow: 0 0 10px var(--secondary-color);
+    height: auto; /* Mantiene la proporción */
+    max-height: 350px;
+    object-fit: contain; /* Evita que se recorte */
 }
 .upload-section {
     color: #8a2be2;
@@ -256,6 +261,18 @@ nav a:focus {
 /* Media Query para pantallas muy pequeñas */
 
 @media (max-width: 480px) {
+    .character-card {
+        width: 95%; /* Más flexible en pantallas pequeñas */
+        padding: 15px;
+    }
+
+    .character-name {
+        font-size: 1.4em; /* Reduce el tamaño de la fuente en móviles */
+    }
+
+    .character-description {
+        font-size: 1em;
+    }
     nav {
         bottom: 3px;
     }
@@ -392,8 +409,6 @@ nav a:focus {
 }
 
 /* Botones de edición y eliminación */
-
-/* Botones edit y delete */
 
 .edit-btn,
 .delete-btn {
