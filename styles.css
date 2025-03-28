@@ -28,6 +28,7 @@
 
 /* Estilos globales */
 
+html,
 body {
     background-image: url("./assets/estrellas\ brillando.gif");
     background-size: cover;
@@ -47,6 +48,7 @@ body {
     min-height: 100vh;
     background-color: var(--bg-color);
     overflow-x: hidden;
+    width: 100%;
 }
 
 /* Header */
@@ -329,9 +331,9 @@ nav a:focus {
 /* Tarjetas de personajes */
 
 .character-card {
-    width: 90%; /* Usa un porcentaje en lugar de un valor fijo */
-    max-width: 360px; /* Pero no dejes que se haga demasiado grande */
-    margin: 0 auto; /* Centrar en la pantalla */
+    width: 90%;
+    max-width: 360px;
+    margin: 0 auto;
     background-color: rgba(20, 20, 20, 0.9);
     border-radius: 15px;
     border: 2px solid var(--border-color);
