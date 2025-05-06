@@ -1,0 +1,30 @@
+{
+    "title": "Galería Little Witch Academia",
+    "subtitle": "Explora la magia de Luna Nova",
+    "description": "Bienvenido a la galería interactiva de Little Witch Academia. Sumérgete en el mundo de la magia con tus personajes favoritos, explora sus historias y descubre curiosidades.",
+    "featuredCharacters": [
+      {
+        "name": "Akko",
+        "image": "./assets/akko.jpg",
+        "link": "akko.html"
+      },
+      {
+        "name": "Diana",
+        "image": "./assets/Diana_Cavendish_Ragnarok.webp",
+        "link": "diana.html"
+      },
+      {
+        "name": "Shiny Chariot",
+        "image": "./assets/shiny chariot.jpg",
+        "link": "shiny.html"
+      }
+    ],
+    "navigation": [
+      { "text": "Inicio", "link": "index.html" },
+      { "text": "Personajes", "link": "characters.html" },
+      { "text": "Mini-juego", "link": "juego.html" },
+      { "text": "Sobre nosotros", "link": "about.html" },
+      { "text": "Contacto", "link": "contact.html" }
+    ]
+  }
+  

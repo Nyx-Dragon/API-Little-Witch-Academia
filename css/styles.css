@@ -30,7 +30,7 @@
 
 html,
 body {
-    background-image: url("./assets/estrellas\ brillando.gif");
+    background-image: url("../assets/estrellas\ brillando.gif");
     background-size: cover;
     /* Asegura que la imagen cubra toda la pantalla */
     background-repeat: no-repeat;
@@ -49,6 +49,7 @@ body {
     background-color: var(--bg-color);
     overflow-x: hidden;
     width: 100%;
+    z-index: 0;
 }
 
 /* Header */
@@ -1052,7 +1053,7 @@ input[type="text"] {
             rgba(0, 0, 0, 0.5),
             rgba(34, 34, 34, 0.6)
         ),
-        url("assets/brujeria-bg.jpg");
+        url(".assets/brujeria-bg.jpg");
     /* Imagen de fondo misteriosa de brujería */
     background-size: cover;
     padding: 20px;
@@ -1898,7 +1899,7 @@ p {
     height: 400px;
     position: relative;
     border: 5px solid #6a0dad; /* Morado brillante */
-    background-image: url("./assets/shiny-chariot-game.gif"); /* Imagen de fondo (ajusta la ruta) */
+    background-image: url("../assets/shiny-chariot-game.gif"); /* Imagen de fondo (ajusta la ruta) */
     background-size: cover;
     background-position: center;
     overflow: hidden;
@@ -1912,7 +1913,7 @@ p {
     position: absolute;
     bottom: 10px;
     left: 275px;
-    background-image: url("./assets/akko__little_witch_academia__.png");
+    background-image: url("../assets/akko__little_witch_academia__.png");
     background-size: cover;
     background-position: center;
     box-shadow: 0 0 15px rgba(255, 0, 255, 0.7); /* Sombra morada */
@@ -1934,7 +1935,7 @@ p {
     width: 30px;
     height: 30px;
     position: absolute;
-    background-image: url("./assets/pocion.png");
+    background-image: url("../assets/pocion.png");
     background-size: cover;
     background-position: center;
     top: 10px;
@@ -1987,7 +1988,7 @@ p {
     position: absolute;
     width: 30px;
     height: 30px;
-    background-image: url("./assets/powerup.png"); /* Imagen del power-up */
+    background-image: url("../assets/powerup.png"); /* Imagen del power-up */
     background-size: cover;
     border-radius: 50%;
 }
