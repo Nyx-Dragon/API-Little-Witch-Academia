@@ -5,18 +5,53 @@
     "featuredCharacters": [
       {
         "name": "Akko",
-        "image": "./assets/akko.jpg",
+        "image": "../assets/akko.jpg",
         "link": "akko.html"
       },
       {
+        "name": "Sucy",
+        "image": "../assets/sucy.jpg",
+        "link": "sucy.html"
+      },
+      {
+        "name": "Lotte",
+        "image": "../assets/lotte.jpg",
+        "link": "lotte.html"
+      },
+      {
+        "name": "Amanda",
+        "image": "../assets/amanda2.jpg",
+        "link": "Amanda.html"
+      },
+      {
+        "name": "Constanze",
+        "image": "../assets/Constanze_Amalie.webp",
+        "link": "constanze.html"
+      },
+      {
+        "name": "Jasminka",
+        "image": "../assets/jasminka.jpg",
+        "link": "jasminka.html"
+      },
+      {
         "name": "Diana",
-        "image": "./assets/Diana_Cavendish_Ragnarok.webp",
+        "image": "../assets/Diana_Cavendish_Ragnarok.webp",
         "link": "diana.html"
       },
       {
+        "name": "Ursula",
+        "image": "../assets/ursula.jpg",
+        "link": "ursula.html"
+      },
+      {
         "name": "Shiny Chariot",
-        "image": "./assets/shiny chariot.jpg",
+        "image": "../assets/shiny chariot.jpg",
         "link": "shiny.html"
+      },
+      {
+        "name": "Croix",
+        "image": "../assets/croix.jpg",
+        "link": "croix.html"
       }
     ],
     "navigation": [
@@ -27,4 +62,3 @@
       { "text": "Contacto", "link": "contact.html" }
     ]
   }
-  
