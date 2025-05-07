@@ -3,7 +3,7 @@
     "name": "Lotte Yansson",
     "age": 16,
     "house": "Luna Nova",
-    "image": "./assets/images/lotte.png",
+    "image": "./assets/images/Lotte.png",
     "description": "Amable, tímida y gran fan de los libros mágicos.",
     "statsFile": "lotte.json"
   }

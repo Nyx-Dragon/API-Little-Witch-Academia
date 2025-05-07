@@ -3,7 +3,7 @@
     "name": "Shiny Chariot",
     "age": 30,
     "house": "Ex-alumna de Luna Nova",
-    "image": "./assets/images/shiny.png",
+    "image": "./assets/shiny chariot.jpg",
     "description": "La legendaria bruja que inspiró a Akko.",
     "statsFile": "shiny.json"
   }
