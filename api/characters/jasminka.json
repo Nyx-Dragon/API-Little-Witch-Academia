@@ -1,0 +1,10 @@
+{
+    "id": "jasminka",
+    "name": "Jasminka Antonenko",
+    "age": 15,
+    "house": "Luna Nova",
+    "image": "./assets/images/jasminka.png",
+    "description": "Siempre está comiendo. Tranquila y de pocas palabras, pero poderosa en combate.",
+    "statsFile": "jasminka.json"
+  }
+  

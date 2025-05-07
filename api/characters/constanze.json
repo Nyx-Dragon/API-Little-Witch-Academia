@@ -1,0 +1,10 @@
+{
+    "id": "constanze",
+    "name": "Constanze Amalie Braunschbank-Albrechtsberger",
+    "age": 14,
+    "house": "Luna Nova",
+    "image": "./assets/images/constanze.png",
+    "description": "Génia de la mecánica, silenciosa y eficiente.",
+    "statsFile": "constanze.json"
+  }
+  

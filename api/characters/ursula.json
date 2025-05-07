@@ -1,0 +1,10 @@
+{
+    "id": "ursula",
+    "name": "Profesora Ursula",
+    "age": 30,
+    "house": "Luna Nova (profesora)",
+    "image": "./assets/images/ursula.png",
+    "description": "Maestra misteriosa de Akko. Guarda un gran secreto.",
+    "statsFile": "ursula.json"
+  }
+  

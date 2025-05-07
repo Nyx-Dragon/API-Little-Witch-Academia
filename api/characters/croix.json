@@ -1,0 +1,10 @@
+{
+    "id": "croix",
+    "name": "Croix Meridies",
+    "age": 35,
+    "house": "Ex-alumna de Luna Nova",
+    "image": "./assets/images/croix.png",
+    "description": "Tecnomaga brillante y ambiciosa, rival de Chariot.",
+    "statsFile": "croix.json"
+  }
+  

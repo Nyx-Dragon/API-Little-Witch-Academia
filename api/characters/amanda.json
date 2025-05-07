@@ -1,0 +1,10 @@
+{
+    "id": "amanda",
+    "name": "Amanda O'Neill",
+    "age": 17,
+    "house": "Luna Nova",
+    "image": "./assets/images/amanda.png",
+    "description": "Rebelde y ágil, experta en transformaciones mágicas.",
+    "statsFile": "amanda.json"
+  }
+  

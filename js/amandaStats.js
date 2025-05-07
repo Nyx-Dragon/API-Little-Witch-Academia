@@ -1,4 +1,4 @@
-fetch("./api/stats/akko.json")
+fetch("./api/stats/amanda.json")
   .then(res => res.json())
   .then(data => {
     const ctx = document.getElementById("statsChart").getContext("2d");
@@ -10,7 +10,7 @@ fetch("./api/stats/akko.json")
         datasets: [{
           label: data.name,
           data: data.stats,
-          backgroundColor: "rgb(255, 102, 0)",
+          backgroundColor: "rgba(255, 102, 0, 0.3)",
           borderColor: "rgba(223, 153, 61, 0.8)",
           borderWidth: 2,
           pointBackgroundColor: "rgb(151, 30, 30)",

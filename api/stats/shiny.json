@@ -1,0 +1,9 @@
+{
+    "name": "Shiny Chariot",
+    "labels": ["Poder Mágico",
+                "Determinación",
+                "Creatividad",
+                "Trabajo en equipo",
+                "Habilidades de Vuelo"],
+    "stats": [95, 20, 90, 80, 90]
+  }

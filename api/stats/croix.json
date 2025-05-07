@@ -1,0 +1,9 @@
+{
+    "name": "Croix Meridies",
+    "labels": ["Poder Mágico",
+                "Determinación",
+                "Creatividad",
+                "Trabajo en equipo",
+                "Habilidades de Vuelo"],
+    "stats": [75, 80, 90, 10, 40]
+  }

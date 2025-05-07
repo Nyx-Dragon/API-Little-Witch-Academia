@@ -1,0 +1,10 @@
+{
+    "id": "diana",
+    "name": "Diana Cavendish",
+    "age": 16,
+    "house": "Luna Nova",
+    "image": "./assets/images/diana.png",
+    "description": "Brillante, noble y disciplinada. Una de las mejores estudiantes.",
+    "statsFile": "diana.json"
+  }
+  

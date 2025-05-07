@@ -1,0 +1,10 @@
+{
+    "id": "sucy",
+    "name": "Sucy Manbavaran",
+    "age": 16,
+    "house": "Luna Nova",
+    "image": "./assets/images/sucy.png",
+    "description": "Amante de las pociones y los hongos, con humor sarcástico.",
+    "statsFile": "sucy.json"
+  }
+  
