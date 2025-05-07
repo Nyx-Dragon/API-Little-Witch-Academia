@@ -4,42 +4,42 @@
     "description": "Bienvenido a la galería interactiva de Little Witch Academia. Sumérgete en el mundo de la magia con tus personajes favoritos, explora sus historias y descubre curiosidades.",
     "featuredCharacters": [
       {
-        "name": "Akko",
+        "name": "Atsuko",
         "image": "../assets/akko.jpg",
         "link": "akko.html"
       },
       {
-        "name": "Sucy",
+        "name": "Sucy Manbavaran",
         "image": "../assets/sucy.jpg",
         "link": "sucy.html"
       },
       {
-        "name": "Lotte",
+        "name": "Lotte Yansson",
         "image": "../assets/lotte.jpg",
         "link": "lotte.html"
       },
       {
-        "name": "Amanda",
+        "name": "Amanda O'Neill",
         "image": "../assets/amanda2.jpg",
         "link": "Amanda.html"
       },
       {
-        "name": "Constanze",
+        "name": "Constanze Amalie",
         "image": "../assets/Constanze_Amalie.webp",
         "link": "constanze.html"
       },
       {
-        "name": "Jasminka",
-        "image": "../assets/jasminka.jpg",
+        "name": "Jasminka Antonenko",
+        "image": "../assets/jasminca.jpg",
         "link": "jasminka.html"
       },
       {
-        "name": "Diana",
+        "name": "Diana Cavendish",
         "image": "../assets/Diana_Cavendish_Ragnarok.webp",
         "link": "diana.html"
       },
       {
-        "name": "Ursula",
+        "name": "Ursula Callistis",
         "image": "../assets/ursula.jpg",
         "link": "ursula.html"
       },
@@ -49,7 +49,7 @@
         "link": "shiny.html"
       },
       {
-        "name": "Croix",
+        "name": "Croix Meridies",
         "image": "../assets/croix.jpg",
         "link": "croix.html"
       }

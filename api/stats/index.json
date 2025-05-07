@@ -1,0 +1,28 @@
+[
+    {
+      "id": "akko",
+      "name": "Akko Kagari",
+      "statsUrl": "./akko.json"
+    },
+    {
+      "id": "sucy",
+      "name": "Sucy Manbavaran",
+      "statsUrl": "./sucy.json"
+    },
+    {
+      "id": "lotte",
+      "name": "Lotte Jansson",
+      "statsUrl": "./lotte.json"
+    },
+    {
+        "id": "lotte",
+        "name": "Lotte Jansson",
+        "statsUrl": "./lotte.json"
+    },
+    {
+        "id": "lotte",
+        "name": "Lotte Jansson",
+        "statsUrl": "./lotte.json"
+    }
+  ]
+  
