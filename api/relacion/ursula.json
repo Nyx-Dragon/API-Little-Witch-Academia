@@ -1,0 +1,16 @@
+{
+    "id": "ursula",
+    "relations": [
+      {
+        "target": "akko",
+        "type": "mentora",
+        "description": "Guía a Akko en su camino como bruja."
+      },
+      {
+        "target": "croix",
+        "type": "antigua amiga",
+        "description": "Relación complicada marcada por el pasado compartido."
+      }
+    ]
+  }
+  

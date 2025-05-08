@@ -1,7 +1,7 @@
 fetch("./api/stats/akko.json")
   .then(res => res.json())
   .then(data => {
-    const ctx = document.getElementById("statsChart").getContext("2d");
+    const ctx = document.getElementById("myChart").getContext("2d");
 
     new Chart(ctx, {
       type: "radar",
@@ -23,11 +23,14 @@ fetch("./api/stats/akko.json")
       },
       options: {
         responsive: true,
-        maintainAspectRatio: true,
+        maintainAspectRatio: false,
         scales: {
           r: {
             beginAtZero: true,
+            min: 0,
             max: 100,
+            suggestedMin: 0,
+            suggestedMax: 100,
             angleLines: { color: "rgba(173, 216, 230, 0.5)" },
             grid: { color: "rgba(255, 255, 255, 0.3)" },
             ticks: { display: false },

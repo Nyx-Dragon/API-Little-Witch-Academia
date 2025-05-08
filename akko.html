@@ -12,22 +12,9 @@
     <body>
         <div class="css_lab">
             <div class="witch">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
             </div>
         </div>
+
         <header class="header">
             <div>
                 <img
@@ -43,6 +30,7 @@
             </div>
             <h1>Atsuko Kagari</h1>
         </header>
+
         <main>
             <div class="character-container">
                 <img
@@ -51,58 +39,45 @@
                     alt="Akko"
                 />
             </div>
+
             <h2>Información General</h2>
             <p>
-                Atsuko "Akko" Kagari es la protagonista de *Little Witch
-                Academia*. Es una joven que, inspirada por la bruja de cine
-                favorito de su infancia, Shiny Chariot, decide inscribirse en la
-                Academia Luna Nova para convertirse en una gran bruja. Aunque
-                Akko carece de talento mágico natural y enfrenta muchos desafíos
-                en su viaje, su energía inagotable, determinación y actitud
-                positiva la ayudan a superar las dificultades. Akko siempre se
-                esfuerza al máximo y no duda en seguir sus sueños, incluso si a
-                veces se siente fuera de lugar. A lo largo de su historia,
-                demuestra ser una persona leal, generosa y siempre lista para
-                defender lo que cree.
+                Atsuko "Akko" Kagari es la protagonista de
+                <em>Little Witch Academia</em>. [...]
             </p>
+
             <h2>Características</h2>
             <ul>
                 <li><b>Nombre:</b> Atsuko "Akko" Kagari</li>
                 <li><b>Edad:</b> 16 años</li>
                 <li>
-                    <b>Apariencia:</b> Akko tiene cabello largo y castaño
-                    oscuro, generalmente atado en dos coletas, ojos grandes de
-                    color marrón, y una sonrisa contagiante.
+                    <b>Apariencia:</b> Akko tiene cabello largo y castaño oscuro
+                    [...]
                 </li>
                 <li>
                     <b>Habilidad mágica:</b> Akko no tiene grandes talentos
-                    mágicos naturales, pero tiene una gran voluntad para
-                    aprender y mejorar constantemente.
+                    mágicos [...]
                 </li>
                 <li>
-                    <b>Personalidad:</b> Akko es entusiasta, optimista, y a
-                    veces impulsiva, pero siempre busca hacer el bien y lograr
-                    sus objetivos a pesar de las dificultades.
+                    <b>Personalidad:</b> Akko es entusiasta, optimista [...]
                 </li>
             </ul>
 
             <h2>Estadísticas de Akko</h2>
-            <canvas id="statsChart"></canvas>
+            <canvas id="myChart" width="400" height="400"></canvas>
 
             <h2>Relaciones</h2>
-            <p>
-                Akko tiene una serie de relaciones clave a lo largo de la serie,
-                siendo sus principales amigos y aliados Lotte y Sucy, quienes,
-                aunque a menudo se muestran escépticas ante su entusiasmo, están
-                siempre a su lado. También mantiene una relación de admiración
-                hacia Shiny Chariot, la bruja que inspiró su sueño de
-                convertirse en una gran bruja, y con los miembros del
-                profesorado en la Academia Luna Nova.
-            </p>
+            <div id="relacionesContainer"></div>
+            </form>
         </main>
+
         <footer class="footer">
             <a href="index.html">Volver a la Galería</a>
         </footer>
-        <script src="./js/akkoStats.js"></script>
+
+        <script type="module" src="./js/relacionesTemplate.js"></script>
+        <script type="module" src="./js/relacionesLoader.js"></script>
+        <script type="module" src="./js/main.js"></script>
+        <script src="./js/characters.js"></script>
     </body>
 </html>

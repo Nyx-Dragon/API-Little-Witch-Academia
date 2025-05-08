@@ -15,14 +15,39 @@
       "statsUrl": "./lotte.json"
     },
     {
-        "id": "lotte",
-        "name": "Lotte Jansson",
-        "statsUrl": "./lotte.json"
+        "id": "amanda",
+        "name": "Amanda O'Neill",
+        "statsUrl": "./amanda.json"
     },
     {
-        "id": "lotte",
-        "name": "Lotte Jansson",
-        "statsUrl": "./lotte.json"
+        "id": "constanze",
+        "name": "Constanze Amalie",
+        "statsUrl": "./constanze.json"
+    },
+    {
+        "id": "jasminka",
+        "name": "Jasminka Antonenko",
+        "statsUrl": "./jasminka.json"
+    },
+    {
+        "id": "diana",
+        "name": "Diana Cavendish",
+        "statsUrl": "./diana.json"
+    },
+    {
+        "id": "shiny",
+        "name": "Shiny Chariot",
+        "statsUrl": "./shiny.json"
+    },
+    {
+        "id": "ursula",
+        "name": "Ursula Callistis",
+        "statsUrl": "./ursula.json"
+    },
+    {
+        "id": "croix",
+        "name": "Croix Meridies",
+        "statsUrl": "./croix.json"
     }
   ]
   

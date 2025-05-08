@@ -1,0 +1,16 @@
+{
+    "id": "diana",
+    "relations": [
+      {
+        "target": "akko",
+        "type": "rival",
+        "description": "Competencia constante que evoluciona hacia el respeto mutuo."
+      },
+      {
+        "target": "lotte",
+        "type": "compañera",
+        "description": "Comparte con Lotte el interés por la historia mágica."
+      }
+    ]
+  }
+  

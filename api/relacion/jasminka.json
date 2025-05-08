@@ -1,0 +1,16 @@
+{
+    "id": "jasminka",
+    "relations": [
+      {
+        "target": "amanda",
+        "type": "amiga",
+        "description": "Comparten momentos de ocio y comidas."
+      },
+      {
+        "target": "constanze",
+        "type": "curiosidad",
+        "description": "Interesada en las invenciones de Constanze."
+      }
+    ]
+  }
+  

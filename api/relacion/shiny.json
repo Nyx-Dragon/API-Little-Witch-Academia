@@ -1,0 +1,16 @@
+{
+    "id": "shiny",
+    "relations": [
+      {
+        "target": "akko",
+        "type": "inspiración",
+        "description": "Akko la idolatra desde su infancia."
+      },
+      {
+        "target": "croix",
+        "type": "antigua amiga",
+        "description": "Relación deteriorada por diferencias en el uso de la magia."
+      }
+    ]
+  }
+  

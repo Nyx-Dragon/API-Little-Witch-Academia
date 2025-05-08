@@ -1,0 +1,16 @@
+{
+    "id": "constanze",
+    "relations": [
+      {
+        "target": "amanda",
+        "type": "compañera de equipo",
+        "description": "Aprovecha la agilidad de Amanda para probar sus invenciones."
+      },
+      {
+        "target": "akko",
+        "type": "aliada",
+        "description": "Aunque reservada, respeta la determinación de Akko."
+      }
+    ]
+  }
+  

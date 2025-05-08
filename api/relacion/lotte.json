@@ -1,0 +1,21 @@
+{
+    "id": "lotte",
+    "relations": [
+      {
+        "target": "akko",
+        "type": "mejor amiga",
+        "description": "Apoya incondicionalmente a Akko en sus aventuras."
+      },
+      {
+        "target": "sucy",
+        "type": "compañera de cuarto",
+        "description": "Convive pacíficamente con Sucy a pesar de sus diferencias."
+      },
+      {
+        "target": "ursula",
+        "type": "respeto",
+        "description": "Admira a la profesora Ursula por su sabiduría."
+      }
+    ]
+  }
+  

@@ -1,0 +1,16 @@
+{
+    "id": "sucy",
+    "relations": [
+      {
+        "target": "akko",
+        "type": "compañera de cuarto",
+        "description": "Disfruta haciendo bromas a Akko con sus pociones."
+      },
+      {
+        "target": "lotte",
+        "type": "compañera de cuarto",
+        "description": "Relación tranquila basada en el respeto mutuo."
+      }
+    ]
+  }
+  

@@ -1,0 +1,16 @@
+{
+    "id": "croix",
+    "relations": [
+      {
+        "target": "shiny",
+        "type": "rival",
+        "description": "Antigua amiga convertida en rival por diferencias ideológicas."
+      },
+      {
+        "target": "akko",
+        "type": "manipulada",
+        "description": "Intentó utilizar a Akko para sus propios fines."
+      }
+    ]
+  }
+  

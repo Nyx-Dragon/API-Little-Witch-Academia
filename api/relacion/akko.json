@@ -1,0 +1,31 @@
+{
+    "id": "akko",
+    "relations": [
+      {
+        "target": "sucy",
+        "type": "compañera de equipo",
+        "description": "Comparte habitación con Sucy, a menudo se asusta por sus experimentos."
+      },
+      {
+        "target": "lotte",
+        "type": "compañera de equipo",
+        "description": "Muy buena amiga de Lotte, comparten muchas aventuras."
+      },
+      {
+        "target": "diana",
+        "type": "rival",
+        "description": "Rival mágica, aunque se respetan profundamente."
+      },
+      {
+        "target": "shiny",
+        "type": "idol",
+        "description": "Akko admira profundamente a Shiny Chariot, su inspiración para ser bruja."
+      },
+      {
+        "target": "ursula",
+        "type": "mentor",
+        "description": "Su profesora y mentora, que guarda un secreto importante."
+      }
+    ]
+  }
+  

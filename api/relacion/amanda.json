@@ -1,0 +1,21 @@
+{
+    "id": "amanda",
+    "relations": [
+      {
+        "target": "constanze",
+        "type": "compañera de equipo",
+        "description": "Colaboran en misiones que requieren agilidad y tecnología."
+      },
+      {
+        "target": "jasminka",
+        "type": "amiga",
+        "description": "Disfrutan juntas de las comidas y las travesuras."
+      },
+      {
+        "target": "akko",
+        "type": "aliada",
+        "description": "Comparte con Akko el deseo de romper las reglas establecidas."
+      }
+    ]
+  }
+  
