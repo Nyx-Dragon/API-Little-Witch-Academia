@@ -3,18 +3,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const filename = window.location.pathname.split("/").pop();
     const personaje = filename.replace(".html", "").toLowerCase();
 
+    // Cargar estadísticas
     fetch(`./api/stats/${personaje}.json`)
-    .then(res => res.json())
-    .then(data => {
-        const stats = {};
-        data.labels.forEach((label, i) => {
-            stats[label] = data.stats[i];
+        .then(res => res.json())
+        .then(data => {
+            const stats = {};
+            data.labels.forEach((label, i) => {
+                stats[label] = data.stats[i];
+            });
+            renderizarGrafico(stats);
         });
-        renderizarGrafico(stats);
-    });
 
-
-    // Cargar relaciones (archivo JSON)
+    // Cargar relaciones
     fetch(`./api/relacion/${personaje}.json`)
         .then(res => res.json())
         .then(data => mostrarRelaciones(data.relations));
@@ -38,16 +38,32 @@ function renderizarGrafico(stats) {
         },
         options: {
             responsive: true,
+            maintainAspectRatio: true,
             scales: {
-                r: {
-                    beginAtZero: true,
-                    max: 10
+              r: {
+                beginAtZero: true,
+                max: 100,
+                angleLines: { color: "rgba(173, 216, 230, 0.5)" },
+                grid: { color: "rgba(255, 255, 255, 0.3)" },
+                ticks: { display: false },
+                pointLabels: {
+                  color: "#FFD700",
+                  font: { size: 16, weight: "bold", family: "cursive" }
                 }
+              }
+            },
+            plugins: {
+              legend: {
+                labels: {
+                  color: "#E6E6FA",
+                  font: { size: 18, style: "italic" }
+                }
+              }
             }
-        }
-    });
-}
-
+          }
+        });
+      };
+    
 // Función para mostrar relaciones
 function mostrarRelaciones(relaciones) {
     const contenedor = document.getElementById('relacionesContainer');
@@ -55,9 +71,9 @@ function mostrarRelaciones(relaciones) {
         const div = document.createElement('div');
         div.classList.add('relacion');
         div.innerHTML = `
-            <h3>${relacion.nombre}</h3>
-            <p><b>Relación:</b> ${relacion.tipo}</p>
-            <p>${relacion.descripcion}</p>
+            <h3>${relacion.target}</h3>
+            <p><b>Relación:</b> ${relacion.type}</p>
+            <p>${relacion.description}</p>
         `;
         contenedor.appendChild(div);
     });

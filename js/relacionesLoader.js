@@ -1,15 +1,33 @@
+// relacionesLoader.js
 import { crearRelacionHTML } from "./relacionesTemplate.js";
-console.log(crearRelacionHTML);
-export function mostrarRelacionesDesdeAPI(url) {
-  fetch(url)
-    .then(res => res.json())
-    .then(data => {
-      const container = document.getElementById("relacionesContainer");
-      container.innerHTML = "";
 
-      data.relations.forEach(rel => {
-        container.innerHTML += crearRelacionHTML(rel);
+console.log("relacionesLoader cargado");
+
+fetch("./api/relacion/akko.json")
+  .then((res) => res.json())
+  .then((relaciones) => {
+    console.log("Datos de relaciones:", relaciones);
+
+    if (relaciones.relations && Array.isArray(relaciones.relations)) {
+        const container = document.getElementById("relacionesContainer");
+        if (!container) {
+          console.error("No se encontró el contenedor de relaciones");
+          return;
+        }
+
+      relaciones.relations.forEach((relacion) => {
+        console.log("Procesando relación:", relacion); 
+        
+        const html = crearRelacionHTML(relacion);
+        
+        const div = document.createElement("div");
+        div.innerHTML = html; 
+        container.appendChild(div.firstChild);
       });
-    })
-    .catch(err => console.error("Error al cargar relaciones:", err));
-}
+    } else {
+      console.error("Las relaciones no están en el formato esperado.");
+    }
+  })
+  .catch((error) => {
+    console.error("Error al cargar las relaciones:", error);
+  });

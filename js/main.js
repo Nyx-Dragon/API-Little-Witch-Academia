@@ -77,9 +77,3 @@ document.getElementById("upload-form").addEventListener("submit", function(event
         alert("Por favor, completa todos los campos.");
     }
 });
-import { mostrarRelacionesDesdeAPI } from "./relacionesLoader.js";
-
-document.addEventListener("DOMContentLoaded", function () {
-    // Llama al loader una vez el DOM esté cargado
-    mostrarRelacionesDesdeAPI("./akko.json");
-});
