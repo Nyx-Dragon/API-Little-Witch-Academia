@@ -24,10 +24,15 @@ document.addEventListener("DOMContentLoaded", function () {
 function getColorForPersonaje(personaje) {
   const colores = {
       akko: ["rgba(255, 99, 132, 0.2)", "rgba(255, 99, 132, 1)"],
-      diana: ["rgba(54, 162, 235, 0.2)", "rgba(54, 162, 235, 1)"],
       sucy: ["rgba(153, 102, 255, 0.2)", "rgba(153, 102, 255, 1)"],
       lotte: ["rgba(255, 206, 86, 0.2)", "rgba(255, 206, 86, 1)"],
-      // Añade más personajes aquí
+      diana: ["rgba(54, 162, 235, 0.2)", "rgba(54, 162, 235, 1)"],
+      constanze: ["rgba(255, 105, 180, 0.2)", "rgb(105, 255, 168)"],
+      jasminka: ["rgba(255, 69, 0, 0.2)", "rgba(255, 69, 0, 1)"],
+      amanda: ["rgba(210, 105, 30, 0.2)", "rgb(255, 115, 0)"],
+      ursula: ["rgba(210, 105, 30, 0.2)", "rgb(22, 41, 124)"],
+      shiny: ["rgba(255, 99, 71, 0.2)", "rgba(255, 99, 71, 1)"],
+      croix: ["rgba(100, 100, 255, 0.2)", "rgba(100, 100, 255, 1)"]
   };
 
   return colores[personaje] || ["rgba(200, 200, 200, 0.2)", "rgba(200, 200, 200, 1)"];
