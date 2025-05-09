@@ -53,8 +53,8 @@
       },
       {
         "name": "Shiny Chariot",
-        "image": "../assets/shiny-chariot.jpg",
-        "link": "../html/shiny.html",
+        "image": "/assets/shiny-chariot.jpg",
+        "link": "/html/shiny.html",
         "file": "shiny.json"
       },
       {
