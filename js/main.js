@@ -1,8 +1,8 @@
-// Delegación de eventos para los botones de edición y eliminación
 document.addEventListener("DOMContentLoaded", function () {
     const container = document.querySelector(".character-container");
 
-    container.addEventListener("click", function(event) {
+    // Delegación de eventos para los botones de edición y eliminación
+    container.addEventListener("click", function (event) {
         const card = event.target.closest(".character-card");
         if (!card) return;
 
@@ -13,66 +13,116 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Inicializa música al cargar
+    // Inicializa los controles de música
     initMusicControls();
 });
 
+// Función para inicializar los controles de música
 function initMusicControls() {
-    const audio = document.getElementById("background-music");
     const playButton = document.getElementById("play-music");
     const volumeControl = document.getElementById("volume-control");
+    const audio = document.getElementById("background-music");
 
-    if (audio) {
-        playButton.addEventListener("click", function () {
-            if (audio.paused) {
-                audio.play().catch(error => console.error("Error al reproducir música:", error));
-                audio.loop = true;
-                playButton.textContent = "Pausar";
-            } else {
-                audio.pause();
-                audio.loop = false;
-                playButton.textContent = "Reproducir";
-            }
-        });
+    // Reproducir música al hacer clic en el botón
+    playButton.addEventListener("click", function () {
+        if (audio.paused) {
+            audio.play();
+            playButton.textContent = "Pausar";
+        } else {
+            audio.pause();
+            playButton.textContent = "Reproducir";
+        }
+    });
 
-        volumeControl.addEventListener("input", function () {
-            audio.volume = volumeControl.value;
-        });
+    // Controlar el volumen
+    volumeControl.addEventListener("input", function () {
+        audio.volume = volumeControl.value;
+    });
+}
+
+// Función para manejar el clic en el botón de editar
+function handleEditButtonClick(card) {
+    const characterName = card.querySelector(".character-name").textContent;
+    const characterRole = card.querySelector(".character-description").textContent;
+
+    const newName = prompt("Editar nombre del personaje", characterName);
+    if (newName) {
+        card.querySelector(".character-name").textContent = newName;
+    }
+
+    const newRole = prompt("Editar rol del personaje", characterRole);
+    if (newRole) {
+        card.querySelector(".character-description").textContent = newRole;
     }
 }
 
-document.getElementById("upload-form").addEventListener("submit", function(event) {
+// Función para manejar el clic en el botón de eliminar
+function handleDeleteButtonClick(card) {
+    if (confirm("¿Estás seguro de que quieres eliminar este personaje?")) {
+        card.remove();
+    }
+}
+
+// Función para manejar la subida de imágenes de personajes
+document.getElementById("upload-form").addEventListener("submit", function (event) {
     event.preventDefault();
 
-    const imageFile = document.getElementById("image-upload").files[0];
-    const characterName = document.getElementById("character-name").value;
-    const characterRole = document.getElementById("character-role").value;
+    const imageInput = document.getElementById("image-upload");
+    const nameInput = document.getElementById("character-name");
+    const roleInput = document.getElementById("character-role");
+
+    const imageFile = imageInput.files[0];
+    const characterName = nameInput.value.trim();
+    const characterRole = roleInput.value.trim();
 
     if (imageFile && characterName && characterRole) {
-        if (!imageFile.type.startsWith("image/")) {
-            alert("Por favor, selecciona un archivo de imagen válido.");
-            return;
-        }
-
-        const imageUrl = URL.createObjectURL(imageFile);
+        // Crear un nuevo contenedor de personaje
         const newCard = document.createElement("div");
         newCard.classList.add("character-card");
 
-        newCard.innerHTML = `
-            <a href="#">
-                <img class="character-img" src="${imageUrl}" alt="${characterName}" loading="lazy" />
-            </a>
-            <h2 class="character-name">${characterName}</h2>
-            <p class="character-description">${characterRole}</p>
-            <div class="buttons">
-                <button class="edit-btn"><i class="fa fa-pencil"></i> Editar</button>
-                <button class="delete-btn"><i class="fa fa-trash"></i> Borrar</button>
-            </div>
-        `;
+        // Agregar imagen
+        const newImage = document.createElement("img");
+        newImage.classList.add("character-img");
+        newImage.src = URL.createObjectURL(imageFile);
+        newImage.alt = characterName;
 
+        // Agregar nombre y rol
+        const newName = document.createElement("h2");
+        newName.classList.add("character-name");
+        newName.textContent = characterName;
+
+        const newRole = document.createElement("p");
+        newRole.classList.add("character-description");
+        newRole.textContent = characterRole;
+
+        // Agregar botones de editar y eliminar
+        const buttonsDiv = document.createElement("div");
+        buttonsDiv.classList.add("buttons");
+
+        const editButton = document.createElement("button");
+        editButton.classList.add("edit-btn");
+        editButton.innerHTML = '<i class="fa fa-pencil"></i> Editar';
+
+        const deleteButton = document.createElement("button");
+        deleteButton.classList.add("delete-btn");
+        deleteButton.innerHTML = '<i class="fa fa-trash"></i> Borrar';
+
+        buttonsDiv.appendChild(editButton);
+        buttonsDiv.appendChild(deleteButton);
+
+        // Agregar elementos al nuevo contenedor
+        newCard.appendChild(newImage);
+        newCard.appendChild(newName);
+        newCard.appendChild(newRole);
+        newCard.appendChild(buttonsDiv);
+
+        // Agregar el nuevo personaje a la galería
         document.querySelector(".character-container").appendChild(newCard);
-        document.getElementById("upload-form").reset();
-        initButtonHandling();
+
+        // Limpiar formulario
+        imageInput.value = "";
+        nameInput.value = "";
+        roleInput.value = "";
     } else {
         alert("Por favor, completa todos los campos.");
     }
