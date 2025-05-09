@@ -3,9 +3,9 @@
     "name": "Amanda O'Neill",
     "age": 17,
     "house": "Luna Nova",
-    "image": "./assets/images/amanda2.png",
+    "image": "/assets/amanda-oniell.jpg",
     "description": "Rebelde y ágil, experta en transformaciones mágicas.",
-    "statsFile": "./stats/amanda.json",
-    "relacionFile": "./relacion/amanda.json"
+    "statsFile": "/stats/amanda.json",
+    "relacionFile": "/relacion/amanda.json"
   }
   

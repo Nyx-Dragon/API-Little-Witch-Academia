@@ -5,62 +5,62 @@
     "featuredCharacters": [
       {
         "name": "Atsuko Kagari",
-        "image": "../assets/akko.jpg",
-        "link": "../html/akko.html",
+        "image": "/assets/atsuko-kagari.jpg",
+        "link": "/html/akko.html",
         "file": "akko.json"
       },
       {
         "name": "Sucy Manbavaran",
-        "image": "../assets/sucy.jpg",
-        "link": "../html/sucy.html",
+        "image": "/assets/sucy-manbavaran.jpg",
+        "link": "/html/sucy.html",
         "file": "sucy.json"
       },
       {
         "name": "Lotte Yansson",
-        "image": "../assets/lotte.jpg",
-        "link": "../html/lotte.html",
+        "image": "/assets/lotte-yansson.jpg",
+        "link": "/html/lotte.html",
         "file": "lotte.json"
       },
       {
         "name": "Amanda O'Neill",
-        "image": "../assets/amanda2.jpg",
-        "link": "../html/amanda.html",
+        "image": "/assets/amanda-oniell.jpg",
+        "link": "/html/amanda.html",
         "file": "amanda.json"
       },
       {
         "name": "Constanze Amalie",
-        "image": "../assets/Constanze_Amalie.webp",
-        "link": "../html/constanze.html",
+        "image": "/assets/constanze-amalie.jpg",
+        "link": "/html/constanze.html",
         "file": "constanze.json"
       },
       {
         "name": "Jasminka Antonenko",
-        "image": "../assets/jasminca.jpg",
-        "link": "../html/jasminka.html",
+        "image": "/assets/jasminka-antonenko.jpg",
+        "link": "/html/jasminka.html",
         "file": "jasminka.json"
       },
       {
         "name": "Diana Cavendish",
-        "image": "../assets/Diana_Cavendish_Ragnarok.webp",
-        "link": "../html/diana.html",
+        "image": "/assets/diana-cavendish.jpg",
+        "link": "/html/diana.html",
         "file": "diana.json"
       },
       {
         "name": "Ursula Callistis",
-        "image": "../assets/ursula.jpg",
-        "link": "../html/ursula.html",
+        "image": "/assets/ursula-callistis.jpg",
+        "link": "/html/ursula.html",
         "file": "ursula.json"
       },
       {
         "name": "Shiny Chariot",
-        "image": "../assets/shiny chariot.jpg",
+        "image": "../assets/shiny-chariot.jpg",
         "link": "../html/shiny.html",
         "file": "shiny.json"
       },
       {
         "name": "Croix Meridies",
-        "image": "../assets/croix.jpg",
-        "link": "../html/croix.html",
+        "image": "/assets/croix-meridies.jpg",
+        "link": "/html/croix.html",
         "file": "croix.json"
       }
     ],

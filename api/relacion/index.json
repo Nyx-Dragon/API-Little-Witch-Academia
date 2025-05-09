@@ -1,0 +1,47 @@
+[
+  {
+    "id": "akko",
+    "name": "Atsuko Kagari",
+    "file": "akko.json"
+  },
+  {
+    "id": "sucy",
+    "name": "Sucy Manbavaran",
+    "file": "sucy.json"
+  },
+  {
+    "id": "lotte",
+    "name": "Lotte Yansson",
+    "file": "lotte.json"
+  },
+  {
+    "id": "amanda",
+    "name": "Amanda O'Neill",
+    "file": "amanda.json"
+  },
+  {
+    "id": "constanze",
+    "name": "Constanze Amalie",
+    "file": "amanda.json"
+  },
+  {
+    "id": "jasminka",
+    "name": "Jasminka Antonenko",
+    "file": "amanda.json"
+  },
+  {
+    "id": "diana",
+    "name": "Diana Cavendish",
+    "file": "diana.json"
+  },
+  {
+    "id": "shiny",
+    "name": "Shiny Chariot",
+    "file": "shiny.json"
+  },
+  {
+    "id": "ursula",
+    "name": "Profesora Ursula",
+    "file": "api/relacion/ursula.json"
+  }
+]
