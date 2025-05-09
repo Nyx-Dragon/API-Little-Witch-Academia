@@ -91,7 +91,24 @@ li {
     text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.4); /* Sombra mística */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
+#general-informacion {
+    margin-bottom: 12px;
+    background: linear-gradient(
+        145deg,
+        rgba(60, 60, 255, 0.8),
+        rgba(150, 0, 255, 0.9)
+    );
+    padding: 12px;
+    border-radius: 8px;
+    color: #f1f1f1;
+    font-weight: bold;
+    text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.4); /* Sombra mística */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#general-informacion:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 12px rgba(60, 60, 255, 0.7), 0 0 15px rgba(150, 0, 255, 0.6);
+}
 li:hover {
     transform: scale(1.05);
     box-shadow: 0 0 12px rgba(60, 60, 255, 0.7), 0 0 15px rgba(150, 0, 255, 0.6);
@@ -137,4 +154,11 @@ a:hover {
 .footer-links a:hover {
     color: var(--link-hover);
     text-shadow: 0 0 10px var(--link-hover);
+}
+.relacion-link {
+    pointer-events: auto;
+}
+a {
+    position: relative;
+    z-index: 2;
 }
