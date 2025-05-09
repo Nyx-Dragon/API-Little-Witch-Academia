@@ -2,52 +2,52 @@
     {
       "id": "akko",
       "name": "Akko Kagari",
-      "statsUrl": "./akko.json"
+      "statsUrl": "akko.json"
     },
     {
       "id": "sucy",
       "name": "Sucy Manbavaran",
-      "statsUrl": "./sucy.json"
+      "statsUrl": "sucy.json"
     },
     {
       "id": "lotte",
       "name": "Lotte Jansson",
-      "statsUrl": "./lotte.json"
+      "statsUrl": "lotte.json"
     },
     {
         "id": "amanda",
         "name": "Amanda O'Neill",
-        "statsUrl": "./amanda.json"
+        "statsUrl": "amanda.json"
     },
     {
         "id": "constanze",
         "name": "Constanze Amalie",
-        "statsUrl": "./constanze.json"
+        "statsUrl": "constanze.json"
     },
     {
         "id": "jasminka",
         "name": "Jasminka Antonenko",
-        "statsUrl": "./jasminka.json"
+        "statsUrl": "jasminka.json"
     },
     {
         "id": "diana",
         "name": "Diana Cavendish",
-        "statsUrl": "./diana.json"
+        "statsUrl": "diana.json"
     },
     {
         "id": "shiny",
         "name": "Shiny Chariot",
-        "statsUrl": "./shiny.json"
+        "statsUrl": "shiny.json"
     },
     {
         "id": "ursula",
         "name": "Ursula Callistis",
-        "statsUrl": "./ursula.json"
+        "statsUrl": "ursula.json"
     },
     {
         "id": "croix",
         "name": "Croix Meridies",
-        "statsUrl": "./croix.json"
+        "statsUrl": "croix.json"
     }
   ]
   
