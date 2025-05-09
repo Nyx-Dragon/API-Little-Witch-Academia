@@ -1,7 +1,7 @@
 # 🧙‍♀️ Little Witch Academia API
 
 ¡Bienvenido a la API de **Little Witch Academia**!  
-Esta API RESTful proporciona información sobre los personajes y todas sus relaciones con el resto de las brujas, descrpcion,niveles de poder y elementos mágicos del universo de _Little Witch Academia_.
+Esta API RESTful proporciona información sobre los personajes y todas sus relaciones con el resto de las brujas, descrpcion, niveles de poder y elementos mágicos del universo de _Little Witch Academia_.
 
 🌐 **Demo**: [https://api-little-witch-academia.onrender.com](https://api-little-witch-academia.onrender.com)
 
@@ -9,7 +9,7 @@ Esta API RESTful proporciona información sobre los personajes y todas sus relac
 
 ## ✨ Características
 
--   Listado de personajes con detalles como nombre, edad, descrpcion, relacion y mas.
+-   Listado de personajes con detalles como nombre, edad, descrpcion, relacion, hechizos y mas.
 -   API RESTful con endpoints bien organizados.
 -   Soporte para CORS (ideal para integraciones con frontend).
 
