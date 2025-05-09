@@ -97,7 +97,7 @@ function mostrarRelaciones(relaciones) {
   });
 }
   document.addEventListener('DOMContentLoaded', () => {
-    fetch('https://galeria-imagenes-little-witch-academia.onrender.com/api/characters/index.json')
+    fetch('https://api-little-witch-academia.onrender.com/api/characters/index.json')
     .then(res => res.json())
     .then(data => {
       console.log('Personajes destacados:', data.featuredCharacters);
