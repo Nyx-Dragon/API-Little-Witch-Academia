@@ -1,0 +1,156 @@
+{
+  "spells": [
+    {
+      "name": "Nullification Spell",
+      "incantation": "アインアインソフ アインソフオウル ルーナラーナ",
+      "pronunciation": "Ain'ainsofu Ainsofuouru Rūnarāna",
+      "type": "Offensive",
+      "effect": "Temporarily nullifies other spells or magic directed towards the target.",
+      "episode": "The Enchanted Parade"
+    },
+    {
+      "name": "Explosion Spell",
+      "incantation": "ディフラニアード",
+      "pronunciation": "Difuraniādo",
+      "type": "Offensive",
+      "effect": "Generates a powerful explosion of energy at the point of impact.",
+      "episode": "Wagandea"
+    },
+    {
+      "name": "Energy Serpent Spell",
+      "incantation": "エーグウィル",
+      "pronunciation": "Ēguu~iru",
+      "type": "Offensive",
+      "effect": "Creates an energy serpent that attacks enemies.",
+      "episode": "Intelligence and Sensibility"
+    },
+    {
+      "name": "Magical Barrier Spell",
+      "incantation": "フォーレンムーグローナ",
+      "pronunciation": "Fōrenmūgurōna",
+      "type": "Defensive",
+      "effect": "Generates a magical barrier that protects against attacks.",
+      "episode": "Intelligence and Sensibility"
+    },
+    {
+      "name": "Plant Restoration Spell",
+      "incantation": "ルペリアル ラ",
+      "pronunciation": "Ruperiaru Ra",
+      "type": "Restoration",
+      "effect": "Restores the vitality of plants.",
+      "episode": "Intelligence and Sensibility"
+    },
+    {
+      "name": "Flight Spell",
+      "incantation": "ルーニャ",
+      "pronunciation": "Rūnya",
+      "type": "Flight",
+      "effect": "Allows the user to fly.",
+      "episode": "A New Beginning"
+    },
+    {
+      "name": "Clothing Transformation Spell",
+      "incantation": "アモルフィエ ヴェステッセ",
+      "pronunciation": "Amorufie Vesutesse",
+      "type": "Transformation",
+      "effect": "Transforms the user's clothing into another outfit.",
+      "episode": "A New Beginning"
+    },
+    {
+      "name": "Pappiliodya Spell",
+      "incantation": "パピリオディア",
+      "pronunciation": "Papiriodia",
+      "type": "Offensive",
+      "effect": "Summons a swarm of butterflies that confuse the enemy.",
+      "episode": "Pappiliodya"
+    },
+    {
+      "name": "Wand-Weapon Fusion Spell",
+      "incantation": "アーム・アーム・アーム",
+      "pronunciation": "Āmu Āmu Āmu",
+      "type": "Fusion",
+      "effect": "Fuses the wand with a weapon to enhance its power.",
+      "episode": "The Enchanted Parade"
+    },
+    {
+      "name": "Dragon Summoning Spell",
+      "incantation": "ドラゴン・スパーク",
+      "pronunciation": "Doragon Supāku",
+      "type": "Summoning",
+      "effect": "Summons a dragon of energy to attack enemies.",
+      "episode": "Luna Nova and the White Dragon"
+    },
+    {
+      "name": "Fire Barrier Spell",
+      "incantation": "ファイア・バリア",
+      "pronunciation": "Faia Baria",
+      "type": "Defensive",
+      "effect": "Creates a fire barrier that protects against attacks.",
+      "episode": "Don't Stop Me Now"
+    },
+    {
+      "name": "Plant Control Spell",
+      "incantation": "プランツ・コントロール",
+      "pronunciation": "Purantsu Kontorōru",
+      "type": "Control",
+      "effect": "Controls the growth and movement of plants.",
+      "episode": "Intelligence and Sensibility"
+    },
+    {
+      "name": "Spirit Summoning Spell",
+      "incantation": "スピリット・サモン",
+      "pronunciation": "Supiritto Samon",
+      "type": "Summoning",
+      "effect": "Summons a spirit to assist the user.",
+      "episode": "Luna Nova and the White Dragon"
+    },
+    {
+      "name": "Object Transformation Spell",
+      "incantation": "トランスフォーム",
+      "pronunciation": "Toransufōmu",
+      "type": "Transformation",
+      "effect": "Transforms an object into another one.",
+      "episode": "A New Beginning"
+    },
+    {
+      "name": "Time Control Spell",
+      "incantation": "タイム・コントロール",
+      "pronunciation": "Taimu Kontorōru",
+      "type": "Time",
+      "effect": "Allows the user to slow down or speed up time.",
+      "episode": "Night Fall"
+    },
+    {
+      "name": "Monster Summoning Spell",
+      "incantation": "モンスター・サモン",
+      "pronunciation": "Monsutā Samon",
+      "type": "Summoning",
+      "effect": "Summons a monster to fight for the user.",
+      "episode": "The Enchanted Parade"
+    },
+    {
+      "name": "Invisibility Spell",
+      "incantation": "インビジビリティ",
+      "pronunciation": "Inbijibiriti",
+      "type": "Invisibility",
+      "effect": "Makes the user invisible.",
+      "episode": "Don't Stop Me Now"
+    },
+    {
+      "name": "Teleportation Spell",
+      "incantation": "テレポート",
+      "pronunciation": "Terepōto",
+      "type": "Movement",
+      "effect": "Allows the user to teleport to another location.",
+      "episode": "Night Fall"
+    },
+    {
+      "name": "Gravity Control Spell",
+      "incantation": "グラビティ・コントロール",
+      "pronunciation": "Gurabiti Kontorōru",
+      "type": "Control",
+      "effect": "Allows the user to manipulate gravity in their surroundings.",
+      "episode": "Luna Nova and the White Dragon"
+    }
+  ]
+}
