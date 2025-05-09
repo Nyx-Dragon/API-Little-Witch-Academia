@@ -5,6 +5,7 @@
     "house": "Luna Nova",
     "image": "./assets/images/Lotte.png",
     "description": "Amable, tímida y gran fan de los libros mágicos.",
-    "statsFile": "lotte.json"
+    "statsFile": "./stats/lotte.json",
+    "relacionFile": "./relacion/lotte.json"
   }
   

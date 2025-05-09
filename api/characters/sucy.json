@@ -5,6 +5,7 @@
     "house": "Luna Nova",
     "image": "./assets/images/sucy.png",
     "description": "Amante de las pociones y los hongos, con humor sarcástico.",
-    "statsFile": "sucy.json"
+    "statsFile": "./stats/sucy.json",
+    "relacionFile": "./relacion/sucy.json"
   }
   

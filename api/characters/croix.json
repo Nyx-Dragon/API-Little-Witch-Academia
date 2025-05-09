@@ -5,6 +5,7 @@
     "house": "Ex-alumna de Luna Nova",
     "image": "./assets/images/croix.png",
     "description": "Tecnomaga brillante y ambiciosa, rival de Chariot.",
-    "statsFile": "croix.json"
+    "statsFile": "./stats/croix.json",
+    "relacionFile": "./relacion/croix.json"
   }
   

@@ -3,8 +3,9 @@
     "name": "Atsuko Kagari",
     "age": 16,
     "house": "Luna Nova",
-    "image": "./assets/images/akko.png",
+    "image": "../assets/images/akko.png",
     "description": "Una joven entusiasta que quiere ser como Shiny Chariot. Aunque no tiene antecedentes mágicos, tiene una gran determinación.",
-    "statsFile": "akko.json"
+    "statsFile": "./stats/akko.json",
+    "relacionFile": "./relacion/akko.json"
   }
   

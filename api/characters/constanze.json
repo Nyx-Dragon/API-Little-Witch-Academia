@@ -5,6 +5,7 @@
     "house": "Luna Nova",
     "image": "./assets/Constanze_Amalie.webp",
     "description": "Génia de la mecánica, silenciosa y eficiente.",
-    "statsFile": "constanze.json"
+    "statsFile": "./stats/constanze.json",
+    "relacionFile": "./relacion/constanze.json"
   }
   

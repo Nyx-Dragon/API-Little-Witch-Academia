@@ -5,6 +5,7 @@
     "house": "Luna Nova",
     "image": "./assets/images/amanda2.png",
     "description": "Rebelde y ágil, experta en transformaciones mágicas.",
-    "statsFile": "amanda.json"
+    "statsFile": "./stats/amanda.json",
+    "relacionFile": "./relacion/amanda.json"
   }
   

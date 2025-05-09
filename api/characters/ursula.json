@@ -5,6 +5,7 @@
     "house": "Luna Nova (profesora)",
     "image": "./assets/images/ursula.png",
     "description": "Maestra misteriosa de Akko. Guarda un gran secreto.",
-    "statsFile": "ursula.json"
+    "statsFile": "./stats/ursula.json",
+    "relacionFile": "./relacion/ursula.json"
   }
   

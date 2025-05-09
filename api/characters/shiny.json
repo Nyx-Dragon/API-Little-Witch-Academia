@@ -5,6 +5,7 @@
     "house": "Ex-alumna de Luna Nova",
     "image": "./assets/shiny chariot.jpg",
     "description": "La legendaria bruja que inspiró a Akko.",
-    "statsFile": "shiny.json"
+    "statsFile": "./stats/shiny.json",
+    "relacionFile": "./relacion/shiny.json"
   }
   

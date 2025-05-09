@@ -5,6 +5,7 @@
     "house": "Luna Nova",
     "image": "./assets/Diana_Cavendish_Ragnarok.webp",
     "description": "Brillante, noble y disciplinada. Una de las mejores estudiantes.",
-    "statsFile": "diana.json"
+    "statsFile": "./stats/diana.json",
+    "relacionFile": "./relacion/diana.json"
   }
   
