@@ -4,54 +4,64 @@
     "description": "Bienvenido a la galería interactiva de Little Witch Academia. Sumérgete en el mundo de la magia con tus personajes favoritos, explora sus historias y descubre curiosidades.",
     "featuredCharacters": [
       {
-        "name": "Atsuko",
+        "name": "Atsuko Kagari",
         "image": "../assets/akko.jpg",
-        "link": "akko.html"
+        "link": "../html/akko.html",
+        "file": "akko.json"
       },
       {
         "name": "Sucy Manbavaran",
         "image": "../assets/sucy.jpg",
-        "link": "sucy.html"
+        "link": "../html/sucy.html",
+        "file": "sucy.json"
       },
       {
         "name": "Lotte Yansson",
         "image": "../assets/lotte.jpg",
-        "link": "lotte.html"
+        "link": "../html/lotte.html",
+        "file": "lotte.json"
       },
       {
         "name": "Amanda O'Neill",
         "image": "../assets/amanda2.jpg",
-        "link": "Amanda.html"
+        "link": "../html/amanda.html",
+        "file": "amanda.json"
       },
       {
         "name": "Constanze Amalie",
         "image": "../assets/Constanze_Amalie.webp",
-        "link": "constanze.html"
+        "link": "../html/constanze.html",
+        "file": "constanze.json"
       },
       {
         "name": "Jasminka Antonenko",
         "image": "../assets/jasminca.jpg",
-        "link": "jasminka.html"
+        "link": "../html/jasminka.html",
+        "file": "jasminka.json"
       },
       {
         "name": "Diana Cavendish",
         "image": "../assets/Diana_Cavendish_Ragnarok.webp",
-        "link": "diana.html"
+        "link": "../html/diana.html",
+        "file": "diana.json"
       },
       {
         "name": "Ursula Callistis",
         "image": "../assets/ursula.jpg",
-        "link": "ursula.html"
+        "link": "../html/ursula.html",
+        "file": "ursula.json"
       },
       {
         "name": "Shiny Chariot",
         "image": "../assets/shiny chariot.jpg",
-        "link": "shiny.html"
+        "link": "../html/shiny.html",
+        "file": "shiny.json"
       },
       {
         "name": "Croix Meridies",
         "image": "../assets/croix.jpg",
-        "link": "croix.html"
+        "link": "../html/croix.html",
+        "file": "croix.json"
       }
     ],
     "navigation": [
