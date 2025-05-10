@@ -2138,3 +2138,25 @@ h3 {
     color: #3a005c;
     font-weight: bold;
 }
+
+.power-levels {
+    display: flex;
+    gap: 20px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.power-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 150px;
+    text-align: center;
+}
+
+.power-item strong {
+    margin-bottom: 6px;
+    color: #5a007a;
+    font-family: "Cinzel Decorative", cursive;
+}
