@@ -2079,19 +2079,62 @@ h3 {
 }
 
 .spell {
-    background: white;
-    border: 1px solid #ccc;
-    border-left: 5px solid #7a5dca;
-    padding: 15px;
-    margin-bottom: 20px;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #a782ec 0%, #84ffc9 100%);
+    border: 2px solid #d3bfff;
+    border-left: 6px solid #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 0 15px rgba(135, 92, 255, 0.5),
+        0 0 8px rgba(255, 255, 255, 0.3);
+    color: #2b044d;
+    font-family: "Cinzel Decorative", cursive;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
 }
+
+.spell:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(165, 100, 255, 0.8),
+        0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+.spell::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.2) 0%,
+        transparent 70%
+    );
+    animation: sparkle 3s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes sparkle {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 .spell img {
-    max-width: 300px;
-    display: block;
-    margin: 10px 0;
+    max-width: 100%;
+    border-radius: 8px;
+    margin: 12px 0;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
 }
+
 .spell strong {
     display: inline-block;
-    width: 130px;
+    width: 140px;
+    color: #3a005c;
+    font-weight: bold;
 }
