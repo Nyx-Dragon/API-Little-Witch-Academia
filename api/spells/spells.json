@@ -1,156 +1,164 @@
 {
   "spells": [
     {
-      "name": "Nullification Spell",
+      "name": "Hechizo de Anulación",
       "incantation": "アインアインソフ アインソフオウル ルーナラーナ",
       "pronunciation": "Ain'ainsofu Ainsofuouru Rūnarāna",
-      "type": "Offensive",
-      "effect": "Temporarily nullifies other spells or magic directed towards the target.",
-      "episode": "The Enchanted Parade"
+      "type": "Ofensivo",
+      "effect": "Anula temporalmente otros hechizos o magia dirigidos hacia el objetivo.",
+      "episode": "El Desfile Encantado"
     },
     {
-      "name": "Explosion Spell",
+      "name": "Hechizo de Explosión",
       "incantation": "ディフラニアード",
       "pronunciation": "Difuraniādo",
-      "type": "Offensive",
-      "effect": "Generates a powerful explosion of energy at the point of impact.",
+      "type": "Ofensivo",
+      "effect": "Genera una poderosa explosión de energía en el punto de impacto.",
       "episode": "Wagandea"
     },
     {
-      "name": "Energy Serpent Spell",
+      "name": "Hechizo de Serpiente de Energía",
       "incantation": "エーグウィル",
       "pronunciation": "Ēguu~iru",
-      "type": "Offensive",
-      "effect": "Creates an energy serpent that attacks enemies.",
-      "episode": "Intelligence and Sensibility"
+      "type": "Ofensivo",
+      "effect": "Crea una serpiente de energía que ataca a los enemigos.",
+      "episode": "Inteligencia y Sensibilidad"
     },
     {
-      "name": "Magical Barrier Spell",
+      "name": "Hechizo de Barrera Mágica",
       "incantation": "フォーレンムーグローナ",
       "pronunciation": "Fōrenmūgurōna",
-      "type": "Defensive",
-      "effect": "Generates a magical barrier that protects against attacks.",
-      "episode": "Intelligence and Sensibility"
+      "type": "Defensivo",
+      "effect": "Genera una barrera mágica que protege contra ataques.",
+      "episode": "Inteligencia y Sensibilidad"
     },
     {
-      "name": "Plant Restoration Spell",
+      "name": "Hechizo de Restauración Vegetal",
       "incantation": "ルペリアル ラ",
       "pronunciation": "Ruperiaru Ra",
-      "type": "Restoration",
-      "effect": "Restores the vitality of plants.",
-      "episode": "Intelligence and Sensibility"
+      "type": "Restauración",
+      "effect": "Restaura la vitalidad de las plantas.",
+      "episode": "Inteligencia y Sensibilidad"
     },
     {
-      "name": "Flight Spell",
+      "name": "Vuelo en Escoba",
+      "incantation": "ティアル フレレ",
+      "pronunciation": "Tear Flele",
+      "type": "Vuelo",
+      "effect": "Permite volar con la escoba.",
+      "episode": "Un Nuevo Comienzo"
+    },
+    {
+      "name": "Hechizo de Vuelo",
       "incantation": "ルーニャ",
       "pronunciation": "Rūnya",
-      "type": "Flight",
-      "effect": "Allows the user to fly.",
-      "episode": "A New Beginning"
+      "type": "Vuelo",
+      "effect": "Permite al usuario volar.",
+      "episode": "Un Nuevo Comienzo"
     },
     {
-      "name": "Clothing Transformation Spell",
+      "name": "Hechizo de Transformación de Ropa",
       "incantation": "アモルフィエ ヴェステッセ",
       "pronunciation": "Amorufie Vesutesse",
-      "type": "Transformation",
-      "effect": "Transforms the user's clothing into another outfit.",
-      "episode": "A New Beginning"
+      "type": "Transformación",
+      "effect": "Transforma la ropa del usuario en otro atuendo.",
+      "episode": "Un Nuevo Comienzo"
     },
     {
-      "name": "Pappiliodya Spell",
+      "name": "Hechizo Pappiliodya",
       "incantation": "パピリオディア",
       "pronunciation": "Papiriodia",
-      "type": "Offensive",
-      "effect": "Summons a swarm of butterflies that confuse the enemy.",
+      "type": "Ofensivo",
+      "effect": "Invoca un enjambre de mariposas que confunden al enemigo.",
       "episode": "Pappiliodya"
     },
     {
-      "name": "Wand-Weapon Fusion Spell",
+      "name": "Hechizo de Fusión de Varita y Arma",
       "incantation": "アーム・アーム・アーム",
       "pronunciation": "Āmu Āmu Āmu",
-      "type": "Fusion",
-      "effect": "Fuses the wand with a weapon to enhance its power.",
-      "episode": "The Enchanted Parade"
+      "type": "Fusión",
+      "effect": "Fusiona la varita con un arma para aumentar su poder.",
+      "episode": "El Desfile Encantado"
     },
     {
-      "name": "Dragon Summoning Spell",
+      "name": "Hechizo de Invocación de Dragón",
       "incantation": "ドラゴン・スパーク",
       "pronunciation": "Doragon Supāku",
-      "type": "Summoning",
-      "effect": "Summons a dragon of energy to attack enemies.",
-      "episode": "Luna Nova and the White Dragon"
+      "type": "Invocación",
+      "effect": "Invoca un dragón de energía que ataca a los enemigos.",
+      "episode": "Luna Nova y el Dragón Blanco"
     },
     {
-      "name": "Fire Barrier Spell",
+      "name": "Hechizo de Barrera de Fuego",
       "incantation": "ファイア・バリア",
       "pronunciation": "Faia Baria",
-      "type": "Defensive",
-      "effect": "Creates a fire barrier that protects against attacks.",
-      "episode": "Don't Stop Me Now"
+      "type": "Defensivo",
+      "effect": "Crea una barrera de fuego que protege contra ataques.",
+      "episode": "No Me Detengas Ahora"
     },
     {
-      "name": "Plant Control Spell",
+      "name": "Hechizo de Control Vegetal",
       "incantation": "プランツ・コントロール",
       "pronunciation": "Purantsu Kontorōru",
       "type": "Control",
-      "effect": "Controls the growth and movement of plants.",
-      "episode": "Intelligence and Sensibility"
+      "effect": "Controla el crecimiento y movimiento de las plantas.",
+      "episode": "Inteligencia y Sensibilidad"
     },
     {
-      "name": "Spirit Summoning Spell",
+      "name": "Hechizo de Invocación Espiritual",
       "incantation": "スピリット・サモン",
       "pronunciation": "Supiritto Samon",
-      "type": "Summoning",
-      "effect": "Summons a spirit to assist the user.",
-      "episode": "Luna Nova and the White Dragon"
+      "type": "Invocación",
+      "effect": "Invoca un espíritu para ayudar al usuario.",
+      "episode": "Luna Nova y el Dragón Blanco"
     },
     {
-      "name": "Object Transformation Spell",
+      "name": "Hechizo de Transformación de Objeto",
       "incantation": "トランスフォーム",
       "pronunciation": "Toransufōmu",
-      "type": "Transformation",
-      "effect": "Transforms an object into another one.",
-      "episode": "A New Beginning"
+      "type": "Transformación",
+      "effect": "Transforma un objeto en otro.",
+      "episode": "Un Nuevo Comienzo"
     },
     {
-      "name": "Time Control Spell",
+      "name": "Hechizo de Control del Tiempo",
       "incantation": "タイム・コントロール",
       "pronunciation": "Taimu Kontorōru",
-      "type": "Time",
-      "effect": "Allows the user to slow down or speed up time.",
-      "episode": "Night Fall"
+      "type": "Tiempo",
+      "effect": "Permite al usuario ralentizar o acelerar el tiempo.",
+      "episode": "Noche de Caída"
     },
     {
-      "name": "Monster Summoning Spell",
+      "name": "Hechizo de Invocación de Monstruo",
       "incantation": "モンスター・サモン",
       "pronunciation": "Monsutā Samon",
-      "type": "Summoning",
-      "effect": "Summons a monster to fight for the user.",
-      "episode": "The Enchanted Parade"
+      "type": "Invocación",
+      "effect": "Invoca un monstruo para luchar por el usuario.",
+      "episode": "El Desfile Encantado"
     },
     {
-      "name": "Invisibility Spell",
+      "name": "Hechizo de Invisibilidad",
       "incantation": "インビジビリティ",
       "pronunciation": "Inbijibiriti",
-      "type": "Invisibility",
-      "effect": "Makes the user invisible.",
-      "episode": "Don't Stop Me Now"
+      "type": "Invisibilidad",
+      "effect": "Vuelve invisible al usuario.",
+      "episode": "No Me Detengas Ahora"
     },
     {
-      "name": "Teleportation Spell",
+      "name": "Hechizo de Teletransportación",
       "incantation": "テレポート",
       "pronunciation": "Terepōto",
-      "type": "Movement",
-      "effect": "Allows the user to teleport to another location.",
-      "episode": "Night Fall"
+      "type": "Movimiento",
+      "effect": "Permite al usuario teletransportarse a otra ubicación.",
+      "episode": "Noche de Caída"
     },
     {
-      "name": "Gravity Control Spell",
+      "name": "Hechizo de Control de Gravedad",
       "incantation": "グラビティ・コントロール",
       "pronunciation": "Gurabiti Kontorōru",
       "type": "Control",
-      "effect": "Allows the user to manipulate gravity in their surroundings.",
-      "episode": "Luna Nova and the White Dragon"
+      "effect": "Permite al usuario manipular la gravedad en su entorno.",
+      "episode": "Luna Nova y el Dragón Blanco"
     }
   ]
 }
