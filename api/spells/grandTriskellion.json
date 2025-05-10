@@ -5,7 +5,7 @@
       "incantation": "Noctu Orfei Aude Fraetor",
       "meaning": "Esfuérzate por tu lugar ideal",
       "effect": "Transforma la Claiomh Solais en un arco capaz de abrir portales a través de las líneas ley y destruir monstruos con una flecha certera.",
-      "episode": "A New Beginning",
+      "episode": "Un Nuevo Comienzo",
       "gif": "assets/Noctu_Orfei_Aude_Fraetor.webp"
     },
     {
@@ -13,7 +13,7 @@
       "incantation": "Phaedoari Afelgorr",
       "meaning": "No obtienes lo que sueñas, obtienes lo que trabajas",
       "effect": "Convierte la Claiomh Solais en un hacha gigante que permite ataques frontales poderosos.",
-      "episode": "The Road to Arcturus",
+      "episode": "El Camino a Arcturus",
       "gif": "assets/Phaedoari_Afelgorr.webp"
     },
     {
@@ -21,7 +21,7 @@
       "incantation": "Arae Aryrha",
       "meaning": "No te compares con los demás, haz lo que solo tú puedes hacer",
       "effect": "Transforma la Claiomh Solais en un gancho de agarre que permite sujetar y mover objetos grandes.",
-      "episode": "The Road to Arcturus",
+      "episode": "El Camino a Arcturus",
       "gif": "assets/Arae_Aryrha.webp"
     },
     {
@@ -29,7 +29,7 @@
       "incantation": "Mayinab Dyssivyrdd",
       "meaning": "Para lograrlo, la paciencia es importante",
       "effect": "Convierte la Claiomh Solais en un rociador que mezcla y dispersa líquidos rápidamente.",
-      "episode": "Intelligence and Sensibility",
+      "episode": "Inteligencia y Sensibilidad",
       "gif":"assets/Mayinab_Dyssivyrdd.webp"
     },
     {
@@ -37,7 +37,7 @@
       "incantation": "Civilladura Lelladebura",
       "meaning": "Cuando lo tradicional y lo moderno se mezclan, se abre la puerta a un mundo invisible",
       "effect": "Transforma la Claiomh Solais en una escoba mágica de gran velocidad.",
-      "episode": "Intelligence and Sensibility",
+      "episode": "Inteligencia y Sensibilidad",
       "gif": "assets/Civilladura_Lelladebura.webp"
     },
     {
@@ -45,7 +45,7 @@
       "incantation": "Llyonne",
       "meaning": "Gracias",
       "effect": "Libera un hechizo curativo poderoso.",
-      "episode": "Intelligence and Sensibility",
+      "episode": "Inteligencia y Sensibilidad",
       "gif": "assets/Llyonne.webp"
     },
     {
@@ -53,7 +53,7 @@
       "incantation": "Fasannciel Shearila",
       "meaning": "Conéctate con otras personas, y tus sueños crecerán",
       "effect": "La Claiomh Solais se fusiona con el Grand Triskellion, formando una cruz dorada capaz de usar magia que altera el mundo y mejora las transformaciones anteriores.",
-      "episode": "The Road to Arcturus",
+      "episode": "El Camino a Arcturus",
       "gif": "assets/Fasannciel_Shearila.webp"
     }
   ]
