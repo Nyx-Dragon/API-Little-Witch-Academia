@@ -2176,3 +2176,7 @@ h3 {
     color: #5a007a;
     font-family: "Cinzel Decorative", cursive;
 }
+
+.titulo-principal {
+    text-align: center;
+}
