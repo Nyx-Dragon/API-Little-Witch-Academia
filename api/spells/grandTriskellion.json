@@ -7,7 +7,13 @@
       "meaning": "Esfuérzate por tu lugar ideal",
       "effect": "Transforma la Claiomh Solais en un arco capaz de abrir portales a través de las líneas ley y destruir monstruos con una flecha certera.",
       "episode": "Un Nuevo Comienzo",
-      "gif": "assets/Noctu_Orfei_Aude_Fraetor.webp"
+      "visuals": {
+        "powerLevel": {
+          "Normal (Portal ver.)": "assets/Noctu_Orfei_Aude_Fraetor.webp",
+          "Overpowered": "assets/Ultimate_Shiny_Arc.webp",
+          "Final": "assets/Final_Shiny_Arc.webp"
+        }
+      }
     },
     {
       "name": "Segunda Palabra",
@@ -16,7 +22,9 @@
       "meaning": "No obtienes lo que sueñas, obtienes lo que trabajas",
       "effect": "Convierte la Claiomh Solais en un hacha gigante que permite ataques frontales poderosos.",
       "episode": "El Camino a Arcturus",
-      "gif": "assets/Phaidoari_Afairynghor.webp"
+      "visuals": {
+        "gif": "assets/Phaidoari_Afairynghor.webp"
+      }
     },
     {
       "name": "Tercera Palabra",
@@ -25,7 +33,12 @@
       "meaning": "No te compares con los demás, haz lo que solo tú puedes hacer",
       "effect": "Transforma la Claiomh Solais en un gancho de agarre que permite sujetar y mover objetos grandes.",
       "episode": "El Camino a Arcturus",
-      "gif": "assets/Arae_Aryrha.webp"
+      "visuals": {
+        "powerLevel": {
+          "Grappling Hook Ver.": "assets/Arae_Aryrha.webp",
+          "Metamorphosis": "assets/Ultimate_Shiny_Arc.webp"
+        }
+      }
     },
     {
       "name": "Cuarta Palabra",
@@ -34,7 +47,9 @@
       "meaning": "Para lograrlo, la paciencia es importante",
       "effect": "Convierte la Claiomh Solais en un rociador que mezcla y dispersa líquidos rápidamente.",
       "episode": "Inteligencia y Sensibilidad",
-      "gif":"assets/Mayenab_Dysheebudo.webp"
+      "visuals": {
+        "gif": "assets/Mayenab_Dysheebudo.webp"
+      }
     },
     {
       "name": "Quinta Palabra",
@@ -43,7 +58,12 @@
       "meaning": "Cuando lo tradicional y lo moderno se mezclan, se abre la puerta a un mundo invisible",
       "effect": "Transforma la Claiomh Solais en una escoba mágica de gran velocidad.",
       "episode": "Inteligencia y Sensibilidad",
-      "gif": "assets/Sybilladura_Lelladybura.webp"
+      "visuals": {
+        "powerLevel": {
+          "Grappling Hook Ver.": "assets/Sybilladura_Lelladybura.webp",
+          "Metamorphosis": "assets/Sybilladura_Lelladybura_Multi_Stage_Broom.webp"
+        }
+      }
     },
     {
       "name": "Sexta Palabra",
@@ -52,7 +72,9 @@
       "meaning": "Gracias",
       "effect": "Libera un hechizo curativo poderoso.",
       "episode": "Inteligencia y Sensibilidad",
-      "gif": "assets/Lyonne.webp"
+      "visuals": {
+        "gif": "assets/Lyonne.webp"
+      }
     },
     {
       "name": "Séptima Palabra",
@@ -61,7 +83,9 @@
       "meaning": "Conéctate con otras personas, y tus sueños crecerán",
       "effect": "La Claiomh Solais se fusiona con el Grand Triskellion, formando una cruz dorada capaz de usar magia que altera el mundo y mejora las transformaciones anteriores.",
       "episode": "El Camino a Arcturus",
-      "gif": "assets/Phasansheer_Shearylla.webp"
+      "visuals": {
+        "gif": "assets/Phasansheer_Shearylla.webp"
+      }
     }
   ]
 }
