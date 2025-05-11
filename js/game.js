@@ -23,8 +23,8 @@ let potionAnimationFrame;
 let timer = 60;
 let level = 1;
 let timerInterval;
-const catchSound = new Audio('audio/catch.mp3');
-const gameOverSound = new Audio('audio/gameover.wav');
+const catchSound = new Audio('../audio/catch.mp3');
+const gameOverSound = new Audio('../audio/gameover.wav');
 
 // Mueve al personaje con las teclas
 function movePlayer(event) {

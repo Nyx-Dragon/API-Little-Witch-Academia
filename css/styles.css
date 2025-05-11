@@ -933,7 +933,9 @@ nav a:hover {
 
 #upload-form {
     margin-top: 20px;
-    background: linear-gradient(135deg, #8441ff, #5a2bc2);
+    background: url("../assets/LWA.jpg"),
+        linear-gradient(135deg, #8441ff, #5a2bc2);
+    background-size: cover;
     display: inline-block;
     padding: 30px;
     border-radius: 20px;
@@ -1053,9 +1055,10 @@ input[type="text"] {
             rgba(0, 0, 0, 0.5),
             rgba(34, 34, 34, 0.6)
         ),
-        url(".assets/brujeria-bg.jpg");
-    /* Imagen de fondo misteriosa de brujería */
+        url("../assets/Shiny_Rod.jpg");
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 15px rgba(138, 43, 226, 0.8);
