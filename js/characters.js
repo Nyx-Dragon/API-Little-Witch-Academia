@@ -102,11 +102,11 @@ function mostrarRelaciones(relaciones) {
   });
 }
   document.addEventListener('DOMContentLoaded', () => {
-    fetch('https://api-little-witch-academia.onrender.com/api/characters/index.json')
-    .then(res => res.json())
-    .then(data => {
-      console.log('Personajes destacados:', data.featuredCharacters);
-    })
-    .catch(err => console.error('Error al cargar personajes:', err));
+fetch('https://cors-anywhere.herokuapp.com/https://api-little-witch-academia.onrender.com/api/characters/index.json')
+  .then(res => res.json())
+  .then(data => {
+    console.log('Personajes destacados:', data.featuredCharacters);
+  })
+  .catch(err => console.error('Error al cargar personajes:', err));
   });
   

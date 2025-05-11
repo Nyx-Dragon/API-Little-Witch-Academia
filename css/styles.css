@@ -506,7 +506,7 @@ nav a:focus {
 
 a {
     color: rgb(49, 9, 114);
-    text-decoration: none;
+    text-decoration: underline;
 }
 a:hover {
     color: rgb(13, 128, 194);
@@ -2209,4 +2209,12 @@ h3 {
 }
 .titulo-principal {
     text-align: center;
+}
+
+.cors-warning {
+    color: #856404;
+    padding: 1em;
+    margin-top: 1.5em;
+    border-radius: 8px;
+    font-size: 0.95rem;
 }
