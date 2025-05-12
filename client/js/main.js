@@ -127,3 +127,35 @@ document.getElementById("upload-form").addEventListener("submit", function (even
         alert("Por favor, completa todos los campos.");
     }
 });
+import { fetchCharacters } from './api/apiService.js';
+
+document.addEventListener('DOMContentLoaded', async () => {
+  try {
+    const data = await fetchCharacters();
+    console.log('Personajes destacados:', data.featuredCharacters);
+    
+    // Renderiza los personajes en tu UI
+    renderFeaturedCharacters(data.featuredCharacters);
+  } catch (error) {
+    console.error('Error:', error);
+    showErrorToUser('No se pudieron cargar los personajes. Intenta más tarde.');
+  }
+});
+
+function renderFeaturedCharacters(characters) {
+  const container = document.getElementById('characters-container');
+  if (!container) return;
+  
+  container.innerHTML = characters.map(char => `
+    <div class="character-card">
+      <img src="${char.image}" alt="${char.name}">
+      <h3>${char.name}</h3>
+      <p>${char.description}</p>
+    </div>
+  `).join('');
+}
+
+function showErrorToUser(message) {
+  const errorContainer = document.getElementById('error-container') || document.body;
+  errorContainer.innerHTML = `<div class="error-message">${message}</div>`;
+}

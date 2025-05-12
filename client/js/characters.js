@@ -110,3 +110,25 @@ function mostrarRelaciones(relaciones) {
   .catch(err => console.error('Error al cargar personajes:', err));
   });
   
+  // Example fetch code in your frontend
+async function fetchSectionData(section) {
+  try {
+    const response = await fetch(`/api/${section}`);
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    const contentType = response.headers.get('content-type');
+    if (!contentType || !contentType.includes('application/json')) {
+      throw new Error("Response wasn't JSON");
+    }
+    
+    return await response.json();
+  } catch (error) {
+    console.error('Error loading section data:', error);
+    // Handle error in your UI
+    displayErrorMessage(`Failed to load ${section} data: ${error.message}`);
+    return null;
+  }
+}
