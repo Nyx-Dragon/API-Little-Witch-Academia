@@ -1,15 +1,15 @@
-const player = document.getElementById('player');
-const gameContainer = document.getElementById('game-container');
-const potion = document.getElementById('potion');
-const scoreDisplay = document.getElementById('score');
-const restartButton = document.getElementById('restart-button');
-const leftButton = document.createElement('button');
-const rightButton = document.createElement('button');
+const player = document.getElementById("player");
+const gameContainer = document.getElementById("game-container");
+const potion = document.getElementById("potion");
+const scoreDisplay = document.getElementById("score");
+const restartButton = document.getElementById("restart-button");
+const leftButton = document.createElement("button");
+const rightButton = document.createElement("button");
 
-leftButton.textContent = '◀';
-rightButton.textContent = '▶';
-leftButton.classList.add('control-button');
-rightButton.classList.add('control-button');
+leftButton.textContent = "◀";
+rightButton.textContent = "▶";
+leftButton.classList.add("control-button");
+rightButton.classList.add("control-button");
 document.body.appendChild(leftButton);
 document.body.appendChild(rightButton);
 
@@ -23,28 +23,31 @@ let potionAnimationFrame;
 let timer = 60;
 let level = 1;
 let timerInterval;
-const catchSound = new Audio('../audio/catch.mp3');
-const gameOverSound = new Audio('../audio/gameover.wav');
+const catchSound = new Audio("../audio/catch.mp3");
+const gameOverSound = new Audio("../audio/gameover.wav");
 
 // Mueve al personaje con las teclas
 function movePlayer(event) {
-    if (event.key === 'ArrowLeft' && playerPosition > 0) {
+    if (event.key === "ArrowLeft" && playerPosition > 0) {
         playerPosition -= playerSpeed;
-    } else if (event.key === 'ArrowRight' && playerPosition < gameContainer.clientWidth - player.clientWidth) {
+    } else if (
+        event.key === "ArrowRight" &&
+        playerPosition < gameContainer.clientWidth - player.clientWidth
+    ) {
         playerPosition += playerSpeed;
     }
     player.style.left = `${playerPosition}px`;
 }
 
 // Movimiento táctil con botones
-leftButton.addEventListener('click', () => {
+leftButton.addEventListener("click", () => {
     if (playerPosition > 0) {
         playerPosition -= playerSpeed;
         player.style.left = `${playerPosition}px`;
     }
 });
 
-rightButton.addEventListener('click', () => {
+rightButton.addEventListener("click", () => {
     if (playerPosition < gameContainer.clientWidth - player.clientWidth) {
         playerPosition += playerSpeed;
         player.style.left = `${playerPosition}px`;
@@ -89,7 +92,8 @@ function dropPotion() {
 // Resetea la poción
 function resetPotion() {
     potionPosition.y = 10;
-    potionPosition.x = Math.random() * (gameContainer.clientWidth - potion.clientWidth);
+    potionPosition.x =
+        Math.random() * (gameContainer.clientWidth - potion.clientWidth);
     potion.style.top = `${potionPosition.y}px`;
     potion.style.left = `${potionPosition.x}px`;
 }
@@ -120,14 +124,16 @@ function startPotionFall() {
     dropPotion();
 }
 
-document.addEventListener('keydown', movePlayer);
-restartButton.addEventListener('click', resetGame);
+document.addEventListener("keydown", movePlayer);
+restartButton.addEventListener("click", resetGame);
 
 // Inicializa el juego al cargar
 resetGame();
 
 // Estilos para los botones de control
-document.head.insertAdjacentHTML('beforeend', `
+document.head.insertAdjacentHTML(
+    "beforeend",
+    `
     <style>
         .control-button {
             position: fixed;
@@ -153,4 +159,5 @@ document.head.insertAdjacentHTML('beforeend', `
             right: 20px;
         }
     </style>
-`);
+`
+);

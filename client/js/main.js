@@ -43,7 +43,9 @@ function initMusicControls() {
 // Función para manejar el clic en el botón de editar
 function handleEditButtonClick(card) {
     const characterName = card.querySelector(".character-name").textContent;
-    const characterRole = card.querySelector(".character-description").textContent;
+    const characterRole = card.querySelector(
+        ".character-description"
+    ).textContent;
 
     const newName = prompt("Editar nombre del personaje", characterName);
     if (newName) {
@@ -64,98 +66,107 @@ function handleDeleteButtonClick(card) {
 }
 
 // Función para manejar la subida de imágenes de personajes
-document.getElementById("upload-form").addEventListener("submit", function (event) {
-    event.preventDefault();
+document
+    .getElementById("upload-form")
+    .addEventListener("submit", function (event) {
+        event.preventDefault();
 
-    const imageInput = document.getElementById("image-upload");
-    const nameInput = document.getElementById("character-name");
-    const roleInput = document.getElementById("character-role");
+        const imageInput = document.getElementById("image-upload");
+        const nameInput = document.getElementById("character-name");
+        const roleInput = document.getElementById("character-role");
 
-    const imageFile = imageInput.files[0];
-    const characterName = nameInput.value.trim();
-    const characterRole = roleInput.value.trim();
+        const imageFile = imageInput.files[0];
+        const characterName = nameInput.value.trim();
+        const characterRole = roleInput.value.trim();
 
-    if (imageFile && characterName && characterRole) {
-        // Crear un nuevo contenedor de personaje
-        const newCard = document.createElement("div");
-        newCard.classList.add("character-card");
+        if (imageFile && characterName && characterRole) {
+            // Crear un nuevo contenedor de personaje
+            const newCard = document.createElement("div");
+            newCard.classList.add("character-card");
 
-        // Agregar imagen
-        const newImage = document.createElement("img");
-        newImage.classList.add("character-img");
-        newImage.src = URL.createObjectURL(imageFile);
-        newImage.alt = characterName;
+            // Agregar imagen
+            const newImage = document.createElement("img");
+            newImage.classList.add("character-img");
+            newImage.src = URL.createObjectURL(imageFile);
+            newImage.alt = characterName;
 
-        // Agregar nombre y rol
-        const newName = document.createElement("h2");
-        newName.classList.add("character-name");
-        newName.textContent = characterName;
+            // Agregar nombre y rol
+            const newName = document.createElement("h2");
+            newName.classList.add("character-name");
+            newName.textContent = characterName;
 
-        const newRole = document.createElement("p");
-        newRole.classList.add("character-description");
-        newRole.textContent = characterRole;
+            const newRole = document.createElement("p");
+            newRole.classList.add("character-description");
+            newRole.textContent = characterRole;
 
-        // Agregar botones de editar y eliminar
-        const buttonsDiv = document.createElement("div");
-        buttonsDiv.classList.add("buttons");
+            // Agregar botones de editar y eliminar
+            const buttonsDiv = document.createElement("div");
+            buttonsDiv.classList.add("buttons");
 
-        const editButton = document.createElement("button");
-        editButton.classList.add("edit-btn");
-        editButton.innerHTML = '<i class="fa fa-pencil"></i> Editar';
+            const editButton = document.createElement("button");
+            editButton.classList.add("edit-btn");
+            editButton.innerHTML = '<i class="fa fa-pencil"></i> Editar';
 
-        const deleteButton = document.createElement("button");
-        deleteButton.classList.add("delete-btn");
-        deleteButton.innerHTML = '<i class="fa fa-trash"></i> Borrar';
+            const deleteButton = document.createElement("button");
+            deleteButton.classList.add("delete-btn");
+            deleteButton.innerHTML = '<i class="fa fa-trash"></i> Borrar';
 
-        buttonsDiv.appendChild(editButton);
-        buttonsDiv.appendChild(deleteButton);
+            buttonsDiv.appendChild(editButton);
+            buttonsDiv.appendChild(deleteButton);
 
-        // Agregar elementos al nuevo contenedor
-        newCard.appendChild(newImage);
-        newCard.appendChild(newName);
-        newCard.appendChild(newRole);
-        newCard.appendChild(buttonsDiv);
+            // Agregar elementos al nuevo contenedor
+            newCard.appendChild(newImage);
+            newCard.appendChild(newName);
+            newCard.appendChild(newRole);
+            newCard.appendChild(buttonsDiv);
 
-        // Agregar el nuevo personaje a la galería
-        document.querySelector(".character-container").appendChild(newCard);
+            // Agregar el nuevo personaje a la galería
+            document.querySelector(".character-container").appendChild(newCard);
 
-        // Limpiar formulario
-        imageInput.value = "";
-        nameInput.value = "";
-        roleInput.value = "";
-    } else {
-        alert("Por favor, completa todos los campos.");
+            // Limpiar formulario
+            imageInput.value = "";
+            nameInput.value = "";
+            roleInput.value = "";
+        } else {
+            alert("Por favor, completa todos los campos.");
+        }
+    });
+import { fetchCharacters } from "./api/apiService.js";
+
+document.addEventListener("DOMContentLoaded", async () => {
+    try {
+        const data = await fetchCharacters();
+        console.log("Personajes destacados:", data.featuredCharacters);
+
+        // Renderiza los personajes en tu UI
+        renderFeaturedCharacters(data.featuredCharacters);
+    } catch (error) {
+        console.error("Error:", error);
+        showErrorToUser(
+            "No se pudieron cargar los personajes. Intenta más tarde."
+        );
     }
-});
-import { fetchCharacters } from './api/apiService.js';
-
-document.addEventListener('DOMContentLoaded', async () => {
-  try {
-    const data = await fetchCharacters();
-    console.log('Personajes destacados:', data.featuredCharacters);
-    
-    // Renderiza los personajes en tu UI
-    renderFeaturedCharacters(data.featuredCharacters);
-  } catch (error) {
-    console.error('Error:', error);
-    showErrorToUser('No se pudieron cargar los personajes. Intenta más tarde.');
-  }
 });
 
 function renderFeaturedCharacters(characters) {
-  const container = document.getElementById('characters-container');
-  if (!container) return;
-  
-  container.innerHTML = characters.map(char => `
+    const container = document.getElementById("characters-container");
+    if (!container) return;
+
+    container.innerHTML = characters
+        .map(
+            (char) => `
     <div class="character-card">
       <img src="${char.image}" alt="${char.name}">
       <h3>${char.name}</h3>
       <p>${char.description}</p>
     </div>
-  `).join('');
+  `
+        )
+        .join("");
 }
 
 function showErrorToUser(message) {
-  const errorContainer = document.getElementById('error-container') || document.body;
-  errorContainer.innerHTML = `<div class="error-message">${message}</div>`;
+    const errorContainer =
+        document.getElementById("error-container") || document.body;
+    errorContainer.innerHTML = `<div class="error-message">${message}</div>`;
 }
