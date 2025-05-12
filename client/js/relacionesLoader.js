@@ -3,7 +3,7 @@ import { crearRelacionHTML } from "./relacionesTemplate.js";
 
 console.log("relacionesLoader cargado");
 
-fetch("./api/relacion/akko.json")
+fetch("/server/api/relacion/akko.json")
   .then((res) => res.json())
   .then((relaciones) => {
     console.log("Datos de relaciones:", relaciones);

@@ -1,0 +1,23 @@
+{
+  "name": "galeria-little-witch-academia",
+  "version": "1.0.0",
+  "description": "¡Bienvenido a la API de **Little Witch Academia**!  \r Esta API RESTful proporciona información sobre los personajes y todas sus relaciones con el resto de las brujas, descrpcion, niveles de poder y elementos mágicos del universo de _Little Witch Academia_.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nyx-Dragon/API-Little-Witch-Academia.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nyx-Dragon/API-Little-Witch-Academia/issues"
+  },
+  "homepage": "https://github.com/Nyx-Dragon/API-Little-Witch-Academia#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

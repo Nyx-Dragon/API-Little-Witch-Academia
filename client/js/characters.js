@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const personaje = filename.replace(".html", "").toLowerCase();
 
   // Cargar estadísticas
-  fetch(`../api/stats/${personaje}.json`)
+  fetch(`/server/api/stats/${personaje}.json`)
       .then(res => res.json())
       .then(data => {
           const stats = {};
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
   // Cargar relaciones
-  fetch(`../api/relacion/${personaje}.json`)
+  fetch(`/server/api/relacion/${personaje}.json`)
       .then(res => res.json())
       .then(data => mostrarRelaciones(data.relations));
 });
@@ -102,7 +102,7 @@ function mostrarRelaciones(relaciones) {
   });
 }
   document.addEventListener('DOMContentLoaded', () => {
-fetch('https://cors-anywhere.herokuapp.com/https://api-little-witch-academia.onrender.com/api/characters/index.json')
+   fetch('https://cors-anywhere.herokuapp.com/https://api-little-witch-academia.onrender.com/api/characters/index.json')
   .then(res => res.json())
   .then(data => {
     console.log('Personajes destacados:', data.featuredCharacters);
