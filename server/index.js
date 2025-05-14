@@ -2,8 +2,10 @@ const express = require("express");
 const path = require("path");
 const fs = require("fs").promises;
 const cors = require("cors");
-app.use(cors());
-const app = express();
+
+const app = express(); // ✅ Primero defines 'app'
+app.use(cors()); // ✅ Luego lo usas
+
 const PORT = process.env.PORT || 3000;
 
 // Configuración de middleware
@@ -19,19 +21,19 @@ app.get("/api/:section", async (req, res) => {
         const section = req.params.section;
         const filePath = path.join(__dirname, `api/${section}/index.json`);
 
-        // Verify the file exists before sending
-        await fs.promises.access(filePath);
+        // Verifica si el archivo existe
+        await fs.access(filePath);
 
-        // Explicitly set content-type
+        // Establece el tipo de contenido explícitamente
         res.type("json").sendFile(filePath);
     } catch (err) {
-        // Return proper JSON error response
         res.status(404).json({
             error: "Section not found or data unavailable",
             details: err.message,
         });
     }
 });
+
 // Endpoint para vistas HTML
 app.get("/api/:section/view", async (req, res) => {
     try {
