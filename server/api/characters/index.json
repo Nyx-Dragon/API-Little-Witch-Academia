@@ -67,6 +67,7 @@
     "navigation": [
       { "text": "Inicio", "link": "index.html" },
       { "text": "Personajes", "link": "characters.html" },
+      { "text": "Hechizos", "link": "spells.html" },
       { "text": "Mini-juego", "link": "juego.html" },
       { "text": "Sobre nosotros", "link": "about.html" },
       { "text": "Contacto", "link": "contact.html" }
