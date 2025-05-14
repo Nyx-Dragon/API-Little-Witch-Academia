@@ -24,6 +24,9 @@ const getSectionFilePath = (section) =>
 app.post("/contact", async (req, res) => {
     const { name, email, message } = req.body;
 
+    // Verificación de la llegada de datos
+    console.log("Datos recibidos:", req.body);
+
     // Crear objeto con los datos recibidos
     const newMessage = {
         name,
@@ -62,7 +65,7 @@ app.post("/contact", async (req, res) => {
             message: "Gracias por tu mensaje. ¡Te responderemos pronto!",
         });
     } catch (err) {
-        console.error(err);
+        console.error("Error al guardar el mensaje:", err);
         res.status(500).json({ error: "Error al guardar el mensaje." });
     }
 });
