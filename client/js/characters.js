@@ -2,9 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const filename = window.location.pathname.split("/").pop();
     const personaje = filename.replace(".html", "").toLowerCase();
 
-    // Base de tu proxy local
-    const proxyBase = "http://localhost:3000/proxy?url=";
-
     // Cargar estadísticas
     fetch(
         `https://api-little-witch-academia.onrender.com/api/stats/${personaje}.json`
