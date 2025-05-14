@@ -8,27 +8,26 @@ app.use(cors());
 
 const PORT = process.env.PORT || 3000;
 
-// Configuración de middleware
+// Middleware
 app.use(express.static(path.join(__dirname, "../client")));
 app.use(express.json());
 
-// Lista de secciones válidas
+// Secciones válidas
 const validSections = ["characters", "relation", "spells", "stats", "extra"];
 
-// Endpoint para JSON
+// Endpoint principal
 app.get("/api/:section", async (req, res) => {
     try {
         const section = req.params.section;
-        // Modificación aquí para ajustar la ruta a 'server/api/characters/index.json'
         const filePath = path.join(
             __dirname,
-            `server/api/${section}/index.json`
+            "server",
+            "api",
+            section,
+            "index.json"
         );
 
-        // Verifica si el archivo existe
         await fs.access(filePath);
-
-        // Establece el tipo de contenido explícitamente
         res.type("json").sendFile(filePath);
     } catch (err) {
         res.status(404).json({
@@ -38,7 +37,7 @@ app.get("/api/:section", async (req, res) => {
     }
 });
 
-// Endpoint para vistas HTML
+// Vista JSON cruda
 app.get("/api/:section/view", async (req, res) => {
     try {
         const { section } = req.params;
@@ -47,7 +46,6 @@ app.get("/api/:section/view", async (req, res) => {
             return res.status(404).send("Section not found");
         }
 
-        // Modificación aquí para ajustar la ruta a 'server/api/characters/index.json'
         const filePath = path.join(
             __dirname,
             "server",
@@ -56,7 +54,7 @@ app.get("/api/:section/view", async (req, res) => {
             "index.json"
         );
         await fs.access(filePath);
-        res.sendFile(filePath);
+        res.type("json").sendFile(filePath);
     } catch (err) {
         res.status(err.code === "ENOENT" ? 404 : 500).send(
             err.code === "ENOENT" ? "File not found" : "Server error"
@@ -64,12 +62,12 @@ app.get("/api/:section/view", async (req, res) => {
     }
 });
 
-// Fallback para SPA
+// Ruta no encontrada
 app.use("/api", (req, res) => {
     res.status(404).json({ error: "API route not found" });
 });
 
-// Fallback para SPA
+// Fallback SPA
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "../client/index.html"));
 });
