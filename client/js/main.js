@@ -96,11 +96,18 @@ function handleDeleteButtonClick(card) {
     }
 }
 
-// Función para obtener los personajes desde la API
-/* async function fetchCharacters() {
-    const response = await fetch("https://api.example.com/characters");
-    if (!response.ok) {
-        throw new Error("Error al cargar los personajes");
+const baseLocal = "/api";
+const baseRemote = "https://api-little-witch-academia.onrender.com/api";
+
+// Prueba primero el servidor local, si falla usa el remoto
+async function fetchData(endpoint) {
+    try {
+        const res = await fetch(`${baseLocal}/${endpoint}`);
+        if (!res.ok) throw new Error("Local API offline");
+        return await res.json();
+    } catch (error) {
+        console.warn("Usando API remota por fallback");
+        const res = await fetch(`${baseRemote}/${endpoint}`);
+        return await res.json();
     }
-    return await response.json();
-} */
+}

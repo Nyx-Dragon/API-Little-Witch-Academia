@@ -5,14 +5,22 @@ const fs = require("fs");
 const path = require("path");
 
 const app = express();
-const port = 3000;
+const PORT = 3000;
+
+// Las carpetas válidas que existen en /server/api/
+const validSections = ["characters", "relations", "spells", "stats"]; // ← Ajusta según tus carpetas reales
+
+// Devuelve el path al JSON principal de la sección (por ejemplo: about/about.json)
+function getSectionFilePath(section) {
+    return path.join(__dirname, "api", section, `${section}.json`);
+}
 
 // Middleware para parsear el cuerpo de la solicitud
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Ruta para servir el archivo HTML y los recursos estáticos
-app.use(express.static(path.join(__dirname, "../")));
+app.use(express.static(path.join(__dirname, "../client")));
 
 app.post("/contact", (req, res) => {
     const { name, email, message } = req.body;
@@ -26,7 +34,7 @@ app.post("/contact", (req, res) => {
     };
 
     // Ruta al archivo JSON donde se guardarán los mensajes
-    const filePath = path.join(__dirname, "./data/contact_messages.json");
+    const filePath = path.join(__dirname, "../data/contact_messages.json");
 
     // Leer el archivo JSON y agregar el nuevo mensaje
     fs.readFile(filePath, "utf-8", (err, data) => {
@@ -116,8 +124,13 @@ app.get("/api/:section/:file", async (req, res) => {
     }
 });
 
+app.use((err, req, res, next) => {
+    console.error("Error interno:", err);
+    res.status(500).json({ error: "Error interno del servidor" });
+});
+
 // Ruta no encontrada en API
-app.use("/api", (req, res) => {
+app.all("/api/*", (req, res) => {
     res.status(404).json({ error: "Ruta de API no encontrada" });
 });
 
