@@ -12,16 +12,47 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Ruta para manejar el formulario de contacto
-app.post("/contact", (req, res) => {
+app.post("/contact", async (req, res) => {
     const { name, email, message } = req.body;
 
-    // Aquí puedes agregar lógica para guardar el mensaje o enviarlo por correo, etc.
-    console.log("Nuevo mensaje de contacto:", { name, email, message });
+    const newMessage = {
+        name,
+        email,
+        message,
+        date: new Date().toISOString(), // Añadimos la fecha
+    };
 
-    // Responder con un mensaje de éxito
-    res.json({
-        message: "Tu mensaje ha sido recibido. ¡Gracias por contactarnos!",
-    });
+    const filePath = path.join(__dirname, "data", "contact_messages.json");
+
+    try {
+        // Intentamos leer el archivo existente
+        let messages = [];
+
+        try {
+            const fileContent = await fs.readFile(filePath, "utf8");
+            messages = JSON.parse(fileContent);
+        } catch (err) {
+            if (err.code !== "ENOENT") throw err; // Si no es error de archivo no encontrado, lanzar
+        }
+
+        // Agregamos el nuevo mensaje
+        messages.push(newMessage);
+
+        // Guardamos el array actualizado
+        await fs.writeFile(filePath, JSON.stringify(messages, null, 2), "utf8");
+
+        console.log("Nuevo mensaje guardado:", newMessage);
+
+        res.json({
+            message:
+                "Tu mensaje ha sido recibido y guardado. ¡Gracias por contactarnos!",
+        });
+    } catch (error) {
+        console.error("Error al guardar el mensaje:", error);
+        res.status(500).json({
+            error: "Ocurrió un error al guardar tu mensaje. Inténtalo más tarde.",
+        });
+    }
 });
 
 // Devuelve el path al JSON de la sección, ahora buscando index.json
