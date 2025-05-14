@@ -1,7 +1,7 @@
 // server/server.js
 const express = require("express");
 const bodyParser = require("body-parser");
-const fs = require("fs");
+const fs = require("fs").promises; // Usar fs.promises para async/await
 const path = require("path");
 
 const app = express();
@@ -22,46 +22,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Ruta para servir el archivo HTML y los recursos estáticos
 app.use(express.static(path.join(__dirname, "../client")));
 
-app.post("/contact", (req, res) => {
-    const { name, email, message } = req.body;
-
-    // Crear objeto con los datos del formulario
-    const newMessage = {
-        name,
-        email,
-        message,
-        timestamp: new Date().toISOString(),
-    };
-
-    // Ruta al archivo JSON donde se guardarán los mensajes
-    const filePath = path.join(__dirname, "../data/contact_messages.json");
-
-    // Leer el archivo JSON y agregar el nuevo mensaje
-    fs.readFile(filePath, "utf-8", (err, data) => {
-        if (err) {
-            return res
-                .status(500)
-                .json({ message: "Error al leer el archivo." });
-        }
-
-        const messages = JSON.parse(data || "[]");
-        messages.push(newMessage);
-
-        // Escribir de nuevo los datos al archivo JSON
-        fs.writeFile(filePath, JSON.stringify(messages, null, 2), (err) => {
-            if (err) {
-                return res
-                    .status(500)
-                    .json({ message: "Error al guardar el mensaje." });
-            }
-
-            res.json({
-                message: "Gracias por tu mensaje. ¡Te responderemos pronto!",
-            });
-        });
-    });
-});
-
 // Ruta para obtener sección principal
 app.get("/api/:section", async (req, res, next) => {
     const section = req.params.section;
@@ -72,10 +32,14 @@ app.get("/api/:section", async (req, res, next) => {
 
     const filePath = getSectionFilePath(section);
     try {
+        // Comprobamos si el archivo existe
+        console.log(`Comprobando si el archivo existe: ${filePath}`);
         await fs.access(filePath);
+        console.log(`Archivo encontrado: ${filePath}`);
         res.type("json").sendFile(filePath);
     } catch (err) {
-        next(err);
+        console.error(`Error al acceder al archivo: ${err.message}`);
+        next(err); // Pasamos el error al middleware de manejo de errores
     }
 });
 
@@ -89,9 +53,12 @@ app.get("/api/:section/view", async (req, res) => {
 
     const filePath = getSectionFilePath(section);
     try {
+        console.log(`Comprobando si el archivo existe: ${filePath}`);
         await fs.access(filePath);
+        console.log(`Archivo encontrado: ${filePath}`);
         res.type("json").sendFile(filePath);
     } catch (err) {
+        console.error(`Error al acceder al archivo: ${err.message}`);
         res.status(err.code === "ENOENT" ? 404 : 500).send(
             err.code === "ENOENT"
                 ? "Archivo no encontrado"
@@ -114,9 +81,12 @@ app.get("/api/:section/:file", async (req, res) => {
 
     const filePath = path.join(__dirname, "api", section, file);
     try {
+        console.log(`Comprobando si el archivo existe: ${filePath}`);
         await fs.access(filePath);
+        console.log(`Archivo encontrado: ${filePath}`);
         res.type("json").sendFile(filePath);
     } catch (err) {
+        console.error(`Error al acceder al archivo: ${err.message}`);
         res.status(404).json({
             error: "Archivo JSON no encontrado",
             details: err.message,
