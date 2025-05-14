@@ -3,8 +3,8 @@ const path = require("path");
 const fs = require("fs").promises;
 const cors = require("cors");
 
-const app = express(); // ✅ Primero defines 'app'
-app.use(cors()); // ✅ Luego lo usas
+const app = express();
+app.use(cors());
 
 const PORT = process.env.PORT || 3000;
 
@@ -19,7 +19,11 @@ const validSections = ["characters", "relation", "spells", "stats", "extra"];
 app.get("/api/:section", async (req, res) => {
     try {
         const section = req.params.section;
-        const filePath = path.join(__dirname, `api/${section}/index.json`);
+        // Modificación aquí para ajustar la ruta a 'server/api/characters/index.json'
+        const filePath = path.join(
+            __dirname,
+            `server/api/${section}/index.json`
+        );
 
         // Verifica si el archivo existe
         await fs.access(filePath);
@@ -43,7 +47,14 @@ app.get("/api/:section/view", async (req, res) => {
             return res.status(404).send("Section not found");
         }
 
-        const filePath = path.join(__dirname, "api", section, "index.html");
+        // Modificación aquí para ajustar la ruta a 'server/api/characters/index.json'
+        const filePath = path.join(
+            __dirname,
+            "server",
+            "api",
+            section,
+            "index.json"
+        );
         await fs.access(filePath);
         res.sendFile(filePath);
     } catch (err) {
@@ -51,6 +62,11 @@ app.get("/api/:section/view", async (req, res) => {
             err.code === "ENOENT" ? "File not found" : "Server error"
         );
     }
+});
+
+// Fallback para SPA
+app.use("/api", (req, res) => {
+    res.status(404).json({ error: "API route not found" });
 });
 
 // Fallback para SPA
