@@ -104,3 +104,17 @@ app.get("*", (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
 });
+
+app.use(express.json());
+
+app.post("/contact", (req, res) => {
+    const { name, email, message } = req.body;
+
+    // Puedes guardar esto en un archivo, base de datos, o mandarlo por email
+    console.log("Nuevo mensaje recibido:");
+    console.log("Nombre:", name);
+    console.log("Email:", email);
+    console.log("Mensaje:", message);
+
+    res.json({ message: "Gracias por tu mensaje. ¡Te responderemos pronto!" });
+});
