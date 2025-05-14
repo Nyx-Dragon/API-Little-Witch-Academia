@@ -56,11 +56,12 @@ function getSectionFilePath(section) {
 }
 
 // Middleware para bloquear cualquier acceso a /api/contact*
-app.use("/api/contact", (req, res) => {
+/* app.use("/api/contact", (req, res) => {
     res.status(403).json({ error: "Acceso prohibido a la sección 'contact'" });
 });
-
+ */
 // Ruta para servir los archivos estáticos del cliente
+
 app.use(express.static(path.join(__dirname, "../client")));
 
 // Ruta principal de cada sección
