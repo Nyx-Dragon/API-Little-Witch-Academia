@@ -1,17 +1,16 @@
-// server/index.js
 const express = require("express");
 const bodyParser = require("body-parser");
-const fs = require("fs").promises; // Usar fs.promises para async/await
+const fs = require("fs").promises;
 const path = require("path");
 
 const app = express();
 const PORT = 3000;
 
-// Middleware para parsear el cuerpo de la solicitud
+// Middleware para parsear JSON y formularios
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Ruta para manejar el formulario de contacto
+// Ruta para manejar el formulario de contacto (privado)
 app.post("/contact", async (req, res) => {
     const { name, email, message } = req.body;
 
@@ -19,26 +18,22 @@ app.post("/contact", async (req, res) => {
         name,
         email,
         message,
-        date: new Date().toISOString(), // Añadimos la fecha
+        date: new Date().toISOString(),
     };
 
     const filePath = path.join(__dirname, "data", "contact_messages.json");
 
     try {
-        // Intentamos leer el archivo existente
         let messages = [];
-
         try {
             const fileContent = await fs.readFile(filePath, "utf8");
             messages = JSON.parse(fileContent);
         } catch (err) {
-            if (err.code !== "ENOENT") throw err; // Si no es error de archivo no encontrado, lanzar
+            if (err.code !== "ENOENT") throw err;
         }
 
-        // Agregamos el nuevo mensaje
         messages.push(newMessage);
 
-        // Guardamos el array actualizado
         await fs.writeFile(filePath, JSON.stringify(messages, null, 2), "utf8");
 
         console.log("Nuevo mensaje guardado:", newMessage);
@@ -55,41 +50,49 @@ app.post("/contact", async (req, res) => {
     }
 });
 
-// Devuelve el path al JSON de la sección, ahora buscando index.json
+// Devuelve el path al JSON de una sección
 function getSectionFilePath(section) {
     return path.join(__dirname, "api", section, "index.json");
 }
 
-// Ruta para servir el archivo HTML y los recursos estáticos
+// Middleware para bloquear cualquier acceso a /api/contact*
+app.use("/api/contact", (req, res) => {
+    res.status(403).json({ error: "Acceso prohibido a la sección 'contact'" });
+});
+
+// Ruta para servir los archivos estáticos del cliente
 app.use(express.static(path.join(__dirname, "../client")));
 
-// Ruta para obtener sección principal
+// Ruta principal de cada sección
 app.get("/api/:section", async (req, res, next) => {
     const section = req.params.section;
+
+    if (section.toLowerCase() === "contact") {
+        return res.status(403).json({ error: "Acceso prohibido a 'contact'" });
+    }
+
     const filePath = getSectionFilePath(section);
     try {
-        // Comprobamos si el archivo existe
-        console.log(`Comprobando si el archivo existe: ${filePath}`);
         await fs.access(filePath);
-        console.log(`Archivo encontrado: ${filePath}`);
         res.type("json").sendFile(filePath);
     } catch (err) {
-        console.error(`Error al acceder al archivo: ${err.message}`);
-        next(err); // Pasamos el error al middleware de manejo de errores
+        next(err);
     }
 });
 
-// Ruta para ver contenido JSON
+// Ruta para ver contenido de sección
 app.get("/api/:section/view", async (req, res) => {
     const section = req.params.section;
+
+    if (section.toLowerCase() === "contact") {
+        return res.status(403).json({ error: "Acceso prohibido a 'contact'" });
+    }
+
     const filePath = getSectionFilePath(section);
     try {
-        console.log(`Comprobando si el archivo existe: ${filePath}`);
         await fs.access(filePath);
-        console.log(`Archivo encontrado: ${filePath}`);
         res.type("json").sendFile(filePath);
     } catch (err) {
-        console.error(`Error al acceder al archivo: ${err.message}`);
         res.status(err.code === "ENOENT" ? 404 : 500).send(
             err.code === "ENOENT"
                 ? "Archivo no encontrado"
@@ -98,9 +101,13 @@ app.get("/api/:section/view", async (req, res) => {
     }
 });
 
-// Ruta para archivos individuales (si los hay)
+// Ruta para archivos JSON individuales
 app.get("/api/:section/:file", async (req, res) => {
     const { section, file } = req.params;
+
+    if (section.toLowerCase() === "contact") {
+        return res.status(403).json({ error: "Acceso prohibido a 'contact'" });
+    }
 
     if (file.includes("..") || path.extname(file) !== ".json") {
         return res.status(400).json({ error: "Nombre de archivo inválido" });
@@ -108,12 +115,9 @@ app.get("/api/:section/:file", async (req, res) => {
 
     const filePath = path.join(__dirname, "api", section, file);
     try {
-        console.log(`Comprobando si el archivo existe: ${filePath}`);
         await fs.access(filePath);
-        console.log(`Archivo encontrado: ${filePath}`);
         res.type("json").sendFile(filePath);
     } catch (err) {
-        console.error(`Error al acceder al archivo: ${err.message}`);
         res.status(404).json({
             error: "Archivo JSON no encontrado",
             details: err.message,
@@ -121,22 +125,23 @@ app.get("/api/:section/:file", async (req, res) => {
     }
 });
 
+// Manejo de errores internos
 app.use((err, req, res, next) => {
     console.error("Error interno:", err);
     res.status(500).json({ error: "Error interno del servidor" });
 });
 
-// Ruta no encontrada en API
+// Ruta no encontrada dentro de /api
 app.all("/api/*", (req, res) => {
     res.status(404).json({ error: "Ruta de API no encontrada" });
 });
 
-// SPA fallback
+// Fallback para SPA (Single Page Application)
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "../client/index.html"));
 });
 
-// Start server
+// Iniciar servidor
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
