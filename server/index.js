@@ -8,12 +8,12 @@ app.use(cors());
 
 const PORT = process.env.PORT || 3000;
 
-// Middleware
+/* // Middleware
 app.use(express.static(path.join(__dirname, "../client")));
-app.use(express.json());
+app.use(express.json()); */
 
 // Secciones válidas
-const validSections = ["characters", "relation", "spells", "stats", "extra"];
+const validSections = ["characters", "relations", "spells", "stats", "extra"];
 
 // Endpoint principal
 app.get("/api/:section", async (req, res) => {

@@ -6,6 +6,6 @@
     "image": "/assets/ursula-callistis.jpg",
     "description": "Maestra misteriosa de Akko. Guarda un gran secreto.",
     "statsFile": "/stats/ursula.json",
-    "relacionFile": "/relacion/ursula.json"
+    "relacionFile": "/relations/ursula.json"
   }
   

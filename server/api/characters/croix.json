@@ -6,6 +6,6 @@
     "image": "/assets/croix-meridies.jpg",
     "description": "Tecnomaga brillante y ambiciosa, rival de Chariot.",
     "statsFile": "/stats/croix.json",
-    "relacionFile": "/relacion/croix.json"
+    "relacionFile": "/relations/croix.json"
   }
   

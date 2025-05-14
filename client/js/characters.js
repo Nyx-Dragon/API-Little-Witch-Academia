@@ -4,7 +4,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const personaje = filename.replace(".html", "").toLowerCase();
 
     // Cargar estadísticas
-    fetch(`/server/api/stats/${personaje}.json`)
+    fetch(
+        `https://api-little-witch-academia.onrender.com/api/stats/${personaje}.json`
+    )
         .then((res) => res.json())
         .then((data) => {
             const stats = {};
@@ -15,7 +17,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
     // Cargar relaciones
-    fetch(`/server/api/relacion/${personaje}.json`)
+    fetch(
+        `https://api-little-witch-academia.onrender.com/api/relations/${personaje}.json`
+    )
         .then((res) => res.json())
         .then((data) => mostrarRelaciones(data.relations));
 });
@@ -101,23 +105,14 @@ function mostrarRelaciones(relaciones) {
         const targetLink = `../html/${relacion.target.toLowerCase()}.html`;
 
         div.innerHTML = `
-          <h3><a href="${targetLink}" class="relacion-link">${relacion.target}</a></h3>
-          <p><b>Relación:</b> ${relacion.type}</p>
-          <p>${relacion.description}</p>
-      `;
+        <h3><a href="${targetLink}" class="relacion-link">${relacion.target}</a></h3>
+        <p><b>Relación:</b> ${relacion.type}</p>
+        <p>${relacion.description}</p>
+        `;
+
         contenedor.appendChild(div);
     });
 }
-document.addEventListener("DOMContentLoaded", () => {
-    fetch(
-        "https://cors-anywhere.herokuapp.com/https://api-little-witch-academia.onrender.com/api/characters/index.json"
-    )
-        .then((res) => res.json())
-        .then((data) => {
-            console.log("Personajes destacados:", data.featuredCharacters);
-        })
-        .catch((err) => console.error("Error al cargar personajes:", err));
-});
 
 // Example fetch code in your frontend
 async function fetchSectionData(section) {
@@ -141,3 +136,14 @@ async function fetchSectionData(section) {
         return null;
     }
 }
+
+/* document.addEventListener("DOMContentLoaded", () => {
+    fetch(
+        "https://cors-anywhere.herokuapp.com/https://api-little-witch-academia.onrender.com/api/characters/index.json"
+    )
+        .then((res) => res.json())
+        .then((data) => {
+            console.log("Personajes destacados:", data.featuredCharacters);
+        })
+        .catch((err) => console.error("Error al cargar personajes:", err));
+}); */

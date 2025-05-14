@@ -6,6 +6,6 @@
     "image": "/assets/shiny-chariot.jpg",
     "description": "La legendaria bruja que inspiró a Akko.",
     "statsFile": "/stats/shiny.json",
-    "relacionFile": "/relacion/shiny.json"
+    "relacionFile": "/relations/shiny.json"
   }
   
