@@ -50,6 +50,30 @@ app.get("/api/:section/view", async (req, res) => {
     }
 });
 
+// Permite acceder a archivos individuales como akko.json
+app.get("/api/:section/:file", async (req, res) => {
+    try {
+        const { section, file } = req.params;
+
+        // Seguridad: solo permitir archivos .json
+        if (!file.endsWith(".json")) {
+            return res
+                .status(400)
+                .json({ error: "Only .json files are allowed" });
+        }
+
+        const filePath = path.join(__dirname, "api", section, file);
+
+        await fs.access(filePath);
+        res.type("json").sendFile(filePath);
+    } catch (err) {
+        res.status(404).json({
+            error: "JSON file not found",
+            details: err.message,
+        });
+    }
+});
+
 // Ruta no encontrada
 app.use("/api", (req, res) => {
     res.status(404).json({ error: "API route not found" });
