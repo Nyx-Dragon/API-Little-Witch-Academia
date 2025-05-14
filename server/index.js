@@ -3,51 +3,82 @@ const path = require("path");
 const fs = require("fs").promises;
 const cors = require("cors");
 const morgan = require("morgan");
+const fetch = require("node-fetch");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Configuración de CORS
+// CORS
 const corsOptions = {
     origin: [
         "https://api-little-witch-academia.onrender.com",
         "http://localhost:3000",
-    ], // Permitir tanto la versión de producción como la de desarrollo
+        "http://127.0.0.1:5503",
+    ],
     methods: ["GET", "POST"],
     allowedHeaders: ["Content-Type"],
 };
-app.use(cors(corsOptions)); // Configura CORS
+app.use(cors(corsOptions));
 
 // Middleware
-app.use(express.json()); // Único middleware para parsear JSON
+app.use(express.json());
 const clientPath = path.resolve(__dirname, "..", "client");
 app.use(express.static(clientPath));
-app.use(morgan("dev")); // Para ver las peticiones en consola
+app.use(morgan("dev"));
+
+// Rutas permitidas para proxy
+const allowedProxyTargets = ["https://api-little-witch-academia.onrender.com"];
+
+app.get("/proxy", async (req, res) => {
+    const targetUrl = req.query.url;
+
+    if (
+        !targetUrl ||
+        !allowedProxyTargets.some((url) => targetUrl.startsWith(url))
+    ) {
+        return res
+            .status(400)
+            .json({ error: "URL no permitida o faltante en proxy" });
+    }
+
+    try {
+        const response = await fetch(targetUrl);
+
+        if (!response.ok) {
+            return res.status(response.status).json({
+                error: `Error al hacer fetch: ${response.statusText}`,
+            });
+        }
+
+        const contentType =
+            response.headers.get("content-type") || "application/json";
+        res.set("Content-Type", contentType);
+        const body = await response.text();
+        res.send(body);
+    } catch (err) {
+        console.error("Error en proxy:", err);
+        res.status(500).json({ error: "Error interno al usar el proxy" });
+    }
+});
 
 // Secciones válidas
 const validSections = ["characters", "relations", "spells", "stats", "extra"];
-
-// Función auxiliar para construir la ruta del JSON principal de sección
 const getSectionFilePath = (section) =>
     path.join(__dirname, "api", section, "index.json");
 
+// Ruta para contacto
 app.post("/contact", async (req, res) => {
     const { name, email, message } = req.body;
-
-    // Verificación de la llegada de datos
     console.log("Datos recibidos:", req.body);
 
     if (!name || !email || !message) {
-        console.log("Faltan datos importantes");
         return res
             .status(400)
             .json({ error: "Todos los campos son requeridos" });
     }
 
-    // ✅ VALIDACIÓN DE EMAIL
     const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     if (!isValidEmail) {
-        console.log("Email inválido:", email);
         return res.status(400).json({ error: "Email no válido" });
     }
 
@@ -58,132 +89,113 @@ app.post("/contact", async (req, res) => {
         timestamp: new Date().toISOString(),
     };
 
-    console.log("Nuevo mensaje recibido:", newMessage);
-
-    // Ruta del archivo donde se guardarán los mensajes
     const filePath = path.join(__dirname, "contact_messages.json");
 
     try {
-        // Leer los mensajes existentes
         let messages = [];
         try {
             const data = await fs.readFile(filePath, "utf8");
-            messages = JSON.parse(data); // Si el archivo existe, parseamos los datos
+            messages = JSON.parse(data);
         } catch (err) {
             if (err.code !== "ENOENT") throw err;
-            console.log("El archivo no existe, crearemos uno nuevo.");
         }
 
-        // Agregar el nuevo mensaje al array de mensajes
         messages.push(newMessage);
-        console.log("Mensajes después de agregar el nuevo:", messages);
-
-        // Guardar mensajes
         await fs.writeFile(filePath, JSON.stringify(messages, null, 2));
-        console.log("Mensajes guardados en el archivo");
 
-        // Borrado diferido (p. ej. después de 10 segundos)
-        /*         setTimeout(async () => {
+        /* // Borrado automático opcional
+        setTimeout(async () => {
             try {
                 await fs.unlink(filePath);
-                console.log(
-                    "Archivo borrado automáticamente después de un tiempo"
-                );
+                console.log("Archivo eliminado automáticamente");
             } catch (error) {
-                console.error("Error al borrar el archivo:", error);
+                console.error("Error al eliminar archivo:", error);
             }
-        }, 10000); // 10 segundos */
+        }, 10000); 
+        */
 
-        // Responder al cliente
         res.json({
             message: "Gracias por tu mensaje. ¡Te responderemos pronto!",
         });
     } catch (err) {
         console.error("Error al guardar el mensaje:", err);
-        res.status(500).json({ error: "Error al guardar el mensaje." });
+        res.status(500).json({ error: "Error interno del servidor" });
     }
 });
 
-// Ruta principal: /api/:section
-app.get("/api/:section", async (req, res) => {
+// Ruta para obtener sección principal
+app.get("/api/:section", async (req, res, next) => {
+    const section = req.params.section;
+
+    if (!validSections.includes(section)) {
+        return res.status(404).json({ error: "Sección inválida" });
+    }
+
+    const filePath = getSectionFilePath(section);
     try {
-        const section = req.params.section;
-
-        if (!validSections.includes(section)) {
-            return res.status(404).json({ error: "Invalid section" });
-        }
-
-        const filePath = getSectionFilePath(section);
         await fs.access(filePath);
         res.type("json").sendFile(filePath);
     } catch (err) {
-        console.error(err);
-        res.status(404).json({
-            error: "Section not found or data unavailable",
-            details: err.message,
-        });
+        next(err);
     }
 });
 
-// Ruta para ver JSON crudo: /api/:section/view
+// Ruta para ver contenido JSON
 app.get("/api/:section/view", async (req, res) => {
+    const section = req.params.section;
+
+    if (!validSections.includes(section)) {
+        return res.status(404).send("Sección no encontrada");
+    }
+
+    const filePath = getSectionFilePath(section);
     try {
-        const section = req.params.section;
-
-        if (!validSections.includes(section)) {
-            return res.status(404).send("Section not found");
-        }
-
-        const filePath = getSectionFilePath(section);
         await fs.access(filePath);
         res.type("json").sendFile(filePath);
     } catch (err) {
-        console.error(err);
         res.status(err.code === "ENOENT" ? 404 : 500).send(
-            err.code === "ENOENT" ? "File not found" : "Server error"
+            err.code === "ENOENT"
+                ? "Archivo no encontrado"
+                : "Error del servidor"
         );
     }
 });
 
-// Ruta para archivos individuales: /api/:section/:file
+// Ruta para archivos individuales
 app.get("/api/:section/:file", async (req, res) => {
+    const { section, file } = req.params;
+
+    if (!validSections.includes(section)) {
+        return res.status(404).json({ error: "Sección inválida" });
+    }
+
+    if (file.includes("..") || path.extname(file) !== ".json") {
+        return res.status(400).json({ error: "Nombre de archivo inválido" });
+    }
+
+    const filePath = path.join(__dirname, "api", section, file);
     try {
-        const { section, file } = req.params;
-
-        if (!validSections.includes(section)) {
-            return res.status(404).json({ error: "Invalid section" });
-        }
-
-        // Seguridad: evitar path traversal y validar extensión .json
-        if (file.includes("..") || path.extname(file) !== ".json") {
-            return res
-                .status(400)
-                .json({ error: "Invalid file name or extension" });
-        }
-
-        const filePath = path.join(__dirname, "api", section, file);
         await fs.access(filePath);
         res.type("json").sendFile(filePath);
     } catch (err) {
-        console.error(err);
         res.status(404).json({
-            error: "JSON file not found",
+            error: "Archivo JSON no encontrado",
             details: err.message,
         });
     }
 });
 
-// Ruta no encontrada para la API
+// Ruta no encontrada en API
 app.use("/api", (req, res) => {
-    res.status(404).json({ error: "API route not found" });
+    res.status(404).json({ error: "Ruta de API no encontrada" });
 });
 
-// Fallback SPA para rutas desconocidas (React/Vue/HTML5 history)
+// SPA fallback
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "../client/index.html"));
 });
 
-// Iniciar servidor
+// Start server
 app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });

@@ -40,6 +40,37 @@ function initMusicControls() {
     });
 }
 
+function renderFeaturedCharacters(characters) {
+    const container = document.getElementById("characters-container");
+    if (!container) return;
+
+    container.innerHTML = characters
+        .map(
+            (char) => `
+      <div class="character-card">
+        <img src="${char.image}" alt="${char.name}">
+        <h3>${char.name}</h3>
+        <p>${char.description}</p>
+        <div class="buttons">
+          <button class="edit-btn">
+            <i class="fa fa-pencil"></i> Editar
+          </button>
+          <button class="delete-btn">
+            <i class="fa fa-trash"></i> Borrar
+          </button>
+        </div>
+      </div>
+    `
+        )
+        .join("");
+}
+
+function showErrorToUser(message) {
+    const errorContainer =
+        document.getElementById("error-container") || document.body;
+    errorContainer.innerHTML = `<div class="error-message">${message}</div>`;
+}
+
 // Función para manejar el clic en el botón de editar
 function handleEditButtonClick(card) {
     const characterName = card.querySelector(".character-name").textContent;
@@ -65,108 +96,11 @@ function handleDeleteButtonClick(card) {
     }
 }
 
-// Función para manejar la subida de imágenes de personajes
-document
-    .getElementById("upload-form")
-    .addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        const imageInput = document.getElementById("image-upload");
-        const nameInput = document.getElementById("character-name");
-        const roleInput = document.getElementById("character-role");
-
-        const imageFile = imageInput.files[0];
-        const characterName = nameInput.value.trim();
-        const characterRole = roleInput.value.trim();
-
-        if (imageFile && characterName && characterRole) {
-            // Crear un nuevo contenedor de personaje
-            const newCard = document.createElement("div");
-            newCard.classList.add("character-card");
-
-            // Agregar imagen
-            const newImage = document.createElement("img");
-            newImage.classList.add("character-img");
-            newImage.src = URL.createObjectURL(imageFile);
-            newImage.alt = characterName;
-
-            // Agregar nombre y rol
-            const newName = document.createElement("h2");
-            newName.classList.add("character-name");
-            newName.textContent = characterName;
-
-            const newRole = document.createElement("p");
-            newRole.classList.add("character-description");
-            newRole.textContent = characterRole;
-
-            // Agregar botones de editar y eliminar
-            const buttonsDiv = document.createElement("div");
-            buttonsDiv.classList.add("buttons");
-
-            const editButton = document.createElement("button");
-            editButton.classList.add("edit-btn");
-            editButton.innerHTML = '<i class="fa fa-pencil"></i> Editar';
-
-            const deleteButton = document.createElement("button");
-            deleteButton.classList.add("delete-btn");
-            deleteButton.innerHTML = '<i class="fa fa-trash"></i> Borrar';
-
-            buttonsDiv.appendChild(editButton);
-            buttonsDiv.appendChild(deleteButton);
-
-            // Agregar elementos al nuevo contenedor
-            newCard.appendChild(newImage);
-            newCard.appendChild(newName);
-            newCard.appendChild(newRole);
-            newCard.appendChild(buttonsDiv);
-
-            // Agregar el nuevo personaje a la galería
-            document.querySelector(".character-container").appendChild(newCard);
-
-            // Limpiar formulario
-            imageInput.value = "";
-            nameInput.value = "";
-            roleInput.value = "";
-        } else {
-            alert("Por favor, completa todos los campos.");
-        }
-    });
-import { fetchCharacters } from "./apiServices.js";
-
-document.addEventListener("DOMContentLoaded", async () => {
-    try {
-        const data = await fetchCharacters();
-        console.log("Personajes destacados:", data.featuredCharacters);
-
-        // Renderiza los personajes en tu UI
-        renderFeaturedCharacters(data.featuredCharacters);
-    } catch (error) {
-        console.error("Error:", error);
-        showErrorToUser(
-            "No se pudieron cargar los personajes. Intenta más tarde."
-        );
+// Función para obtener los personajes desde la API
+/* async function fetchCharacters() {
+    const response = await fetch("https://api.example.com/characters");
+    if (!response.ok) {
+        throw new Error("Error al cargar los personajes");
     }
-});
-
-function renderFeaturedCharacters(characters) {
-    const container = document.getElementById("characters-container");
-    if (!container) return;
-
-    container.innerHTML = characters
-        .map(
-            (char) => `
-    <div class="character-card">
-      <img src="${char.image}" alt="${char.name}">
-      <h3>${char.name}</h3>
-      <p>${char.description}</p>
-    </div>
-  `
-        )
-        .join("");
-}
-
-function showErrorToUser(message) {
-    const errorContainer =
-        document.getElementById("error-container") || document.body;
-    errorContainer.innerHTML = `<div class="error-message">${message}</div>`;
-}
+    return await response.json();
+} */

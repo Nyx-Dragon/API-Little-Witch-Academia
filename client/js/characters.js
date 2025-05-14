@@ -1,7 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Obtener el nombre del archivo actual
     const filename = window.location.pathname.split("/").pop();
     const personaje = filename.replace(".html", "").toLowerCase();
+
+    // Base de tu proxy local
+    const proxyBase = "http://localhost:3000/proxy?url=";
 
     // Cargar estadísticas
     fetch(
@@ -14,7 +16,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 stats[label] = data.stats[i];
             });
             renderizarGrafico(stats, personaje);
-        });
+        })
+        .catch((error) =>
+            console.error("Error al cargar estadísticas:", error)
+        );
 
     // Cargar relaciones
     fetch(
@@ -22,7 +27,6 @@ document.addEventListener("DOMContentLoaded", function () {
     )
         .then((res) => res.json())
         .then((data) => {
-            console.log(data); // Verifica la estructura de la respuesta
             if (data.relations) {
                 mostrarRelaciones(data.relations);
             } else {
@@ -34,7 +38,6 @@ document.addEventListener("DOMContentLoaded", function () {
         .catch((error) => console.error("Error al cargar relaciones:", error));
 });
 
-// Obtener color según personaje
 function getColorForPersonaje(personaje) {
     const colores = {
         akko: ["rgba(255, 99, 132, 0.2)", "rgba(255, 99, 132, 1)"],
@@ -57,7 +60,6 @@ function getColorForPersonaje(personaje) {
     );
 }
 
-// Función para renderizar gráfico
 function renderizarGrafico(stats, personaje) {
     const [bgColor, borderColor] = getColorForPersonaje(personaje);
     const ctx = document.getElementById("myChart").getContext("2d");
@@ -104,56 +106,20 @@ function renderizarGrafico(stats, personaje) {
     });
 }
 
-// Función para mostrar relaciones
 function mostrarRelaciones(relaciones) {
     const contenedor = document.getElementById("relacionesContainer");
     relaciones.forEach((relacion) => {
         const div = document.createElement("div");
         div.classList.add("relacion");
 
-        // Convertir el nombre del personaje relacionado a minúsculas
         const targetLink = `../html/${relacion.target.toLowerCase()}.html`;
 
         div.innerHTML = `
-        <h3><a href="${targetLink}" class="relacion-link">${relacion.target}</a></h3>
-        <p><b>Relación:</b> ${relacion.type}</p>
-        <p>${relacion.description}</p>
+            <h3><a href="${targetLink}" class="relacion-link">${relacion.target}</a></h3>
+            <p><b>Relación:</b> ${relacion.type}</p>
+            <p>${relacion.description}</p>
         `;
 
         contenedor.appendChild(div);
     });
 }
-
-// Example fetch code in your frontend
-async function fetchSectionData(section) {
-    try {
-        const response = await fetch(`/api/${section}`);
-
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const contentType = response.headers.get("content-type");
-        if (!contentType || !contentType.includes("application/json")) {
-            throw new Error("Response wasn't JSON");
-        }
-
-        return await response.json();
-    } catch (error) {
-        console.error("Error loading section data:", error);
-        // Handle error in your UI
-        displayErrorMessage(`Failed to load ${section} data: ${error.message}`);
-        return null;
-    }
-}
-
-/* document.addEventListener("DOMContentLoaded", () => {
-    fetch(
-        "https://cors-anywhere.herokuapp.com/https://api-little-witch-academia.onrender.com/api/characters/index.json"
-    )
-        .then((res) => res.json())
-        .then((data) => {
-            console.log("Personajes destacados:", data.featuredCharacters);
-        })
-        .catch((err) => console.error("Error al cargar personajes:", err));
-}); */
