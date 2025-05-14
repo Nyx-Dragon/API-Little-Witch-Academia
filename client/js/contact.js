@@ -1,54 +1,45 @@
-console.log("contact.js cargado");
-
+// contact.js
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("DOM completamente cargado");
+    console.log("contact.js cargado");
+});
 
-    const form = document.getElementById("contact-form");
-    if (!form) {
-        console.error("Formulario no encontrado");
-        return;
-    }
-
-    form.addEventListener("submit", async (e) => {
-        e.preventDefault();
+document
+    .getElementById("contact-form")
+    .addEventListener("submit", function (event) {
+        event.preventDefault();
 
         const name = document.getElementById("name").value;
         const email = document.getElementById("email").value;
         const message = document.getElementById("message").value;
 
-        const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-        if (!isValidEmail) {
-            console.warn("Email inválido");
-            alert("Por favor, introduce un correo electrónico válido.");
-            return;
-        }
+        const data = {
+            name,
+            email,
+            message,
+        };
 
-        const data = { name, email, message };
         console.log("Datos a enviar:", data);
 
-        try {
-            const response = await fetch(
-                "https://api-little-witch-academia.onrender.com/contact",
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(data),
-                }
-            );
-
-            const result = await response.json();
-            console.log("Respuesta del servidor:", result);
-
-            if (response.ok) {
-                alert(result.message);
-            } else {
-                alert("Hubo un error al enviar el mensaje.");
-            }
-        } catch (error) {
-            console.error("Error en la petición:", error);
-            alert("Error al enviar el mensaje.");
-        }
+        // Enviar la solicitud POST al servidor
+        fetch("/contact", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log("Respuesta del servidor:", data);
+                // Mostrar mensaje de éxito
+                document.getElementById(
+                    "form-response"
+                ).innerHTML = `<p>${data.message}</p>`;
+            })
+            .catch((error) => {
+                console.error("Error al enviar el formulario:", error);
+                // Mostrar mensaje de error
+                document.getElementById("form-response").innerHTML =
+                    "<p>Hubo un problema al enviar tu mensaje. Intenta nuevamente más tarde.</p>";
+            });
     });
-});
