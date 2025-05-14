@@ -1,43 +1,54 @@
-// Asegúrate de que el DOM esté completamente cargado antes de ejecutar el código
+console.log("contact.js cargado");
+
 document.addEventListener("DOMContentLoaded", () => {
-    // Asumiendo que tu formulario tiene los campos con id="name", id="email" e id="message"
-    document
-        .getElementById("contact-form")
-        .addEventListener("submit", async (e) => {
-            e.preventDefault();
+    console.log("DOM completamente cargado");
 
-            const name = document.getElementById("name").value;
-            const email = document.getElementById("email").value;
-            const message = document.getElementById("message").value;
+    const form = document.getElementById("contact-form");
+    if (!form) {
+        console.error("Formulario no encontrado");
+        return;
+    }
 
-            const data = {
-                name,
-                email,
-                message,
-            };
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
 
-            try {
-                const response = await fetch(
-                    "https://api-little-witch-academia.onrender.com/contact",
-                    {
-                        // Cambia a la URL de producción si es necesario
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                        },
-                        body: JSON.stringify(data),
-                    }
-                );
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const message = document.getElementById("message").value;
 
-                const result = await response.json();
-                if (response.ok) {
-                    alert(result.message); // Muestra un mensaje de éxito
-                } else {
-                    alert("Hubo un error al enviar el mensaje.");
+        const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        if (!isValidEmail) {
+            console.warn("Email inválido");
+            alert("Por favor, introduce un correo electrónico válido.");
+            return;
+        }
+
+        const data = { name, email, message };
+        console.log("Datos a enviar:", data);
+
+        try {
+            const response = await fetch(
+                "https://api-little-witch-academia.onrender.com/contact",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(data),
                 }
-            } catch (error) {
-                console.error("Error:", error);
-                alert("Error al enviar el mensaje.");
+            );
+
+            const result = await response.json();
+            console.log("Respuesta del servidor:", result);
+
+            if (response.ok) {
+                alert(result.message);
+            } else {
+                alert("Hubo un error al enviar el mensaje.");
             }
-        });
+        } catch (error) {
+            console.error("Error en la petición:", error);
+            alert("Error al enviar el mensaje.");
+        }
+    });
 });
