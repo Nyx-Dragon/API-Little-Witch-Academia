@@ -19,13 +19,7 @@ const validSections = ["characters", "relation", "spells", "stats", "extra"];
 app.get("/api/:section", async (req, res) => {
     try {
         const section = req.params.section;
-        const filePath = path.join(
-            __dirname,
-            "server",
-            "api",
-            section,
-            "index.json"
-        );
+        const filePath = path.join(__dirname, "api", section, "index.json");
 
         await fs.access(filePath);
         res.type("json").sendFile(filePath);
@@ -46,13 +40,7 @@ app.get("/api/:section/view", async (req, res) => {
             return res.status(404).send("Section not found");
         }
 
-        const filePath = path.join(
-            __dirname,
-            "server",
-            "api",
-            section,
-            "index.json"
-        );
+        const filePath = path.join(__dirname, "api", section, "index.json");
         await fs.access(filePath);
         res.type("json").sendFile(filePath);
     } catch (err) {
