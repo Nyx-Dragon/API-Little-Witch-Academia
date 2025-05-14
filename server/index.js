@@ -83,7 +83,7 @@ app.post("/contact", async (req, res) => {
         console.log("Mensajes guardados en el archivo");
 
         // Borrado diferido (p. ej. después de 10 segundos)
-        setTimeout(async () => {
+        /*         setTimeout(async () => {
             try {
                 await fs.unlink(filePath);
                 console.log(
@@ -92,7 +92,7 @@ app.post("/contact", async (req, res) => {
             } catch (error) {
                 console.error("Error al borrar el archivo:", error);
             }
-        }, 10000); // 10 segundos
+        }, 10000); // 10 segundos */
 
         // Responder al cliente
         res.json({
