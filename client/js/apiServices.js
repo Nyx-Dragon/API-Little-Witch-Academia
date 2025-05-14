@@ -1,16 +1,8 @@
 const API_BASE_URL = "https://api-little-witch-academia.onrender.com/api";
 
-// Configuración global para evitar CORS en desarrollo
-const DEV_PROXY = "https://cors-anywhere.herokuapp.com/";
-const IS_DEVELOPMENT =
-    window.location.hostname === "localhost" ||
-    window.location.hostname === "127.0.0.1";
-
 export const fetchCharacters = async () => {
     try {
-        const url = `${
-            IS_DEVELOPMENT ? DEV_PROXY : ""
-        }${API_BASE_URL}/characters/index.json`;
+        const url = `${API_BASE_URL}/characters/index.json`;
         const response = await fetch(url);
 
         if (!response.ok) {
@@ -25,6 +17,6 @@ export const fetchCharacters = async () => {
         return await response.json();
     } catch (error) {
         console.error("Error al cargar personajes:", error);
-        throw error; // Re-lanzamos el error para manejarlo en el componente
+        throw error;
     }
 };

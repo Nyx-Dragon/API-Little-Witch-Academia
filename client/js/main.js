@@ -131,7 +131,7 @@ document
             alert("Por favor, completa todos los campos.");
         }
     });
-import { fetchCharacters } from "./api/apiService.js";
+import { fetchCharacters } from "./apiServices.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
     try {
