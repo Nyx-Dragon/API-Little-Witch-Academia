@@ -37,15 +37,21 @@ app.post("/contact", async (req, res) => {
     // Verificación de la llegada de datos
     console.log("Datos recibidos:", req.body);
 
-    // Crear objeto con los datos recibidos
+    if (!name || !email || !message) {
+        console.log("Faltan datos importantes");
+        return res
+            .status(400)
+            .json({ error: "Todos los campos son requeridos" });
+    }
+
     const newMessage = {
         name,
         email,
         message,
-        timestamp: new Date().toISOString(), // Agregar fecha de recepción
+        timestamp: new Date().toISOString(),
     };
 
-    console.log("Nuevo mensaje recibido:", newMessage); // Agregar esta línea para depuración
+    console.log("Nuevo mensaje recibido:", newMessage);
 
     // Ruta del archivo donde se guardarán los mensajes
     const filePath = path.join(__dirname, "contact_messages.json");
@@ -57,18 +63,21 @@ app.post("/contact", async (req, res) => {
             const data = await fs.readFile(filePath, "utf8");
             messages = JSON.parse(data); // Si el archivo existe, parseamos los datos
         } catch (err) {
-            // Si el archivo no existe, lo creamos más tarde
             if (err.code !== "ENOENT") throw err;
             console.log("El archivo no existe, crearemos uno nuevo.");
         }
 
         // Agregar el nuevo mensaje al array de mensajes
         messages.push(newMessage);
-        console.log("Mensajes después de agregar el nuevo:", messages); // Agregar esta línea para depuración
+        console.log("Mensajes después de agregar el nuevo:", messages);
 
         // Guardar los mensajes actualizados en el archivo
         await fs.writeFile(filePath, JSON.stringify(messages, null, 2));
         console.log("Mensajes guardados en el archivo");
+
+        // Borrar el archivo después de haber guardado los mensajes
+        await fs.unlink(filePath);
+        console.log("Archivo borrado");
 
         // Responder al cliente
         res.json({

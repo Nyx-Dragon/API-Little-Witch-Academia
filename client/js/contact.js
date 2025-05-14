@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const response = await fetch(
                     "https://api-little-witch-academia.onrender.com/contact",
                     {
+                        // Cambia a la URL de producción si es necesario
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",
