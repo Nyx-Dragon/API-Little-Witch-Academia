@@ -44,6 +44,13 @@ app.post("/contact", async (req, res) => {
             .json({ error: "Todos los campos son requeridos" });
     }
 
+    // ✅ VALIDACIÓN DE EMAIL
+    const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if (!isValidEmail) {
+        console.log("Email inválido:", email);
+        return res.status(400).json({ error: "Email no válido" });
+    }
+
     const newMessage = {
         name,
         email,
@@ -71,13 +78,21 @@ app.post("/contact", async (req, res) => {
         messages.push(newMessage);
         console.log("Mensajes después de agregar el nuevo:", messages);
 
-        // Guardar los mensajes actualizados en el archivo
+        // Guardar mensajes
         await fs.writeFile(filePath, JSON.stringify(messages, null, 2));
         console.log("Mensajes guardados en el archivo");
 
-        // Borrar el archivo después de haber guardado los mensajes
-        await fs.unlink(filePath);
-        console.log("Archivo borrado");
+        // Borrado diferido (p. ej. después de 10 segundos)
+        setTimeout(async () => {
+            try {
+                await fs.unlink(filePath);
+                console.log(
+                    "Archivo borrado automáticamente después de un tiempo"
+                );
+            } catch (error) {
+                console.error("Error al borrar el archivo:", error);
+            }
+        }, 10000); // 10 segundos
 
         // Responder al cliente
         res.json({
