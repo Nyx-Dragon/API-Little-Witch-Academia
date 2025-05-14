@@ -1,39 +1,42 @@
+// Asegúrate de que el DOM esté completamente cargado antes de ejecutar el código
 document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("contact-form");
+    // Asumiendo que tu formulario tiene los campos con id="name", id="email" e id="message"
+    document
+        .getElementById("contact-form")
+        .addEventListener("submit", async (e) => {
+            e.preventDefault();
 
-    form.addEventListener("submit", async (e) => {
-        e.preventDefault();
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
 
-        const name = document.getElementById("name").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const message = document.getElementById("message").value.trim();
+            const data = {
+                name,
+                email,
+                message,
+            };
 
-        // Validación opcional adicional
-        if (!name || !email || !message) {
-            alert("Todos los campos son obligatorios.");
-            return;
-        }
+            try {
+                const response = await fetch(
+                    "https://api-little-witch-academia.onrender.com/contact",
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(data),
+                    }
+                );
 
-        try {
-            const response = await fetch(
-                "https://api-little-witch-academia.onrender.com/contact",
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({ name, email, message }),
+                const result = await response.json();
+                if (response.ok) {
+                    alert(result.message); // Muestra un mensaje de éxito
+                } else {
+                    alert("Hubo un error al enviar el mensaje.");
                 }
-            );
-
-            if (!response.ok) throw new Error("Fallo en el servidor");
-
-            const data = await response.json();
-            alert(data.message);
-            form.reset(); // Limpiar formulario tras enviar
-        } catch (error) {
-            alert("Error al enviar el mensaje. Intenta más tarde.");
-            console.error(error);
-        }
-    });
+            } catch (error) {
+                console.error("Error:", error);
+                alert("Error al enviar el mensaje.");
+            }
+        });
 });

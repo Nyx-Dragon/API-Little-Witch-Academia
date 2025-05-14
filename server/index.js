@@ -7,8 +7,18 @@ const morgan = require("morgan");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Configuración de CORS
+const corsOptions = {
+    origin: [
+        "https://api-little-witch-academia.onrender.com",
+        "http://localhost:3000",
+    ], // Permitir tanto la versión de producción como la de desarrollo
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type"],
+};
+app.use(cors(corsOptions)); // Configura CORS
+
 // Middleware
-app.use(cors());
 app.use(express.json()); // Único middleware para parsear JSON
 const clientPath = path.resolve(__dirname, "..", "client");
 app.use(express.static(clientPath));
