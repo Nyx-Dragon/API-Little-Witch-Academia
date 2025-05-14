@@ -2,14 +2,14 @@ const express = require("express");
 const path = require("path");
 const fs = require("fs").promises;
 const cors = require("cors");
-const morgan = require("morgan"); // Opcional, para logs
+const morgan = require("morgan");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(cors());
-app.use(express.json());
+app.use(express.json()); // Único middleware para parsear JSON
 const clientPath = path.resolve(__dirname, "..", "client");
 app.use(express.static(clientPath));
 app.use(morgan("dev")); // Para ver las peticiones en consola
@@ -20,6 +20,52 @@ const validSections = ["characters", "relations", "spells", "stats", "extra"];
 // Función auxiliar para construir la ruta del JSON principal de sección
 const getSectionFilePath = (section) =>
     path.join(__dirname, "api", section, "index.json");
+
+app.post("/contact", async (req, res) => {
+    const { name, email, message } = req.body;
+
+    // Crear objeto con los datos recibidos
+    const newMessage = {
+        name,
+        email,
+        message,
+        timestamp: new Date().toISOString(), // Agregar fecha de recepción
+    };
+
+    console.log("Nuevo mensaje recibido:", newMessage); // Agregar esta línea para depuración
+
+    // Ruta del archivo donde se guardarán los mensajes
+    const filePath = path.join(__dirname, "contact_messages.json");
+
+    try {
+        // Leer los mensajes existentes
+        let messages = [];
+        try {
+            const data = await fs.readFile(filePath, "utf8");
+            messages = JSON.parse(data); // Si el archivo existe, parseamos los datos
+        } catch (err) {
+            // Si el archivo no existe, lo creamos más tarde
+            if (err.code !== "ENOENT") throw err;
+            console.log("El archivo no existe, crearemos uno nuevo.");
+        }
+
+        // Agregar el nuevo mensaje al array de mensajes
+        messages.push(newMessage);
+        console.log("Mensajes después de agregar el nuevo:", messages); // Agregar esta línea para depuración
+
+        // Guardar los mensajes actualizados en el archivo
+        await fs.writeFile(filePath, JSON.stringify(messages, null, 2));
+        console.log("Mensajes guardados en el archivo");
+
+        // Responder al cliente
+        res.json({
+            message: "Gracias por tu mensaje. ¡Te responderemos pronto!",
+        });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: "Error al guardar el mensaje." });
+    }
+});
 
 // Ruta principal: /api/:section
 app.get("/api/:section", async (req, res) => {
@@ -103,18 +149,4 @@ app.get("*", (req, res) => {
 // Iniciar servidor
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
-});
-
-app.use(express.json());
-
-app.post("/contact", (req, res) => {
-    const { name, email, message } = req.body;
-
-    // Puedes guardar esto en un archivo, base de datos, o mandarlo por email
-    console.log("Nuevo mensaje recibido:");
-    console.log("Nombre:", name);
-    console.log("Email:", email);
-    console.log("Mensaje:", message);
-
-    res.json({ message: "Gracias por tu mensaje. ¡Te responderemos pronto!" });
 });
