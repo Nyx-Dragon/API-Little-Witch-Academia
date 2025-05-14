@@ -21,7 +21,17 @@ document.addEventListener("DOMContentLoaded", function () {
         `https://api-little-witch-academia.onrender.com/api/relations/${personaje}.json`
     )
         .then((res) => res.json())
-        .then((data) => mostrarRelaciones(data.relations));
+        .then((data) => {
+            console.log(data); // Verifica la estructura de la respuesta
+            if (data.relations) {
+                mostrarRelaciones(data.relations);
+            } else {
+                console.error(
+                    "No se encontraron relaciones para este personaje."
+                );
+            }
+        })
+        .catch((error) => console.error("Error al cargar relaciones:", error));
 });
 
 // Obtener color según personaje
