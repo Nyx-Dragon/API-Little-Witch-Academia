@@ -2043,7 +2043,7 @@ canvas#myChart {
     height: 120%;
     background: radial-gradient(
         circle,
-        rgba(0, 255, 255, 0.15),
+        rgba(0, 255, 255, 0.349),
         transparent 70%
     );
     transform: translate(-50%, -50%);
