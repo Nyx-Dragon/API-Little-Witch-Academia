@@ -4,7 +4,7 @@ const fs = require("fs").promises;
 const path = require("path");
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Middleware para parsear JSON y formularios
 app.use(bodyParser.json());
@@ -33,7 +33,6 @@ app.post("/contact", async (req, res) => {
         }
 
         messages.push(newMessage);
-
         await fs.writeFile(filePath, JSON.stringify(messages, null, 2), "utf8");
 
         console.log("Nuevo mensaje guardado:", newMessage);
@@ -50,21 +49,15 @@ app.post("/contact", async (req, res) => {
     }
 });
 
-// Devuelve el path al JSON de una sección
+// Ruta para servir los archivos estáticos del cliente
+app.use(express.static(path.join(__dirname, "../client")));
+
+// Función para obtener la ruta de un archivo JSON de sección
 function getSectionFilePath(section) {
     return path.join(__dirname, "api", section, "index.json");
 }
 
-// Middleware para bloquear cualquier acceso a /api/contact*
-/* app.use("/api/contact", (req, res) => {
-    res.status(403).json({ error: "Acceso prohibido a la sección 'contact'" });
-});
- */
-// Ruta para servir los archivos estáticos del cliente
-
-app.use(express.static(path.join(__dirname, "../client")));
-
-// Ruta principal de cada sección
+// Rutas API
 app.get("/api/:section", async (req, res, next) => {
     const section = req.params.section;
 
@@ -81,7 +74,6 @@ app.get("/api/:section", async (req, res, next) => {
     }
 });
 
-// Ruta para ver contenido de sección
 app.get("/api/:section/view", async (req, res) => {
     const section = req.params.section;
 
@@ -102,7 +94,6 @@ app.get("/api/:section/view", async (req, res) => {
     }
 });
 
-// Ruta para archivos JSON individuales
 app.get("/api/:section/:file", async (req, res) => {
     const { section, file } = req.params;
 
@@ -126,23 +117,30 @@ app.get("/api/:section/:file", async (req, res) => {
     }
 });
 
-// Manejo de errores internos
+// Rutas de API no encontradas
+app.all("/api/*", (req, res) => {
+    res.status(404).json({ error: "Ruta de API no encontrada" });
+});
+
+// Fallback SPA para rutas GET no API ni /contact
+app.get("*", (req, res, next) => {
+    if (
+        req.method === "GET" &&
+        !req.path.startsWith("/api") &&
+        !req.path.startsWith("/contact")
+    ) {
+        return res.sendFile(path.join(__dirname, "../client/index.html"));
+    }
+    next();
+});
+
+// Manejo de errores
 app.use((err, req, res, next) => {
     console.error("Error interno:", err);
     res.status(500).json({ error: "Error interno del servidor" });
 });
 
-// Ruta no encontrada dentro de /api
-app.all("/api/*", (req, res) => {
-    res.status(404).json({ error: "Ruta de API no encontrada" });
-});
-
-// Fallback para SPA (Single Page Application)
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../client/index.html"));
-});
-
 // Iniciar servidor
 app.listen(PORT, () => {
-    console.log(`Servidor corriendo en http://localhost:${PORT}`);
+    console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
