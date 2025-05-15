@@ -2046,6 +2046,7 @@ canvas#myChart {
         rgba(0, 255, 255, 0.349),
         transparent 70%
     );
+    background-image: url("../assets/lwa_relations.jpg");
     transform: translate(-50%, -50%);
     animation: glowing 3s ease-in-out infinite;
     pointer-events: none;
