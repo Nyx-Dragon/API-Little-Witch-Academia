@@ -2218,3 +2218,12 @@ h3 {
     border-radius: 8px;
     font-size: 0.95rem;
 }
+.success {
+    color: green;
+    font-weight: bold;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+}

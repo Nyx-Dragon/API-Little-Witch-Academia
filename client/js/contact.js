@@ -12,34 +12,34 @@ document
         const email = document.getElementById("email").value;
         const message = document.getElementById("message").value;
 
-        const data = {
-            name,
-            email,
-            message,
-        };
+        const data = { name, email, message };
 
         console.log("Datos a enviar:", data);
 
-        // Enviar la solicitud POST al servidor
-        fetch("/contact", {
+        fetch("https://api-little-witch-academia.onrender.com/contact", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(data),
         })
-            .then((response) => response.json())
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Error en la respuesta del servidor");
+                }
+                return response.json();
+            })
             .then((data) => {
                 console.log("Respuesta del servidor:", data);
-                // Mostrar mensaje de éxito
                 document.getElementById(
                     "form-response"
-                ).innerHTML = `<p>${data.message}</p>`;
+                ).innerHTML = `<p class="success">${data.message}</p>`;
+                document.getElementById("contact-form").reset();
             })
             .catch((error) => {
                 console.error("Error al enviar el formulario:", error);
-                // Mostrar mensaje de error
-                document.getElementById("form-response").innerHTML =
-                    "<p>Hubo un problema al enviar tu mensaje. Intenta nuevamente más tarde.</p>";
+                document.getElementById(
+                    "form-response"
+                ).innerHTML = `<p class="error">Hubo un problema al enviar tu mensaje. Intenta nuevamente más tarde.</p>`;
             });
     });
