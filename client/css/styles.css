@@ -2048,7 +2048,7 @@ canvas#myChart {
     );
     background-image: url("../assets/lwa_relations.jpg");
     transform: translate(-50%, -50%);
-    animation: glowing 3s ease-in-out infinite;
+    /*  animation: glowing 3s ease-in-out infinite; */
     pointer-events: none;
     z-index: 0;
     border-radius: 50%;
