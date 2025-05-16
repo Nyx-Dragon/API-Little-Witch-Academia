@@ -1,1 +1,24 @@
-node_modules
+# Evita subir node_modules (innecesario y pesado)
+node_modules/
+
+# Oculta archivos de configuración sensibles
+.env
+.env.local
+.env.production
+*.env
+
+# Archivos de bases de datos locales
+*.sqlite
+*.db
+*.sql
+
+# Archivos generados o temporales
+dist/
+build/
+*.log
+
+# Configuraciones de sistema o editores
+.DS_Store
+*.swp
+.vscode/
+.idea/
