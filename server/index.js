@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const fs = require("fs").promises;
@@ -15,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Middleware para servir archivos estáticos del cliente
 app.use(express.static(path.join(__dirname, "../client")));
 
-// Ruta para manejar el formulario de contacto
+// Rutas del formulario de contacto (POST /contact)
 app.use("/contact", contactRoutes);
 
 // Función para obtener la ruta de un archivo JSON por sección
@@ -40,7 +41,7 @@ app.get("/api/:section", async (req, res, next) => {
     }
 });
 
-// Ruta para obtener un archivo de sección específico
+// Ruta para obtener un archivo JSON específico de una sección
 app.get("/api/:section/:file", async (req, res) => {
     const { section, file } = req.params;
 

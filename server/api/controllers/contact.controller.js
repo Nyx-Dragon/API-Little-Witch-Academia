@@ -1,28 +1,26 @@
-// server/api/controllers/contact.controller.js
 const { saveMessage } = require("../models/contact.model");
 
-const handleContactForm = async (req, res) => {
-    const { name, email, message } = req.body;
-
-    const newMessage = {
-        name,
-        email,
-        message,
-        date: new Date().toISOString(),
-    };
-
+async function handleContactForm(req, res) {
     try {
-        await saveMessage(newMessage);
-        console.log("Mensaje guardado:", newMessage);
-        res.status(200).json({
-            message: "Tu mensaje ha sido recibido. ¡Gracias por contactarnos!",
-        });
-    } catch (error) {
-        console.error("Error al guardar el mensaje:", error);
-        res.status(500).json({
-            error: "Ocurrió un error al guardar tu mensaje.",
-        });
-    }
-};
+        const { name, email, message } = req.body;
+        if (!name || !email || !message) {
+            return res
+                .status(400)
+                .json({ error: "Todos los campos son obligatorios" });
+        }
 
-module.exports = { handleContactForm };
+        const insertId = await saveMessage({ name, email, message });
+
+        res.json({
+            message: "Tu mensaje ha sido guardado exitosamente.",
+            id: insertId,
+        });
+    } catch (err) {
+        console.error("Error al guardar mensaje:", err);
+        res.status(500).json({ error: "Error al guardar mensaje" });
+    }
+}
+
+module.exports = {
+    handleContactForm,
+};

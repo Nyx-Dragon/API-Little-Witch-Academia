@@ -1,20 +1,19 @@
-// server/api/models/contact.model.js
-const fs = require("fs").promises;
-const path = require("path");
+const mysql = require("mysql2/promise");
 
-const filePath = path.join(__dirname, "../../data/contact_messages.json");
+const pool = mysql.createPool({
+    host: process.env.DB_HOST || "localhost",
+    user: process.env.DB_USER || "root",
+    password: process.env.DB_PASSWORD || "root",
+    database: process.env.DB_NAME || "contactmessage",
+});
 
-async function saveMessage(message) {
-    let messages = [];
-    try {
-        const data = await fs.readFile(filePath, "utf8");
-        messages = JSON.parse(data);
-    } catch (error) {
-        if (error.code !== "ENOENT") throw error; // Si no existe, se crea
-    }
-
-    messages.push(message);
-    await fs.writeFile(filePath, JSON.stringify(messages, null, 2), "utf8");
+async function saveMessage({ name, email, message }) {
+    const sql =
+        "INSERT INTO messages (name, email, message, date) VALUES (?, ?, ?, NOW())";
+    const [result] = await pool.execute(sql, [name, email, message]);
+    return result.insertId;
 }
 
-module.exports = { saveMessage };
+module.exports = {
+    saveMessage,
+};
