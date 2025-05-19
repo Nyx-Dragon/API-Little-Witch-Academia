@@ -17,7 +17,7 @@ Esta API RESTful proporciona información detallada sobre personajes, relaciones
     -   Nivel de poder y afinidad mágica
 -   ⚙️ API RESTful organizada por rutas
 -   🔄 Soporte para CORS (ideal para frontends)
--   📬 Formulario de contacto con almacenamiento en base de datos (MySQL)
+-   📬 Formulario de contacto con almacenamiento en base de datos (MySQL) ("En proceso")
 
 ---
 
@@ -69,7 +69,9 @@ npm start
 ## 📬 Contacto
 
 ```
-El proyecto incluye un formulario de contacto funcional. Los mensajes se almacenan en una base de datos MySQL para futuras consultas.
+El proyecto incluye un formulario de contacto funcional.
+Los mensajes se almacenan en una base de datos MySQL para futuras consultas.
+("En proceso")
 ```
 
 ## 📖 Licencia
