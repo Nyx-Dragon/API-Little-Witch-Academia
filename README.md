@@ -43,26 +43,18 @@ server/
 Clona el repositorio:
 
 bash
-Copiar
-Editar
 git clone https://github.com/tuusuario/api-little-witch-academia.git
 Entra a la carpeta:
 
 bash
-Copiar
-Editar
 cd api-little-witch-academia
 Instala las dependencias:
 
 bash
-Copiar
-Editar
 npm install
 Crea un archivo .env con tu configuración de base de datos:
 
 dotenv
-Copiar
-Editar
 DB_HOST=localhost
 DB_USER=root
 DB_PASSWORD=tu_contraseña
@@ -71,8 +63,6 @@ PORT=3000 (o casi cualquier otro)
 Inicia el servidor:
 
 bash
-Copiar
-Editar
 npm start
 ```
 
