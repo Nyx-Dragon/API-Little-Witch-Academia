@@ -45,9 +45,9 @@ function getColorForPersonaje(personaje) {
         constanze: ["rgba(255, 105, 180, 0.2)", "rgb(105, 255, 168)"],
         jasminka: ["rgba(255, 69, 0, 0.2)", "rgba(255, 69, 0, 1)"],
         amanda: ["rgba(210, 105, 30, 0.2)", "rgb(255, 115, 0)"],
-        ursula: ["rgba(210, 105, 30, 0.2)", "rgb(22, 41, 124)"],
+        ursula: ["rgba(53, 176, 224, 0.2)", "rgb(22, 41, 124)"],
         shiny: ["rgba(255, 99, 71, 0.2)", "rgba(255, 99, 71, 1)"],
-        croix: ["rgba(100, 100, 255, 0.2)", "rgba(100, 100, 255, 1)"],
+        croix: ["rgba(100, 100, 255, 0.2)", "rgb(218, 218, 240)"],
     };
 
     return (

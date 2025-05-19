@@ -14,7 +14,7 @@ fetch("./api/stats/sucy.json")
                         backgroundColor: "rgba(24, 27, 231, 0.3)",
                         borderColor: "rgba(151, 145, 236, 0.8)",
                         borderWidth: 2,
-                        pointBackgroundColor: "rgb(151, 30, 30)",
+                        pointBackgroundColor: "rgb(30, 32, 151)",
                         pointBorderColor: "white",
                         pointBorderWidth: 2,
                         pointRadius: 6,
