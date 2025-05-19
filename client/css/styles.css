@@ -2006,12 +2006,13 @@ p {
     }
 }
 canvas#myChart {
-    max-width: 400px;
-    max-height: 400px;
+    max-width: 500px;
+    max-height: 500px;
     width: 100% !important;
     height: auto !important;
     display: block;
     margin: 0 auto;
+    padding: 20px;
 }
 #relacionesContainer {
     position: relative;
