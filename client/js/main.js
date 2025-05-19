@@ -1,3 +1,30 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const warningAccepted = localStorage.getItem("epilepsyWarningAccepted");
+    const warningModal = document.getElementById("epilepsy-warning");
+    const acceptButton = document.getElementById("accept-warning");
+
+    if (!warningAccepted) {
+        // Mostrar advertencia
+        warningModal.style.visibility = "visible";
+        warningModal.style.opacity = "1";
+
+        // Detener scroll mientras aparece
+        document.body.style.overflow = "hidden";
+
+        acceptButton.addEventListener("click", () => {
+            // Ocultar advertencia
+            warningModal.style.opacity = "0";
+            setTimeout(() => {
+                warningModal.style.visibility = "hidden";
+                document.body.style.overflow = ""; // Restaurar scroll
+            }, 300);
+
+            // Guardar aceptación en localStorage
+            localStorage.setItem("epilepsyWarningAccepted", "true");
+        });
+    }
+});
+
 document.addEventListener("DOMContentLoaded", function () {
     const container = document.querySelector(".character-container");
 

@@ -2088,11 +2088,27 @@ h3 {
 @keyframes glowing {
     0% {
         transform: translate(-50%, -50%) scale(1);
-        opacity: 0.6;
+        background: radial-gradient(
+            circle,
+            rgba(0, 255, 255, 0.35),
+            transparent 70%
+        );
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        background: radial-gradient(
+            circle,
+            rgba(173, 216, 230, 0.4),
+            transparent 70%
+        );
     }
     100% {
-        transform: translate(-50%, -50%) scale(1.2);
-        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+        background: radial-gradient(
+            circle,
+            rgba(186, 85, 211, 0.35),
+            transparent 70%
+        );
     }
 }
 

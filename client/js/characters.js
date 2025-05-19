@@ -2,10 +2,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const filename = window.location.pathname.split("/").pop();
     const personaje = filename.replace(".html", "").toLowerCase();
 
+    const baseURL =
+        window.location.hostname === "localhost"
+            ? "http://localhost:3000/api"
+            : "https://api-little-witch-academia.onrender.com/api";
+
     // Cargar estadísticas
-    fetch(
-        `https://api-little-witch-academia.onrender.com/api/stats/${personaje}.json`
-    )
+    fetch(`${baseURL}/stats/${personaje}.json`)
         .then((res) => res.json())
         .then((data) => {
             const stats = {};
@@ -19,9 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
     // Cargar relaciones
-    fetch(
-        `https://api-little-witch-academia.onrender.com/api/relations/${personaje}.json`
-    )
+    fetch(`${baseURL}/relations/${personaje}.json`)
         .then((res) => res.json())
         .then((data) => {
             if (data.relations) {
