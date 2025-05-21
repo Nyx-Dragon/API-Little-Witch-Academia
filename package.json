@@ -33,7 +33,10 @@
     "fs": "^0.0.1-security",
     "morgan": "^1.10.0",
     "mysql2": "^3.14.1",
-    "node-fetch": "^3.3.2"
+    "node-fetch": "^3.3.2",
+    "swagger-autogen": "^2.23.7",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"

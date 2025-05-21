@@ -3,6 +3,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const fs = require("fs").promises;
 const path = require("path");
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require("./swagger-output.json");
 
 const contactRoutes = require("./api/routes/contact.routes");
 
@@ -12,6 +14,7 @@ const PORT = process.env.PORT || 3000;
 // Middleware para leer JSON y formularios
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Middleware para servir archivos estáticos del cliente
 app.use(express.static(path.join(__dirname, "../client")));
@@ -24,7 +27,27 @@ function getSectionFilePath(section) {
     return path.join(__dirname, "api", section, "index.json");
 }
 
-// Ruta para obtener un index.json de sección
+/**
+ * @swagger
+ * /api/{section}:
+ *   get:
+ *     summary: Obtener el archivo index.json de una sección
+ *     tags: [Secciones]
+ *     parameters:
+ *       - in: path
+ *         name: section
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Nombre de la sección (por ejemplo: stats, gallery)
+ *     responses:
+ *       200:
+ *         description: Archivo JSON enviado correctamente
+ *       403:
+ *         description: Acceso prohibido a 'contact'
+ *       404:
+ *         description: Archivo no encontrado
+ */
 app.get("/api/:section", async (req, res, next) => {
     const section = req.params.section;
 
@@ -41,7 +64,35 @@ app.get("/api/:section", async (req, res, next) => {
     }
 });
 
-// Ruta para obtener un archivo JSON específico de una sección
+/**
+ * @swagger
+ * /api/{section}/{file}:
+ *   get:
+ *     summary: Obtener un archivo JSON específico dentro de una sección
+ *     tags: [Secciones]
+ *     parameters:
+ *       - in: path
+ *         name: section
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Nombre de la sección (por ejemplo: stats, gallery)
+ *       - in: path
+ *         name: file
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Nombre del archivo JSON (por ejemplo: personaje1.json)
+ *     responses:
+ *       200:
+ *         description: Archivo JSON enviado correctamente
+ *       400:
+ *         description: Nombre de archivo inválido
+ *       403:
+ *         description: Acceso prohibido a 'contact'
+ *       404:
+ *         description: Archivo JSON no encontrado
+ */
 app.get("/api/:section/:file", async (req, res) => {
     const { section, file } = req.params;
 
